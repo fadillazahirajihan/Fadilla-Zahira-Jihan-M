@@ -1,0 +1,2207 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* =========================================================
+   MATH CONNECT
+   STYLE.CSS
+   ========================================================= */
+
+
+/* =========================================================
+   1. RESET & GLOBAL
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Warna utama */
+    --blue: #4b8df8;
+    --blue-dark: #2563d9;
+    --blue-light: #eaf3ff;
+
+    /* Warna pendukung */
+    --purple: #8b70e8;
+    --green: #42c89b;
+    --orange: #ffb65c;
+    --pink: #f58fb2;
+
+    /* Warna teks */
+    --text: #26364d;
+    --muted: #718096;
+
+    /* Warna garis dan background */
+    --line: #dfe8f5;
+    --bg: #f7faff;
+    --white: #ffffff;
+
+    /* Efek */
+    --shadow: 0 12px 35px rgba(57, 93, 145, 0.10);
+
+    /* Radius */
+    --radius: 20px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================================================
+   2. LAYOUT UTAMA
+   ========================================================= */
+
+.app-container {
+    min-height: 100vh;
+    display: flex;
+}
+
+
+/* =========================================================
+   3. SIDEBAR
+   ========================================================= */
+
+.sidebar {
+    width: 245px;
+    height: 100vh;
+
+    background: var(--white);
+
+    border-right: 1px solid var(--line);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 1000;
+
+    padding: 24px 16px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-y: auto;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* Logo */
+
+.logo-area {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    padding: 5px 10px 28px;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 13px;
+
+    display: grid;
+    place-items: center;
+
+    color: white;
+
+    font-weight: 800;
+
+    background: linear-gradient(
+        135deg,
+        #4b8df8,
+        #6d72e8
+    );
+
+    box-shadow:
+        0 8px 18px rgba(75, 141, 248, 0.25);
+}
+
+.logo-text h2 {
+    font-size: 16px;
+
+    letter-spacing: 1.2px;
+
+    line-height: 1.1;
+}
+
+.logo-text span {
+    color: var(--blue);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+/* Navigasi */
+
+.main-navigation {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.nav-item {
+    min-height: 44px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 9px 12px;
+
+    border-radius: 12px;
+
+    color: #66758b;
+
+    font-size: 14px;
+
+    transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+    color: var(--blue-dark);
+
+    background: var(--blue-light);
+
+    transform: translateX(2px);
+}
+
+.nav-item.active {
+    color: var(--blue-dark);
+
+    background: var(--blue-light);
+
+    font-weight: 700;
+}
+
+.nav-icon {
+    width: 28px;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+
+    padding-top: 20px;
+}
+
+
+/* =========================================================
+   4. MAIN CONTENT
+   ========================================================= */
+
+.main-content {
+    margin-left: 245px;
+
+    width: calc(100% - 245px);
+
+    min-width: 0;
+}
+
+
+/* =========================================================
+   5. TOPBAR
+   ========================================================= */
+
+.topbar {
+    height: 70px;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border-bottom: 1px solid var(--line);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 32px;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 900;
+
+    backdrop-filter: blur(10px);
+}
+
+.breadcrumb {
+    color: #7a899d;
+
+    font-size: 13px;
+}
+
+.topbar-actions {
+    display: flex;
+
+    gap: 8px;
+}
+
+.search-button,
+.profile-button,
+.menu-toggle {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #f1f6fd;
+
+    color: #52637a;
+
+    transition: 0.2s ease;
+}
+
+.search-button:hover,
+.profile-button:hover {
+    background: var(--blue-light);
+
+    color: var(--blue-dark);
+}
+
+.menu-toggle {
+    display: none;
+}
+
+
+/* =========================================================
+   6. SECTION UMUM
+   ========================================================= */
+
+.page-section {
+    min-height: 560px;
+
+    padding: 78px 7%;
+
+    scroll-margin-top: 70px;
+}
+
+.section-header {
+    max-width: 720px;
+
+    margin: 0 auto 38px;
+
+    text-align: center;
+}
+
+.section-label,
+.small-title {
+    color: var(--blue);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+}
+
+.section-header h2 {
+    margin-top: 7px;
+
+    font-size: clamp(30px, 4vw, 43px);
+
+    line-height: 1.15;
+
+    letter-spacing: -0.5px;
+}
+
+.section-header p {
+    color: var(--muted);
+
+    margin-top: 12px;
+
+    font-size: 15px;
+}
+
+.section-action {
+    text-align: center;
+
+    margin-top: 30px;
+}
+
+
+/* =========================================================
+   7. BUTTON
+   ========================================================= */
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 44px;
+
+    padding: 0 20px;
+
+    border-radius: 12px;
+
+    font-weight: 700;
+
+    font-size: 13px;
+
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: var(--blue);
+
+    color: white;
+
+    box-shadow:
+        0 9px 20px rgba(75, 141, 248, 0.22);
+}
+
+.btn-primary:hover {
+    background: var(--blue-dark);
+}
+
+.btn-secondary {
+    background: white;
+
+    color: var(--blue-dark);
+
+    border: 1px solid #d7e5fb;
+}
+
+.btn-secondary:hover {
+    background: var(--blue-light);
+}
+
+
+/* =========================================================
+   8. LANDING / HERO
+   ========================================================= */
+
+.landing-section {
+    min-height: calc(100vh - 70px);
+
+    display: grid;
+
+    grid-template-columns: 1.1fr 0.9fr;
+
+    align-items: center;
+
+    gap: 50px;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            #e7f2ff 0 14%,
+            transparent 15%
+        ),
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #f2f7ff 100%
+        );
+}
+
+.hero-content h1 {
+    font-size: clamp(50px, 7vw, 88px);
+
+    line-height: 0.95;
+
+    letter-spacing: -3px;
+
+    margin: 14px 0 20px;
+}
+
+.hero-content h1 span {
+    display: block;
+
+    color: var(--blue);
+}
+
+.hero-description {
+    max-width: 580px;
+
+    color: var(--muted);
+
+    font-size: 16px;
+}
+
+.hero-buttons {
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin-top: 28px;
+}
+
+
+/* =========================================================
+   9. ILUSTRASI HERO
+   ========================================================= */
+
+.hero-illustration {
+    min-height: 390px;
+
+    position: relative;
+
+    display: grid;
+
+    place-items: center;
+}
+
+.book-illustration {
+    width: 190px;
+
+    height: 145px;
+
+    border-radius: 20px 20px 32px 32px;
+
+    background: white;
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 72px;
+
+    box-shadow: var(--shadow);
+
+    transform: rotate(-5deg);
+
+    position: relative;
+
+    z-index: 3;
+}
+
+.illustration-circle {
+    position: absolute;
+
+    width: 64px;
+
+    height: 64px;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    font-weight: 800;
+
+    color: white;
+
+    box-shadow: var(--shadow);
+
+    z-index: 2;
+
+    animation: floating 4s ease-in-out infinite;
+}
+
+.circle-one {
+    background: var(--blue);
+
+    top: 15%;
+
+    left: 18%;
+}
+
+.circle-two {
+    background: var(--purple);
+
+    top: 27%;
+
+    right: 14%;
+
+    animation-delay: 0.5s;
+}
+
+.circle-three {
+    background: var(--green);
+
+    bottom: 19%;
+
+    left: 20%;
+
+    animation-delay: 1s;
+}
+
+.circle-four {
+    background: var(--orange);
+
+    bottom: 13%;
+
+    right: 24%;
+
+    animation-delay: 1.5s;
+}
+
+@keyframes floating {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* =========================================================
+   10. PETA KONSEP
+   ========================================================= */
+
+.concept-section {
+    background: #ffffff;
+}
+
+.concept-map {
+    max-width: 920px;
+
+    margin: auto;
+
+    min-height: 390px;
+
+    position: relative;
+
+    border: 1px solid var(--line);
+
+    border-radius: 28px;
+
+    background:
+        radial-gradient(
+            circle,
+            #dbe9fa 1px,
+            transparent 1px
+        );
+
+    background-size: 24px 24px;
+
+    overflow: hidden;
+}
+
+
+/* Node */
+
+.concept-node {
+    position: absolute;
+
+    padding: 12px 18px;
+
+    border-radius: 14px;
+
+    background: white;
+
+    border: 1px solid #dbe6f5;
+
+    box-shadow:
+        0 8px 20px rgba(57, 93, 145, 0.08);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    z-index: 2;
+
+    transition: all 0.25s ease;
+}
+
+.concept-node:hover {
+    transform: translateY(-4px) scale(1.03);
+
+    box-shadow:
+        0 12px 25px rgba(57, 93, 145, 0.15);
+
+    border-color: var(--blue);
+}
+
+
+/* Node utama */
+
+.main-node {
+    left: 50%;
+
+    top: 45px;
+
+    transform: translateX(-50%);
+
+    color: white;
+
+    background: var(--blue);
+
+    border-color: var(--blue);
+}
+
+.main-node:hover {
+    transform: translateX(-50%) translateY(-4px) scale(1.03);
+}
+
+
+/* Posisi node */
+
+.concept-node:nth-of-type(8) {
+    left: 8%;
+    top: 150px;
+}
+
+.concept-node:nth-of-type(9) {
+    left: 35%;
+    top: 150px;
+}
+
+.concept-node:nth-of-type(10) {
+    right: 35%;
+    top: 150px;
+}
+
+.concept-node:nth-of-type(11) {
+    right: 8%;
+    top: 150px;
+}
+
+.concept-node:nth-of-type(12) {
+    left: 29%;
+    bottom: 60px;
+}
+
+.concept-node:nth-of-type(13) {
+    right: 29%;
+    bottom: 60px;
+}
+
+.application-node {
+    left: 50%;
+
+    bottom: 25px;
+
+    transform: translateX(-50%);
+
+    background: #e6faf3;
+
+    color: #1b9a70;
+}
+
+.application-node:hover {
+    transform: translateX(-50%) translateY(-4px) scale(1.03);
+}
+
+
+/* Garis concept map */
+
+.concept-line {
+    position: absolute;
+
+    height: 2px;
+
+    background: #b8cce8;
+
+    transform-origin: left center;
+
+    z-index: 1;
+}
+
+.line-1 {
+    width: 220px;
+
+    left: 50%;
+
+    top: 76px;
+
+    transform: rotate(145deg);
+}
+
+.line-2 {
+    width: 115px;
+
+    left: 49%;
+
+    top: 76px;
+
+    transform: rotate(115deg);
+}
+
+.line-3 {
+    width: 115px;
+
+    left: 51%;
+
+    top: 76px;
+
+    transform: rotate(65deg);
+}
+
+.line-4 {
+    width: 220px;
+
+    left: 50%;
+
+    top: 76px;
+
+    transform: rotate(35deg);
+}
+
+.line-5 {
+    width: 150px;
+
+    left: 44%;
+
+    top: 183px;
+
+    transform: rotate(155deg);
+}
+
+.line-6 {
+    width: 150px;
+
+    left: 56%;
+
+    top: 183px;
+
+    transform: rotate(25deg);
+}
+
+
+/* =========================================================
+   11. MATERIAL SECTION
+   ========================================================= */
+
+.material-section {
+    background: #f7faff;
+}
+
+
+/* Tab */
+
+.material-tabs,
+.operation-tabs {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 28px;
+}
+
+.tab-button,
+.operation-tab {
+    padding: 10px 18px;
+
+    border-radius: 10px;
+
+    background: white;
+
+    color: #68788d;
+
+    border: 1px solid var(--line);
+
+    transition: all 0.2s ease;
+}
+
+.tab-button:hover,
+.operation-tab:hover {
+    border-color: var(--blue);
+
+    color: var(--blue-dark);
+}
+
+.tab-button.active,
+.operation-tab.active {
+    color: white;
+
+    background: var(--blue);
+
+    border-color: var(--blue);
+}
+
+
+/* Material cards */
+
+.material-content {
+    max-width: 1050px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.content-card,
+.type-card,
+.application-card,
+.feature-item {
+    background: white;
+
+    border: 1px solid var(--line);
+
+    border-radius: var(--radius);
+
+    padding: 25px;
+
+    box-shadow: var(--shadow);
+
+    transition: all 0.25s ease;
+}
+
+.content-card:hover,
+.type-card:hover,
+.application-card:hover,
+.feature-item:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 18px 40px rgba(57, 93, 145, 0.13);
+}
+
+.content-card h3,
+.type-card h3,
+.application-card h3 {
+    margin-bottom: 10px;
+}
+
+.content-card p,
+.content-card li,
+.type-card p,
+.application-card p {
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+.content-card ul {
+    padding-left: 18px;
+}
+
+
+/* Contoh bilangan */
+
+.example-list {
+    display: flex;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+
+    margin-top: 15px;
+}
+
+.example-list span {
+    padding: 9px 13px;
+
+    border-radius: 10px;
+
+    background: var(--blue-light);
+
+    color: var(--blue-dark);
+
+    font-weight: 700;
+
+    transition: 0.2s ease;
+}
+
+.example-list span:hover {
+    background: var(--blue);
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   12. HUBUNGAN KONSEP
+   ========================================================= */
+
+.transition-section,
+.conversion-section,
+.comparison-section,
+.equivalent-section,
+.fraction-types-section {
+    background: white;
+}
+
+.relationship-card,
+.conversion-card,
+.percent-example {
+    max-width: 900px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    padding: 30px;
+
+    background: #f7faff;
+
+    border: 1px solid var(--line);
+
+    border-radius: 24px;
+}
+
+.relationship-node,
+.conversion-value,
+.fraction-box,
+.decimal-box,
+.percent-box {
+    min-width: 110px;
+
+    padding: 18px 22px;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    background: white;
+
+    border: 1px solid var(--line);
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    transition: all 0.2s ease;
+}
+
+.relationship-node:hover,
+.conversion-value:hover {
+    transform: translateY(-3px);
+
+    border-color: var(--blue);
+
+    box-shadow: var(--shadow);
+}
+
+.relationship-node.highlight,
+.percent-box {
+    color: white;
+
+    background: var(--blue);
+
+    border-color: var(--blue);
+}
+
+.relationship-arrow,
+.conversion-arrow,
+.arrow {
+    font-size: 25px;
+
+    color: var(--blue);
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   13. MATERI PECAHAN
+   ========================================================= */
+
+.fraction-content {
+    max-width: 900px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 0.8fr 1.2fr;
+
+    gap: 20px;
+}
+
+.fraction-display,
+.fraction-explanation {
+    background: white;
+
+    border: 1px solid var(--line);
+
+    border-radius: var(--radius);
+
+    padding: 35px;
+
+    box-shadow: var(--shadow);
+}
+
+.fraction-display {
+    text-align: center;
+}
+
+.fraction-number {
+    display: inline-flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    font-size: 42px;
+
+    font-weight: 800;
+
+    line-height: 1.1;
+}
+
+.fraction-line {
+    width: 80px;
+
+    height: 3px;
+
+    background: var(--text);
+
+    margin: 5px 0;
+}
+
+.fraction-display p {
+    color: var(--muted);
+
+    margin-top: 14px;
+}
+
+.explanation-item + .explanation-item {
+    margin-top: 24px;
+}
+
+.explanation-item strong {
+    color: var(--blue-dark);
+}
+
+.explanation-item p {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    margin-top: 4px;
+}
+
+
+/* =========================================================
+   14. JENIS PECAHAN
+   ========================================================= */
+
+.type-cards,
+.application-cards {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.type-visual {
+    height: 120px;
+
+    border-radius: 16px;
+
+    background: var(--blue-light);
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 34px;
+
+    font-weight: 800;
+
+    color: var(--blue-dark);
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   15. PECAHAN SENILAI
+   ========================================================= */
+
+.equivalent-fractions {
+    max-width: 900px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+}
+
+.fraction-card {
+    background: #f7faff;
+
+    border: 1px solid var(--line);
+
+    border-radius: 20px;
+
+    padding: 22px;
+
+    min-width: 150px;
+
+    text-align: center;
+
+    transition: 0.25s ease;
+}
+
+.fraction-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: var(--shadow);
+
+    border-color: #c9daf2;
+}
+
+.fraction {
+    font-size: 28px;
+
+    font-weight: 800;
+
+    line-height: 1.1;
+}
+
+.circle-model {
+    margin-top: 14px;
+
+    font-size: 52px;
+
+    color: var(--blue);
+}
+
+.equals {
+    font-size: 28px;
+
+    font-weight: 800;
+
+    color: var(--blue);
+}
+
+
+/* =========================================================
+   16. KONVERSI DESIMAL
+   ========================================================= */
+
+.conversion-note {
+    max-width: 700px;
+
+    margin: 22px auto 0;
+
+    text-align: center;
+}
+
+.conversion-note p {
+    color: var(--muted);
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   17. PROGRESS BAR
+   ========================================================= */
+
+.progress-area {
+    max-width: 700px;
+
+    margin: 28px auto 0;
+}
+
+.progress-label {
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 13px;
+
+    color: var(--muted);
+
+    margin: 10px 0;
+}
+
+.progress-bar {
+    height: 12px;
+
+    border-radius: 20px;
+
+    background: #e8eef7;
+
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 25%;
+
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        var(--blue),
+        #78a8fa
+    );
+
+    border-radius: inherit;
+
+    animation: progressAnimation 1.5s ease;
+}
+
+@keyframes progressAnimation {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 25%;
+    }
+}
+
+
+/* =========================================================
+   18. PERBANDINGAN PECAHAN
+   ========================================================= */
+
+.comparison-problem {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 30px;
+
+    margin-bottom: 28px;
+}
+
+.comparison-fraction {
+    width: 140px;
+
+    height: 120px;
+
+    display: grid;
+
+    place-items: center;
+
+    background: white;
+
+    border: 1px solid var(--line);
+
+    border-radius: 20px;
+
+    box-shadow: var(--shadow);
+
+    font-size: 32px;
+
+    font-weight: 800;
+}
+
+.comparison-symbol {
+    font-size: 35px;
+
+    color: var(--blue);
+
+    font-weight: 800;
+}
+
+.answer-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+.answer-buttons button {
+    padding: 12px 18px;
+
+    background: white;
+
+    border: 1px solid var(--line);
+
+    border-radius: 12px;
+
+    color: var(--text);
+
+    transition: all 0.2s ease;
+}
+
+.answer-buttons button:hover {
+    border-color: var(--blue);
+
+    color: var(--blue-dark);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   19. OPERASI PECAHAN
+   ========================================================= */
+
+.operation-section {
+    background: #f7faff;
+}
+
+.operation-content {
+    max-width: 900px;
+
+    margin: auto;
+
+    background: white;
+
+    border: 1px solid var(--line);
+
+    border-radius: 24px;
+
+    padding: 30px;
+
+    box-shadow: var(--shadow);
+}
+
+.operation-question {
+    text-align: center;
+
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.operation-question p {
+    color: var(--muted);
+}
+
+.operation-question h3 {
+    font-size: 32px;
+
+    margin-top: 8px;
+}
+
+.operation-steps {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin: 25px 0;
+}
+
+.step {
+    padding: 18px;
+
+    background: #f7faff;
+
+    border-radius: 15px;
+
+    transition: 0.2s ease;
+}
+
+.step:hover {
+    background: var(--blue-light);
+
+    transform: translateY(-3px);
+}
+
+.step span {
+    color: var(--blue);
+
+    font-weight: 800;
+}
+
+.step p {
+    margin-top: 7px;
+
+    font-size: 13px;
+
+    color: var(--muted);
+}
+
+.operation-result {
+    padding: 20px;
+
+    text-align: center;
+
+    background: #e8faf4;
+
+    border-radius: 15px;
+}
+
+.operation-result span {
+    display: block;
+
+    color: #419477;
+
+    font-size: 12px;
+}
+
+.operation-result strong {
+    font-size: 30px;
+
+    color: #218663;
+}
+
+
+/* =========================================================
+   20. PENERAPAN
+   ========================================================= */
+
+.application-section {
+    background: white;
+}
+
+.application-cards {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.application-icon {
+    font-size: 38px;
+
+    margin-bottom: 15px;
+}
+
+.application-example {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding: 7px 10px;
+
+    background: #f0f5ff;
+
+    border-radius: 9px;
+
+    color: var(--blue-dark);
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   21. AKTIVITAS HUBUNGAN
+   ========================================================= */
+
+.relationship-section {
+    background: #f7faff;
+}
+
+.relationship-game {
+    max-width: 700px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+}
+
+.relationship-column {
+    background: white;
+
+    border: 1px solid var(--line);
+
+    border-radius: 20px;
+
+    padding: 22px;
+}
+
+.relationship-column h3 {
+    margin-bottom: 15px;
+}
+
+.relationship-column button {
+    display: block;
+
+    width: 100%;
+
+    padding: 13px;
+
+    margin-top: 10px;
+
+    border-radius: 11px;
+
+    background: #f5f8fd;
+
+    border: 1px solid var(--line);
+
+    color: var(--text);
+
+    transition: 0.2s ease;
+}
+
+.relationship-column button:hover {
+    border-color: var(--blue);
+
+    background: var(--blue-light);
+
+    color: var(--blue-dark);
+}
+
+
+/* =========================================================
+   22. REFLEKSI
+   ========================================================= */
+
+.reflection-section {
+    background: white;
+}
+
+.reflection-card {
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 45px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eaf3ff,
+            #f3efff
+        );
+
+    display: flex;
+
+    gap: 30px;
+
+    align-items: center;
+}
+
+.reflection-icon {
+    width: 90px;
+
+    height: 90px;
+
+    flex: 0 0 90px;
+
+    display: grid;
+
+    place-items: center;
+
+    background: white;
+
+    border-radius: 25px;
+
+    font-size: 42px;
+
+    box-shadow: 0 8px 20px rgba(57, 93, 145, 0.08);
+}
+
+.reflection-content h2 {
+    margin: 5px 0 10px;
+}
+
+.reflection-content p {
+    color: var(--muted);
+}
+
+.reflection-button {
+    margin-top: 20px;
+
+    padding: 11px 18px;
+
+    background: var(--blue);
+
+    color: white;
+
+    border-radius: 11px;
+
+    font-weight: 700;
+
+    transition: 0.2s ease;
+}
+
+.reflection-button:hover {
+    background: var(--blue-dark);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   23. PERSONAL CONCEPT MAP
+   ========================================================= */
+
+.personal-map-section {
+    background: #f7faff;
+}
+
+.personal-map {
+    max-width: 800px;
+
+    height: 420px;
+
+    margin: auto;
+
+    position: relative;
+
+    border: 1px solid var(--line);
+
+    border-radius: 25px;
+
+    background: white;
+
+    overflow: hidden;
+
+    background-image:
+        radial-gradient(
+            #dbe9fa 1px,
+            transparent 1px
+        );
+
+    background-size: 22px 22px;
+}
+
+.personal-map-center,
+.personal-map-node {
+    position: absolute;
+
+    padding: 13px 18px;
+
+    border-radius: 14px;
+
+    font-weight: 700;
+
+    background: white;
+
+    border: 1px solid var(--line);
+
+    box-shadow:
+        0 8px 20px rgba(57, 93, 145, 0.08);
+
+    transition: 0.25s ease;
+
+    z-index: 2;
+}
+
+.personal-map-center {
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background: var(--blue);
+
+    color: white;
+
+    border-color: var(--blue);
+}
+
+.personal-map-node:hover {
+    transform: translateY(-4px);
+
+    border-color: var(--blue);
+
+    box-shadow: var(--shadow);
+}
+
+.personal-map-center:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.node-a {
+    left: 10%;
+    top: 20%;
+}
+
+.node-b {
+    right: 10%;
+    top: 20%;
+}
+
+.node-c {
+    left: 8%;
+    bottom: 20%;
+}
+
+.node-d {
+    right: 8%;
+    bottom: 20%;
+}
+
+.node-e {
+    left: 50%;
+    top: 12%;
+
+    transform: translateX(-50%);
+}
+
+.node-f {
+    left: 50%;
+    bottom: 12%;
+
+    transform: translateX(-50%);
+}
+
+.node-e:hover,
+.node-f:hover {
+    transform: translateX(-50%) translateY(-4px);
+}
+
+.map-actions {
+    text-align: center;
+
+    margin-top: 22px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   24. ABOUT
+   ========================================================= */
+
+.about-section {
+    background: white;
+}
+
+.about-content {
+    max-width: 900px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+.about-content > p {
+    color: var(--muted);
+
+    margin: 8px auto;
+
+    max-width: 780px;
+}
+
+.about-features {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.feature-item strong,
+.feature-item span {
+    display: block;
+}
+
+.feature-item strong {
+    color: var(--blue-dark);
+
+    margin-bottom: 5px;
+}
+
+.feature-item span {
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   25. FOOTER
+   ========================================================= */
+
+.footer {
+    padding: 35px 7%;
+
+    background: #24354d;
+
+    color: white;
+
+    text-align: center;
+}
+
+.footer-logo {
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.footer p {
+    color: #b8c5d7;
+
+    font-size: 13px;
+
+    margin-top: 5px;
+}
+
+.footer .copyright {
+    margin-top: 18px;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   26. SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5fa;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c6d4e8;
+
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a9bdd8;
+}
+
+
+/* =========================================================
+   27. RESPONSIVE TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    /* Sidebar */
+
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+
+    /* Main */
+
+    .main-content {
+        margin-left: 0;
+
+        width: 100%;
+    }
+
+
+    /* Menu */
+
+    .menu-toggle {
+        display: block;
+    }
+
+
+    /* Hero */
+
+    .landing-section {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .hero-content {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .hero-description {
+        margin: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+
+    /* Cards */
+
+    .material-content,
+    .type-cards,
+    .application-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* Fraction */
+
+    .fraction-content {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Operation */
+
+    .operation-steps {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Application */
+
+    .application-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   28. RESPONSIVE HP
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    /* Topbar */
+
+    .topbar {
+        padding: 0 18px;
+    }
+
+    .breadcrumb {
+        font-size: 11px;
+    }
+
+
+    /* Section */
+
+    .page-section {
+        padding: 55px 5%;
+    }
+
+
+    /* Hero */
+
+    .hero-content h1 {
+        font-size: 55px;
+
+        letter-spacing: -2px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .hero-illustration {
+        min-height: 280px;
+    }
+
+
+    /* Cards */
+
+    .material-content,
+    .type-cards,
+    .application-cards,
+    .about-features,
+    .relationship-game {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Reflection */
+
+    .reflection-card {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 30px;
+    }
+
+
+    /* Concept map */
+
+    .concept-map {
+        min-height: 520px;
+    }
+
+    .concept-map .main-node {
+        position: static;
+
+        transform: none;
+
+        width: max-content;
+
+        margin: 35px auto 25px;
+    }
+
+    .concept-map .main-node:hover {
+        transform: scale(1.03);
+    }
+
+    .concept-node:nth-of-type(8),
+    .concept-node:nth-of-type(9),
+    .concept-node:nth-of-type(10),
+    .concept-node:nth-of-type(11),
+    .concept-node:nth-of-type(12),
+    .concept-node:nth-of-type(13) {
+        position: static;
+
+        display: block;
+
+        width: max-content;
+
+        margin: 15px auto;
+
+        transform: none;
+    }
+
+    .concept-map .application-node {
+        position: static;
+
+        transform: none;
+
+        width: max-content;
+
+        margin: 20px auto;
+    }
+
+
+    /* Concept line */
+
+    .concept-line {
+        display: none;
+    }
+
+
+    /* Relationship */
+
+    .relationship-card,
+    .conversion-card,
+    .percent-example {
+        padding: 20px;
+
+        gap: 10px;
+    }
+
+    .relationship-arrow,
+    .conversion-arrow,
+    .arrow {
+        font-size: 20px;
+    }
+
+
+    /* Comparison */
+
+    .comparison-problem {
+        gap: 15px;
+    }
+
+    .comparison-fraction {
+        width: 110px;
+
+        height: 100px;
+
+        font-size: 26px;
+    }
+
+
+    /* Personal map */
+
+    .personal-map {
+        height: 480px;
+    }
+
+    .node-a {
+        left: 5%;
+        top: 18%;
+    }
+
+    .node-b {
+        right: 5%;
+        top: 18%;
+    }
+
+    .node-c {
+        left: 5%;
+        bottom: 18%;
+    }
+
+    .node-d {
+        right: 5%;
+        bottom: 18%;
+    }
+
+
+    /* Footer */
+
+    .footer {
+        padding: 30px 5%;
+    }
+}
