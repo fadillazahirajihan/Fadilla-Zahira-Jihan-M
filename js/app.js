@@ -26,6 +26,109 @@ document.addEventListener("DOMContentLoaded", function () {
         ".page-section"
     );
 
+    
+document.addEventListener("DOMContentLoaded", function () {
+
+    const menuToggle = document.getElementById("menuToggle");
+    const topbarNav = document.getElementById("topbarNav");
+
+    const searchToggle = document.getElementById("searchToggle");
+    const topbarSearch = document.getElementById("topbarSearch");
+    const conceptSearch = document.getElementById("conceptSearch");
+
+    // Buka dan tutup menu mobile
+    if (menuToggle && topbarNav) {
+        menuToggle.addEventListener("click", function () {
+
+            const isOpen = topbarNav.classList.toggle("show");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen ? "Tutup menu" : "Buka menu"
+            );
+        });
+
+        // Tutup menu setelah tautan dipilih
+        topbarNav.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                topbarNav.classList.remove("show");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.setAttribute("aria-label", "Buka menu");
+            });
+        });
+    }
+
+    // Buka dan tutup pencarian
+    if (searchToggle && topbarSearch) {
+        searchToggle.addEventListener("click", function () {
+
+            const willOpen = topbarSearch.hidden;
+
+            topbarSearch.hidden = !willOpen;
+
+            if (willOpen && conceptSearch) {
+                conceptSearch.focus();
+            }
+        });
+    }
+
+    // Cari konsep berdasarkan teks pada halaman
+    if (topbarSearch && conceptSearch) {
+        topbarSearch.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const keyword = conceptSearch.value
+                .trim()
+                .toLowerCase();
+
+            if (!keyword) {
+                conceptSearch.focus();
+                return;
+            }
+
+            const searchableElements = document.querySelectorAll(
+                ".concept-node, .materi-card, " +
+                ".concept-card, #bilangan h2, #bilangan h3"
+            );
+
+            let matchedElement = null;
+
+            searchableElements.forEach(function (element) {
+                if (
+                    !matchedElement &&
+                    element.textContent.toLowerCase().includes(keyword)
+                ) {
+                    matchedElement = element;
+                }
+            });
+
+            if (matchedElement) {
+                const target = matchedElement.closest(
+                    "#bilangan, #konsep, .materi-card, .concept-card"
+                ) || matchedElement;
+
+                topbarSearch.hidden = true;
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+                matchedElement.classList.add("active-node");
+
+            } else {
+                alert("Konsep \"" + conceptSearch.value +
+                    "\" belum ditemukan pada halaman.");
+            }
+        });
+    }
+
+});
 
     /* =====================================================
        2. SIDEBAR MOBILE
@@ -289,134 +392,88 @@ document.addEventListener("DOMContentLoaded", function () {
        7. INTERAKSI PETA KONSEP
        ===================================================== */
 
-    const conceptMap =
-        document.querySelector(
-            ".concept-map"
-        );
+    
+const conceptMap = document.querySelector(".concept-map");
 
+const conceptNodes = document.querySelectorAll(
+    ".concept-map .concept-node"
+);
 
-    const conceptNodes =
-        document.querySelectorAll(
-            ".concept-map .concept-node"
-        );
+if (conceptMap && conceptNodes.length > 0) {
 
+    conceptNodes.forEach(function (node) {
 
-    if (
-        conceptMap &&
-        conceptNodes.length > 0
-    ) {
+        node.addEventListener("click", function (event) {
 
-        conceptNodes.forEach(
-            function (node) {
+            event.preventDefault();
 
-                node.addEventListener(
-                    "click",
-                    function () {
+            /* Reset semua node */
+            conceptNodes.forEach(function (item) {
 
+                item.classList.remove("active-node");
 
-                        /* Reset node */
+                item.style.boxShadow = "";
+                item.style.borderColor = "";
+                item.style.transform = "";
 
-                        conceptNodes.forEach(
-                            function (item) {
+                item.setAttribute("aria-pressed", "false");
 
-                                item.style.boxShadow =
-                                    "";
+            });
 
-                                item.style.borderColor =
-                                    "";
+            /* Highlight node yang dipilih */
+            node.classList.add("active-node");
 
-                                item.style.transform =
-                                    "";
+            node.style.boxShadow =
+                "0 0 0 4px rgba(75,141,248,0.16), " +
+                "0 15px 30px rgba(57,93,145,0.15)";
 
-                            }
-                        );
+            node.style.borderColor = "#4b8df8";
 
+            /*
+             * Transform tanpa translateX.
+             * Posisi asli node tetap dipertahankan.
+             */
+            node.style.transform = "scale(1.04)";
 
-                        /* Highlight node */
+            node.setAttribute("aria-pressed", "true");
 
-                        node.style.boxShadow =
-                            "0 0 0 4px rgba(75,141,248,0.16), 0 15px 30px rgba(57,93,145,0.15)";
+            /* Highlight garis penghubung */
+            const lines = conceptMap.querySelectorAll(
+                ".concept-line, .tree-connector"
+            );
 
+            lines.forEach(function (line) {
 
-                        node.style.borderColor =
-                            "#4b8df8";
-
-
-                        /* Posisi khusus */
-
-                        if (
-                            node.classList.contains(
-                                "main-node"
-                            )
-                        ) {
-
-                            node.style.transform =
-                                "translateX(-50%) scale(1.05)";
-
-                        }
-
-                        else if (
-                            node.classList.contains(
-                                "application-node"
-                            )
-                        ) {
-
-                            node.style.transform =
-                                "translateX(-50%) scale(1.05)";
-
-                        }
-
-                        else {
-
-                            node.style.transform =
-                                "translateY(-4px) scale(1.04)";
-
-                        }
-
-
-                        /* Highlight garis */
-
-                        const lines =
-                            conceptMap.querySelectorAll(
-                                ".concept-line"
-                            );
-
-
-                        lines.forEach(
-                            function (line) {
-
-                                line.style.background =
-                                    "#b8cce8";
-
-                            }
-                        );
-
-
-                        /* Jika Pecahan dipilih */
-
-                        if (
-                            node.textContent.trim() ===
-                            "Pecahan"
-                        ) {
-
-                            lines.forEach(
-                                function (line) {
-
-                                    line.style.background =
-                                        "#4b8df8";
-
-                                }
-                            );
-
-                        }
-
-                    }
+                line.style.setProperty(
+                    "--connector-color",
+                    "#b8cce8"
                 );
 
-            }
-        );
+            });
 
-    }
+            /* Jika Pecahan dipilih */
+            const selectedConcept =
+                node.dataset.concept ||
+                node.textContent.trim();
+
+            if (selectedConcept === "Pecahan") {
+
+                lines.forEach(function (line) {
+
+                    line.style.setProperty(
+                        "--connector-color",
+                        "#4b8df8"
+                    );
+
+                });
+
+            }
+
+        });
+
+    });
+
+}
 
 
     /* =====================================================

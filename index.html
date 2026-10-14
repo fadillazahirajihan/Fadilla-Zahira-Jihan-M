@@ -124,29 +124,66 @@
                  4. TOP BAR
                  ================================================= -->
 
-            <header class="topbar">
+            
+<header class="topbar landing-topbar">
 
-                <button class="menu-toggle" id="menuToggle">
-                    ☰
-                </button>
+    <!-- Logo dan nama website -->
+    <a href="#beranda" class="brand">
+        <span class="brand-icon">📘</span>
+        <span class="brand-name">MATH CONNECT</span>
+    </a>
 
-                <div class="breadcrumb">
-                    Math Connect
-                </div>
+    <!-- Navigasi landing page -->
+    <nav class="topbar-nav" id="topbarNav">
+        <a href="#beranda" class="nav-link active">Home</a>
+        <a href="#konsep" class="nav-link">Peta Konsep</a>
+        <a href="#bilangan" class="nav-link">Cari Konsep</a>
+    </nav>
 
-                <div class="topbar-actions">
+    <!-- Aksi bagian kanan -->
+    <div class="topbar-actions">
 
-                    <button class="search-button">
-                        🔍
-                    </button>
+        <button
+            type="button"
+            class="search-button"
+            id="searchToggle"
+            aria-label="Cari konsep"
+            title="Cari konsep">
+            <svg viewBox="0 0 24 24"
+                 width="21"
+                 height="21"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 stroke-linecap="round">
+                <circle cx="10.8" cy="10.8" r="6.5"></circle>
+                <path d="m16 16 4.5 4.5"></path>
+            </svg>
+        </button>
 
-                    <button class="profile-button">
-                        👤
-                    </button>
+        <!-- Pencarian -->
+        <form class="topbar-search" id="topbarSearch" hidden>
+            <input
+                type="search"
+                id="conceptSearch"
+                placeholder="Cari konsep..."
+                aria-label="Masukkan nama konsep">
+            <button type="submit">Cari</button>
+        </form>
 
-                </div>
+        <!-- Menu mobile -->
+        <button
+            type="button"
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Buka menu"
+            aria-expanded="false">
+            ☰
+        </button>
 
-            </header>
+    </div>
+
+</header>
 
 
 
@@ -221,101 +258,139 @@
                  6. PETA KONSEP
                  ================================================= -->
 
-            <section id="konsep" class="page-section concept-section">
+            
+<section id="konsep" class="page-section concept-section">
 
+    <div class="section-header">
+        <span class="section-label">EKSPLORASI</span>
+        <h2>Peta Konsep</h2>
+        <p>
+            Lihat bagaimana konsep-konsep matematika
+            saling berhubungan.
+        </p>
+    </div>
 
-                <div class="section-header">
+    <!-- Area Peta Konsep -->
+    <div class="concept-map">
 
-                    <span class="section-label">
-                        EKSPLORASI
-                    </span>
+        <div class="concept-tree">
 
-                    <h2>
-                        Peta Konsep
-                    </h2>
+            <!-- Konsep utama -->
+            <div class="concept-level level-main">
+                <button class="concept-node main-node"
+                        data-concept="Bilangan">
+                    <span class="node-icon">▦</span>
+                    <span>Bilangan</span>
+                </button>
+            </div>
 
-                    <p>
-                        Lihat bagaimana konsep-konsep matematika
-                        saling berhubungan.
-                    </p>
+            <!-- Hubungan ke konsep bilangan -->
+            <div class="tree-connector root-connector">
+                <span></span>
+            </div>
 
-                </div>
+            <!-- Cabang bilangan -->
+            <div class="concept-level number-level">
 
+                <button class="concept-node sub-node"
+                        data-concept="Bilangan Cacah">
+                    Bilangan Cacah
+                </button>
 
-                <!-- Area Concept Map -->
+                <button class="concept-node sub-node"
+                        data-concept="Bilangan Bulat">
+                    Bilangan Bulat
+                </button>
 
-                <div class="concept-map">
+                <button class="concept-node sub-node"
+                        data-concept="Bilangan Rasional">
+                    Bilangan Rasional
+                </button>
 
+            </div>
 
-                    <!-- Konsep utama -->
+            <!-- Hubungan menuju pecahan -->
+            <div class="tree-connector fraction-connector">
+                <span></span>
+            </div>
 
-                    <div class="concept-node main-node">
-                        <span>Bilangan</span>
-                    </div>
+            <!-- Konsep pecahan -->
+            <div class="concept-level level-fraction">
+                <button class="concept-node fraction-node"
+                        data-concept="Pecahan">
+                    <span class="node-icon">½</span>
+                    <span>Pecahan</span>
+                </button>
+            </div>
 
+            <!-- Hubungan pecahan ke turunannya -->
+            <div class="tree-connector derived-connector">
+                <span></span>
+            </div>
 
-                    <!-- Cabang -->
+            <!-- Desimal, persen, dan rasio -->
+            <div class="concept-level derived-level">
 
-                    <div class="concept-line line-1"></div>
+                <button class="concept-node decimal-node"
+                        data-concept="Desimal">
+                    Desimal
+                </button>
 
-                    <div class="concept-node">
-                        <span>Bilangan Cacah</span>
-                    </div>
+                <button class="concept-node percent-node"
+                        data-concept="Persen">
+                    Persen
+                </button>
 
+                <button class="concept-node ratio-node"
+                        data-concept="Rasio">
+                    Rasio
+                </button>
 
-                    <div class="concept-line line-2"></div>
+            </div>
 
-                    <div class="concept-node">
-                        <span>Bilangan Bulat</span>
-                    </div>
+            <!-- Hubungan menuju penerapan -->
+            <div class="tree-connector application-connector">
+                <span></span>
+            </div>
 
+            <!-- Penerapan -->
+            <div class="concept-level level-application">
+                <button class="concept-node application-node"
+                        data-concept="Penerapan">
+                    <span class="node-icon">▤</span>
+                    <span>Penerapan</span>
+                </button>
+            </div>
 
-                    <div class="concept-line line-3"></div>
+        </div>
 
-                    <div class="concept-node">
-                        <span>Pecahan</span>
-                    </div>
+        <!-- Panel informasi konsep -->
+        <div class="concept-info" id="conceptInfo" hidden>
+            <button class="concept-info-close"
+                    id="closeConceptInfo"
+                    aria-label="Tutup informasi">
+                &times;
+            </button>
 
+            <h3 id="conceptTitle"></h3>
+            <p id="conceptDescription"></p>
+            <a href="#bilangan"
+               class="btn btn-primary"
+               id="conceptLink">
+                Pelajari Konsep
+            </a>
+        </div>
 
-                    <div class="concept-line line-4"></div>
+    </div>
 
-                    <div class="concept-node">
-                        <span>Desimal</span>
-                    </div>
+    <div class="section-action">
+        <a href="#bilangan" class="btn btn-primary">
+            Eksplorasi Konsep
+        </a>
+    </div>
 
+</section>
 
-                    <div class="concept-line line-5"></div>
-
-                    <div class="concept-node">
-                        <span>Persen</span>
-                    </div>
-
-
-                    <div class="concept-line line-6"></div>
-
-                    <div class="concept-node">
-                        <span>Rasio</span>
-                    </div>
-
-
-                    <!-- Hubungan ke penerapan -->
-
-                    <div class="concept-node application-node">
-                        <span>Penerapan</span>
-                    </div>
-
-                </div>
-
-
-                <div class="section-action">
-
-                    <a href="#bilangan" class="btn btn-primary">
-                        Eksplorasi Konsep
-                    </a>
-
-                </div>
-
-            </section>
 
 
 
