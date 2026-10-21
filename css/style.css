@@ -1,65 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-/* =========================================================
-   MATH CONNECT
-   STYLE.CSS
-   ========================================================= */
-
-
-/* =========================================================
-   1. RESET & GLOBAL
-   ========================================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ==================================================
+   1. RESET DAN VARIABEL
+   ================================================== */
+:root {
+    --blue: #4385ff;
+    --blue-dark: #2160db;
+    --blue-light: #eaf2ff;
+    --blue-pale: #f5f8ff;
+    --purple: #8865e9;
+    --green: #20ad8c;
+    --text: #273750;
+    --muted: #71819a;
+    --white: #ffffff;
+    --line: #e5ecf7;
+    --shadow: 0 15px 45px rgba(54, 91, 151, 0.08);
+    --sidebar-width: 250px;
+    --topbar-height: 88px;
 }
 
-:root {
-    /* Warna utama */
-    --blue: #4b8df8;
-    --blue-dark: #2563d9;
-    --blue-light: #eaf3ff;
-
-    /* Warna pendukung */
-    --purple: #8b70e8;
-    --green: #42c89b;
-    --orange: #ffb65c;
-    --pink: #f58fb2;
-
-    /* Warna teks */
-    --text: #26364d;
-    --muted: #718096;
-
-    /* Warna garis dan background */
-    --line: #dfe8f5;
-    --bg: #f7faff;
-    --white: #ffffff;
-
-    /* Efek */
-    --shadow: 0 12px 35px rgba(57, 93, 145, 0.10);
-
-    /* Radius */
-    --radius: 20px;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--topbar-height) + 20px);
 }
 
 body {
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    background: var(--blue-pale);
     color: var(--text);
-    background: var(--bg);
     line-height: 1.6;
 }
 
 button,
 input,
-textarea,
-select {
-    font-family: inherit;
+textarea {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
 }
 
 button {
@@ -67,2503 +52,1242 @@ button {
 }
 
 a {
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
 }
 
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #9bbcff;
+    outline-offset: 3px;
+}
 
-/* =========================================================
+[hidden] {
+    display: none !important;
+}
+
+svg {
+    display: block;
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ==================================================
    2. LAYOUT UTAMA
-   ========================================================= */
-
+   ================================================== */
 .app-container {
     min-height: 100vh;
-    display: flex;
 }
 
+.main-content {
+    min-height: 100vh;
+    margin-left: var(--sidebar-width);
+    min-width: 0;
+    transition: margin-left 0.3s ease;
+}
 
-/* =========================================================
+/* ==================================================
    3. SIDEBAR
-   ========================================================= */
-
+   ================================================== */
 .sidebar {
-    width: 245px;
-    height: 100vh;
-
-    background: var(--white);
-
-    border-right: 1px solid var(--line);
-
     position: fixed;
-    top: 0;
-    left: 0;
-
     z-index: 1000;
-
-    padding: 24px 16px;
-
+    inset: 0 auto 0 0;
+    width: var(--sidebar-width);
+    height: 100dvh;
     display: flex;
     flex-direction: column;
-
+    padding: 22px 14px 16px;
     overflow-y: auto;
-
+    overscroll-behavior: contain;
+    background: var(--white);
+    border-right: 1px solid var(--line);
+    scrollbar-width: thin;
+    scrollbar-color: #c9d7eb transparent;
     transition: transform 0.3s ease;
 }
-
-
-/* Logo */
 
 .logo-area {
     display: flex;
     align-items: center;
-
-    gap: 11px;
-
-    padding: 5px 10px 28px;
+    gap: 10px;
+    min-height: 64px;
+    padding: 4px 9px 22px;
+    margin-bottom: 12px;
 }
 
 .logo-icon {
-    width: 42px;
-    height: 42px;
-
-    border-radius: 13px;
-
+    width: 40px;
+    height: 40px;
     display: grid;
     place-items: center;
-
-    color: white;
-
-    font-weight: 800;
-
-    background: linear-gradient(
-        135deg,
-        #4b8df8,
-        #6d72e8
-    );
-
-    box-shadow:
-        0 8px 18px rgba(75, 141, 248, 0.25);
-}
-
-.logo-text h2 {
-    font-size: 16px;
-
-    letter-spacing: 1.2px;
-
-    line-height: 1.1;
-}
-
-.logo-text span {
+    flex-shrink: 0;
     color: var(--blue);
-
-    font-size: 10px;
-
-    font-weight: 800;
-
-    letter-spacing: 2px;
+    background: var(--blue-light);
+    border-radius: 12px;
+    transition: transform 0.25s ease;
 }
 
+.logo-area:hover .logo-icon {
+    transform: rotate(-7deg) scale(1.06);
+}
 
-/* Navigasi */
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4;
+}
+
+.logo-text strong {
+    color: #164783;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+.logo-text small {
+    color: var(--blue);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+}
 
 .main-navigation {
     display: flex;
     flex-direction: column;
-
     gap: 5px;
 }
 
 .nav-item {
-    min-height: 44px;
-
+    position: relative;
     display: flex;
     align-items: center;
-
     gap: 12px;
-
-    padding: 9px 12px;
-
-    border-radius: 12px;
-
-    color: #66758b;
-
+    width: 100%;
+    min-height: 47px;
+    padding: 11px 13px;
+    border: 1px solid transparent;
+    border-radius: 13px;
+    background: transparent;
+    color: #64758e;
     font-size: 14px;
-
-    transition: all 0.2s ease;
+    font-weight: 500;
+    text-align: left;
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease,
+        border-color 0.2s ease;
 }
 
 .nav-item:hover {
     color: var(--blue-dark);
-
-    background: var(--blue-light);
-
+    background: #f3f7ff;
     transform: translateX(2px);
 }
 
 .nav-item.active {
     color: var(--blue-dark);
-
     background: var(--blue-light);
-
     font-weight: 700;
 }
 
 .nav-icon {
-    width: 28px;
+    flex: 0 0 22px;
+    width: 22px;
+    height: 22px;
+    transition: transform 0.2s ease;
+}
 
-    text-align: center;
+.nav-item:hover .nav-icon {
+    transform: scale(1.1);
+}
 
-    font-size: 14px;
+.nav-label {
+    flex: 1;
+}
 
+.nav-arrow {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.25s ease;
+}
+
+.materi-toggle[aria-expanded="true"] .nav-arrow {
+    transform: rotate(180deg);
+}
+
+.materi-toggle[aria-expanded="true"] {
+    color: var(--blue-dark);
+    background: var(--blue-light);
     font-weight: 700;
+}
+
+/* SUBMENU MATERI */
+.submenu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin: 2px 0 9px 22px;
+    padding: 3px 0 3px 24px;
+    border-left: 2px solid #e2ebfa;
+    animation: submenuIn 0.22s ease;
+}
+
+.submenu[hidden] {
+    display: none !important;
+}
+
+@keyframes submenuIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.submenu-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 43px;
+    padding: 9px 12px;
+    border-radius: 10px;
+    color: var(--muted);
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.submenu-dot {
+    flex: 0 0 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #b3c5e2;
+    transition: all 0.2s ease;
+}
+
+.submenu-item:hover,
+.submenu-item.active {
+    color: var(--blue-dark);
+    background: #f2f6ff;
+}
+
+.submenu-item:hover .submenu-dot,
+.submenu-item.active .submenu-dot {
+    background: var(--blue);
+    box-shadow: 0 0 0 4px #dce9ff;
 }
 
 .sidebar-bottom {
     margin-top: auto;
-
-    padding-top: 20px;
+    padding-top: 25px;
 }
 
-
-/* =========================================================
-   4. MAIN CONTENT
-   ========================================================= */
-
-.main-content {
-    margin-left: 245px;
-
-    width: calc(100% - 245px);
-
-    min-width: 0;
-}
-
-
-/* =========================================================
-   5. TOPBAR
-   ========================================================= */
-
-.landing-topbar {
-    width: 100%;
-    min-height: 76px;
-    padding: 0 36px;
+.sidebar-note {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 28px;
-
-    background: #ffffff;
-    border-bottom: 1px solid #edf1f7;
-    box-sizing: border-box;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-/* Logo */
-
-.landing-topbar .brand {
-    display: inline-flex;
     align-items: center;
     gap: 10px;
-    flex-shrink: 0;
-
-    color: #153c78;
-    text-decoration: none;
+    padding: 13px 11px;
+    background: #f5f8ff;
+    border: 1px solid var(--line);
+    border-radius: 13px;
 }
 
-.landing-topbar .brand-icon {
+.note-icon {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    color: var(--blue);
+    background: #e4eeff;
+    border-radius: 10px;
+}
+
+.sidebar-note div {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-note strong {
+    font-size: 12px;
+}
+
+.sidebar-note small {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+/* ==================================================
+   4. TOPBAR
+   ================================================== */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 900;
+    min-height: var(--topbar-height);
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 26px;
+    gap: 24px;
+    padding: 15px 34px;
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(14px);
 }
 
-.landing-topbar .brand-name {
-    font-size: 17px;
-    font-weight: 800;
-    letter-spacing: 0.3px;
-    white-space: nowrap;
-}
-
-/* Navigasi desktop */
-
-.landing-topbar .topbar-nav {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 30px;
-    margin-left: auto;
-}
-
-.landing-topbar .nav-link {
-    position: relative;
-    padding: 10px 0;
-
-    color: #52627c;
-    font-size: 13px;
-    font-weight: 600;
-    text-decoration: none;
-    white-space: nowrap;
-
-    transition: color 0.2s ease;
-}
-
-.landing-topbar .nav-link:hover,
-.landing-topbar .nav-link.active {
-    color: #1764d8;
-}
-
-.landing-topbar .nav-link.active::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 2px;
-    height: 2px;
-    border-radius: 2px;
-    background: #2879ed;
-}
-
-/* Tombol pencarian */
-
-.landing-topbar .topbar-actions {
-    position: relative;
+.brand {
     display: flex;
     align-items: center;
     gap: 12px;
-    flex-shrink: 0;
+    margin-right: auto;
 }
 
-.landing-topbar .search-button,
-.landing-topbar .menu-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 42px;
-    height: 42px;
-    padding: 0;
-
-    color: #245b9d;
-    background: #f1f6ff;
-    border: none;
-    border-radius: 13px;
-    cursor: pointer;
-
-    transition: background 0.2s ease;
+.brand-icon {
+    color: #159de2;
+    font-size: 34px;
+    line-height: 1;
 }
 
-.landing-topbar .search-button:hover,
-.landing-topbar .menu-toggle:hover {
-    background: #e3edff;
+.brand-name {
+    color: #17477f;
+    font-size: 20px;
+    font-weight: 850;
+    letter-spacing: 0.4px;
 }
 
-/* Form pencarian */
-
-.landing-topbar .topbar-search {
-    position: absolute;
-    top: 54px;
-    right: 0;
-
+.topbar-nav {
     display: flex;
     align-items: center;
-    gap: 8px;
-    width: min(320px, 80vw);
-    padding: 10px;
-
-    background: #ffffff;
-    border: 1px solid #e0e8f5;
-    border-radius: 14px;
-    box-shadow: 0 10px 30px rgba(30, 60, 100, 0.12);
+    gap: 30px;
 }
 
-.landing-topbar .topbar-search[hidden] {
-    display: none !important;
+.top-link {
+    position: relative;
+    padding: 10px 0;
+    color: #405570;
+    font-size: 14px;
+    white-space: nowrap;
 }
 
-.landing-topbar .topbar-search input {
-    flex: 1;
-    min-width: 0;
-    padding: 10px;
-    border: 1px solid #dce5f2;
-    border-radius: 8px;
-    outline: none;
+.top-link::after {
+    position: absolute;
+    right: 0;
+    bottom: 2px;
+    left: 0;
+    height: 3px;
+    border-radius: 3px;
+    background: var(--blue);
+    content: "";
+    transform: scaleX(0);
+    transition: transform 0.2s ease;
 }
 
-.landing-topbar .topbar-search input:focus {
-    border-color: #2879ed;
+.top-link:hover,
+.top-link.active {
+    color: var(--blue-dark);
 }
 
-.landing-topbar .topbar-search button {
-    padding: 10px 14px;
+.top-link.active::after,
+.top-link:hover::after {
+    transform: scaleX(1);
+}
+
+.search-button,
+.menu-toggle {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border: 0;
+    border-radius: 16px;
+    background: #f0f5ff;
+    color: #205ba9;
+    transition: all 0.2s ease;
+}
+
+.search-button:hover,
+.menu-toggle:hover {
     color: white;
-    background: #2879ed;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+    background: var(--blue);
+    transform: translateY(-2px);
 }
 
-/* Hamburger hanya untuk layar kecil */
-
-.landing-topbar .menu-toggle {
+.menu-toggle {
     display: none;
 }
 
-/* Tablet dan HP */
-
-@media (max-width: 760px) {
-    .landing-topbar {
-        min-height: 68px;
-        padding: 0 16px;
-        gap: 12px;
-    }
-
-    .landing-topbar .brand-name {
-        font-size: 14px;
-    }
-
-    .landing-topbar .brand-icon {
-        font-size: 22px;
-    }
-
-    .landing-topbar .menu-toggle {
-        display: inline-flex;
-    }
-
-    .landing-topbar .topbar-nav {
-        display: none;
-        position: absolute;
-        top: calc(100% + 1px);
-        left: 0;
-        right: 0;
-
-        flex-direction: column;
-        align-items: stretch;
-        gap: 4px;
-
-        padding: 14px 20px;
-        margin: 0;
-
-        background: #ffffff;
-        border-bottom: 1px solid #e5edf8;
-        box-shadow: 0 12px 22px rgba(30, 60, 100, 0.08);
-    }
-
-    .landing-topbar .topbar-nav.show {
-        display: flex;
-    }
-
-    .landing-topbar .nav-link {
-        padding: 12px;
-    }
-
-    .landing-topbar .nav-link.active::after {
-        display: none;
-    }
+/* PENCARIAN */
+.search-panel {
+    position: sticky;
+    top: var(--topbar-height);
+    z-index: 800;
+    display: flex;
+    gap: 10px;
+    padding: 15px 34px;
+    background: white;
+    border-bottom: 1px solid var(--line);
 }
 
+.search-panel input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 15px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    outline-color: var(--blue);
+}
 
-/* =========================================================
-   6. SECTION UMUM
-   ========================================================= */
-
+/* ==================================================
+   5. BAGIAN UMUM
+   ================================================== */
 .page-section {
-    min-height: 560px;
-
-    padding: 78px 7%;
-
-    scroll-margin-top: 70px;
+    padding: 78px clamp(22px, 5vw, 76px);
+    scroll-margin-top: calc(var(--topbar-height) + 10px);
 }
 
 .section-header {
-    max-width: 720px;
-
+    max-width: 760px;
     margin: 0 auto 38px;
-
     text-align: center;
 }
 
-.section-label,
-.small-title {
+.section-label {
+    display: inline-block;
+    margin-bottom: 13px;
     color: var(--blue);
-
-    font-size: 11px;
-
-    font-weight: 800;
-
-    letter-spacing: 1.8px;
+    font-size: 12px;
+    font-weight: 850;
+    letter-spacing: 2px;
 }
 
 .section-header h2 {
-    margin-top: 7px;
-
+    margin-bottom: 12px;
+    color: var(--text);
     font-size: clamp(30px, 4vw, 43px);
-
-    line-height: 1.15;
-
-    letter-spacing: -0.5px;
+    line-height: 1.2;
+    letter-spacing: -1px;
 }
 
 .section-header p {
     color: var(--muted);
-
-    margin-top: 12px;
-
-    font-size: 15px;
+    font-size: 16px;
 }
-
-.section-action {
-    text-align: center;
-
-    margin-top: 30px;
-}
-
-
-/* =========================================================
-   7. BUTTON
-   ========================================================= */
 
 .btn {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
-
-    min-height: 44px;
-
-    padding: 0 20px;
-
-    border-radius: 12px;
-
-    font-weight: 700;
-
-    font-size: 13px;
-
-    transition: all 0.2s ease;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
+    gap: 8px;
+    min-height: 48px;
+    padding: 12px 23px;
+    border: 1px solid transparent;
+    border-radius: 13px;
+    font-size: 14px;
+    font-weight: 750;
+    transition: all 0.22s ease;
 }
 
 .btn-primary {
-    background: var(--blue);
-
     color: white;
-
-    box-shadow:
-        0 9px 20px rgba(75, 141, 248, 0.22);
+    background: var(--blue);
+    box-shadow: 0 8px 20px rgba(67, 133, 255, 0.2);
 }
 
 .btn-primary:hover {
     background: var(--blue-dark);
+    box-shadow: 0 12px 25px rgba(67, 133, 255, 0.25);
+    transform: translateY(-2px);
 }
 
 .btn-secondary {
-    background: white;
-
     color: var(--blue-dark);
-
-    border: 1px solid #d7e5fb;
+    background: white;
+    border-color: #d8e5ff;
 }
 
 .btn-secondary:hover {
     background: var(--blue-light);
+    transform: translateY(-2px);
 }
 
-
-/* =========================================================
-   8. LANDING / HERO
-   ========================================================= */
-
+/* ==================================================
+   6. BERANDA
+   ================================================== */
 .landing-section {
-    min-height: calc(100vh - 70px);
-
+    min-height: 610px;
     display: grid;
-
-    grid-template-columns: 1.1fr 0.9fr;
-
+    grid-template-columns: 1.15fr 0.85fr;
     align-items: center;
-
-    gap: 50px;
-
+    gap: 25px;
+    overflow: hidden;
     background:
-        radial-gradient(
-            circle at 80% 20%,
-            #e7f2ff 0 14%,
-            transparent 15%
-        ),
-        linear-gradient(
-            135deg,
-            #ffffff 0%,
-            #f2f7ff 100%
-        );
+        radial-gradient(circle at 83% 22%, #e5f0ff 0, transparent 25%),
+        linear-gradient(135deg, #fbfdff, #f2f7ff);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 620px;
 }
 
 .hero-content h1 {
-    font-size: clamp(50px, 7vw, 88px);
-
-    line-height: 0.95;
-
-    letter-spacing: -3px;
-
-    margin: 14px 0 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 16px 0;
+    font-size: clamp(54px, 7vw, 94px);
+    font-weight: 900;
+    line-height: 0.99;
+    letter-spacing: -4px;
 }
 
 .hero-content h1 span {
-    display: block;
-
     color: var(--blue);
 }
 
 .hero-description {
-    max-width: 580px;
-
+    max-width: 560px;
+    margin-bottom: 26px;
     color: var(--muted);
-
-    font-size: 16px;
+    font-size: 17px;
+    line-height: 1.9;
 }
 
 .hero-buttons {
     display: flex;
-
-    gap: 12px;
-
     flex-wrap: wrap;
-
-    margin-top: 28px;
+    gap: 12px;
 }
-
-
-/* =========================================================
-   9. ILUSTRASI HERO
-   ========================================================= */
 
 .hero-illustration {
-    min-height: 390px;
-
     position: relative;
-
+    min-height: 370px;
     display: grid;
-
     place-items: center;
 }
 
-.book-illustration {
-    width: 190px;
-
-    height: 145px;
-
-    border-radius: 20px 20px 32px 32px;
-
-    background: white;
-
-    display: grid;
-
-    place-items: center;
-
-    font-size: 72px;
-
-    box-shadow: var(--shadow);
-
-    transform: rotate(-5deg);
-
-    position: relative;
-
-    z-index: 3;
-}
-
-.illustration-circle {
+.orbit {
     position: absolute;
-
-    width: 64px;
-
-    height: 64px;
-
+    width: 300px;
+    height: 300px;
+    border: 1px dashed #c9dbfb;
     border-radius: 50%;
+    animation: orbitSpin 35s linear infinite;
+}
 
+.orbit-two {
+    width: 220px;
+    height: 220px;
+    animation-direction: reverse;
+}
+
+@keyframes orbitSpin {
+    to { transform: rotate(360deg); }
+}
+
+.floating-number,
+.floating-center {
+    position: absolute;
     display: grid;
-
     place-items: center;
-
-    font-weight: 800;
-
     color: white;
-
-    box-shadow: var(--shadow);
-
-    z-index: 2;
-
-    animation: floating 4s ease-in-out infinite;
+    font-size: 22px;
+    font-weight: 850;
+    border-radius: 50%;
+    box-shadow: 0 15px 35px rgba(75, 107, 168, 0.17);
+    animation: float 4s ease-in-out infinite;
 }
 
-.circle-one {
-    background: var(--blue);
+.floating-number {
+    width: 76px;
+    height: 76px;
+}
 
+.number-one {
     top: 15%;
-
-    left: 18%;
+    left: 10%;
+    background: var(--blue);
 }
 
-.circle-two {
-    background: var(--purple);
-
+.number-two {
     top: 27%;
-
-    right: 14%;
-
-    animation-delay: 0.5s;
+    right: 5%;
+    background: var(--purple);
+    animation-delay: 0.7s;
 }
 
-.circle-three {
-    background: var(--green);
-
-    bottom: 19%;
-
-    left: 20%;
-
-    animation-delay: 1s;
+.number-three {
+    bottom: 12%;
+    left: 15%;
+    background: #35c6a0;
+    animation-delay: 1.2s;
 }
 
-.circle-four {
-    background: var(--orange);
-
-    bottom: 13%;
-
-    right: 24%;
-
-    animation-delay: 1.5s;
+.number-four {
+    right: 12%;
+    bottom: 10%;
+    background: #ffb34e;
+    animation-delay: 1.7s;
 }
 
-@keyframes floating {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
+.floating-center {
+    width: 110px;
+    height: 110px;
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    font-size: 42px;
 }
 
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
 
-/* =========================================================
-   10. PETA KONSEP
-   ========================================================= */
-
+/* ==================================================
+   7. PETA KONSEP
+   ================================================== */
 .concept-section {
-    padding: 40px 24px;
-}
-
-.concept-section .section-header {
-    text-align: center;
-    margin-bottom: 36px;
-}
-
-.concept-section .section-header h2 {
-    color: #263750;
-    font-size: clamp(30px, 4vw, 44px);
-    font-weight: 800;
-    margin: 12px 0;
-}
-
-.concept-section .section-header p {
-    color: #71829c;
-    font-size: 16px;
-    line-height: 1.7;
+    background: white;
 }
 
 .concept-map {
-    position: relative;
-    width: 100%;
-    max-width: 1000px;
-    min-height: 620px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 30px 24px;
-    overflow: hidden;
-    background-color: #fff;
-    background-image: radial-gradient(
-        #dce8fa 1px,
-        transparent 1px
-    );
-    background-size: 22px 22px;
-    border: 1px solid #dce6f5;
-    border-radius: 28px;
-    box-sizing: border-box;
+    padding: 32px 20px;
+    border: 1px solid var(--line);
+    border-radius: 25px;
+    background: #fbfdff;
+    box-shadow: var(--shadow);
 }
-
-/* Susunan bertingkat */
 
 .concept-tree {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
 }
 
 .concept-level {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
     width: 100%;
-    position: relative;
-    z-index: 2;
 }
-
-.level-main {
-    margin-top: 8px;
-}
-
-.number-level {
-    max-width: 690px;
-    gap: clamp(10px, 3vw, 32px);
-}
-
-.level-fraction {
-    margin-top: 0;
-}
-
-.derived-level {
-    max-width: 660px;
-    gap: clamp(10px, 3vw, 28px);
-}
-
-.level-application {
-    margin-top: 0;
-}
-
-/* Bentuk node */
 
 .concept-node {
-    position: relative;
-    z-index: 2;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    gap: 9px;
-    min-height: 54px;
-    padding: 14px 22px;
-    border: 1px solid #dbe7f7;
+    gap: 10px;
+    min-height: 48px;
+    padding: 12px 22px;
+    border: 1px solid #dce7fa;
     border-radius: 18px;
-    background: #fff;
-    color: #263750;
-    font-family: inherit;
-    font-size: 15px;
+    background: white;
+    color: var(--text);
+    font-size: 14px;
     font-weight: 700;
-    white-space: nowrap;
-    cursor: pointer;
-    box-shadow: 0 8px 22px rgba(41, 75, 125, 0.08);
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    box-shadow: 0 6px 16px rgba(44, 83, 145, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .concept-node:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(41, 75, 125, 0.15);
+    box-shadow: 0 10px 25px rgba(44, 83, 145, 0.12);
 }
 
 .concept-node:focus-visible {
-    outline: 3px solid #93baff;
-    outline-offset: 3px;
+    outline: 3px solid #9bbcff;
 }
 
-.main-node {
-    min-width: 190px;
-    min-height: 68px;
-    color: #fff;
-    background: #2879ed;
-    border-color: #2879ed;
-    border-radius: 40px;
-    font-size: 21px;
-    box-shadow: 0 8px 20px rgba(40, 121, 237, 0.2);
-}
-
-.sub-node {
-    min-width: 0;
-    padding: 14px 18px;
-    background: #eaf4ff;
-    border-color: #d6e8fb;
-    border-radius: 30px;
-}
-
-.fraction-node {
-    min-width: 190px;
-    min-height: 64px;
-    color: #fff;
-    background: #7654df;
-    border-color: #7654df;
-    border-radius: 40px;
+.concept-node span {
     font-size: 20px;
 }
 
+.main-node {
+    min-width: 170px;
+    color: white;
+    background: linear-gradient(135deg, #4b91ff, #2671ed);
+    border: 0;
+    border-radius: 25px;
+}
+
+.sub-node {
+    background: #edf5ff;
+}
+
+.fraction-node {
+    min-width: 170px;
+    color: white;
+    background: linear-gradient(135deg, #a178f7, #7854db);
+    border: 0;
+    border-radius: 25px;
+}
+
 .decimal-node {
-    background: #f3eaff;
-    border-color: #e8d9fc;
+    background: #f1eaff;
 }
 
 .percent-node {
-    background: #fff0f3;
-    border-color: #f9dce4;
+    background: #ffeaf0;
 }
 
 .ratio-node {
-    background: #e9f5ff;
-    border-color: #d5eafa;
+    background: #e4f4ff;
 }
 
 .application-node {
-    min-width: 190px;
-    min-height: 64px;
-    color: #fff;
-    background: #119c7b;
-    border-color: #119c7b;
-    border-radius: 40px;
-    font-size: 18px;
+    min-width: 170px;
+    color: white;
+    background: linear-gradient(135deg, #37c6a0, #159b83);
+    border: 0;
+    border-radius: 25px;
 }
 
-.node-icon {
-    font-size: 21px;
-}
-
-/* Garis penghubung vertikal */
-
-.tree-connector {
-    position: relative;
-    width: 100%;
-    height: 36px;
-    flex-shrink: 0;
-}
-
-.tree-connector span {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    height: 100%;
+.connector {
     width: 2px;
-    background: #8eb8ee;
-    transform: translateX(-50%);
+    height: 35px;
+    background: linear-gradient(#b9d3ff, #8db8f9);
 }
-
-/* Garis dari Bilangan ke tiga cabang */
-
-.root-connector {
-    height: 55px;
-}
-
-.root-connector::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: min(66%, 570px);
-    height: 27px;
-    border-top: 2px solid #8eb8ee;
-    border-left: 2px solid #8eb8ee;
-    border-right: 2px solid #8eb8ee;
-    border-radius: 12px 12px 0 0;
-    transform: translateX(-50%);
-}
-
-.root-connector span {
-    top: 0;
-    height: 28px;
-}
-
-/* Garis cabang turun ke pecahan */
-
-.fraction-connector {
-    height: 48px;
-}
-
-.fraction-connector::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 16.67%;
-    right: 16.67%;
-    height: 24px;
-    border-bottom: 2px solid #8eb8ee;
-    border-left: 2px solid #8eb8ee;
-    border-right: 2px solid #8eb8ee;
-    border-radius: 0 0 12px 12px;
-}
-
-.fraction-connector span {
-    top: 24px;
-    height: 24px;
-}
-
-/* Garis menuju Desimal, Persen, Rasio */
-
-.derived-connector {
-    height: 48px;
-}
-
-.derived-connector::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 16.67%;
-    right: 16.67%;
-    height: 24px;
-    border-bottom: 2px solid #8eb8ee;
-    border-left: 2px solid #8eb8ee;
-    border-right: 2px solid #8eb8ee;
-    border-radius: 0 0 12px 12px;
-}
-
-.derived-connector span {
-    top: 24px;
-    height: 24px;
-}
-
-/* Garis menuju Penerapan */
-
-.application-connector {
-    height: 45px;
-}
-
-.application-connector::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 16.67%;
-    right: 16.67%;
-    height: 22px;
-    border-bottom: 2px solid #8eb8ee;
-    border-left: 2px solid #8eb8ee;
-    border-right: 2px solid #8eb8ee;
-    border-radius: 0 0 12px 12px;
-}
-
-.application-connector span {
-    top: 22px;
-    height: 23px;
-}
-
-/* Panel informasi */
 
 .concept-info {
     position: relative;
-    max-width: 560px;
-    margin: 30px auto 0;
-    padding: 24px;
-    background: #f5f9ff;
-    border: 1px solid #dce8f8;
+    max-width: 600px;
+    margin: 28px auto 0;
+    padding: 25px;
+    border: 1px solid #dce8fc;
     border-radius: 18px;
-    box-sizing: border-box;
-    z-index: 3;
+    background: white;
+    animation: submenuIn 0.2s ease;
 }
 
 .concept-info h3 {
-    margin: 0 35px 10px 0;
-    color: #263750;
-    font-size: 21px;
-}
-
-.concept-info p {
-    color: #62748e;
-    line-height: 1.7;
-}
-
-.concept-info-close {
-    position: absolute;
-    top: 10px;
-    right: 14px;
-    border: none;
-    background: transparent;
-    color: #526783;
-    font-size: 27px;
-    cursor: pointer;
-}
-
-.concept-section .section-action {
-    display: flex;
-    justify-content: center;
-    margin-top: 28px;
-}
-
-/* Tampilan HP */
-
-@media (max-width: 600px) {
-    .concept-section {
-        padding: 28px 12px;
-    }
-
-    .concept-map {
-        min-height: 0;
-        padding: 24px 10px;
-        border-radius: 18px;
-        overflow-x: auto;
-    }
-
-    .concept-tree {
-        min-width: 430px;
-    }
-
-    .number-level {
-        gap: 8px;
-    }
-
-    .derived-level {
-        gap: 8px;
-    }
-
-    .concept-node {
-        padding: 12px 10px;
-        font-size: 12px;
-        border-radius: 14px;
-    }
-
-    .main-node,
-    .fraction-node,
-    .application-node {
-        min-width: 150px;
-        min-height: 56px;
-        border-radius: 30px;
-        font-size: 16px;
-    }
-
-    .sub-node {
-        padding: 12px 9px;
-        border-radius: 24px;
-    }
-
-    .root-connector::before {
-        width: 76%;
-    }
-
-    .fraction-connector::before,
-    .derived-connector::before,
-    .application-connector::before {
-        left: 16.67%;
-        right: 16.67%;
-    }
-}
-
-/* Warna garis penghubung peta konsep */
-.tree-connector span,
-.root-connector::before,
-.fraction-connector::before,
-.derived-connector::before,
-.application-connector::before {
-    border-color: var(--connector-color, #8eb8ee);
-}
-
-/* Animasi node tanpa menggeser posisi */
-.concept-map .concept-node {
-    transition:
-        box-shadow 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.2s ease;
-}
-
-/* Node aktif */
-.concept-map .concept-node.active-node {
-    z-index: 5;
-}
-
-
-/* =========================================================
-   11. MATERIAL SECTION
-   ========================================================= */
-
-.material-section {
-    background: #f7faff;
-}
-
-
-/* Tab */
-
-.material-tabs,
-.operation-tabs {
-    display: flex;
-
-    justify-content: center;
-
-    gap: 8px;
-
-    flex-wrap: wrap;
-
-    margin-bottom: 28px;
-}
-
-.tab-button,
-.operation-tab {
-    padding: 10px 18px;
-
-    border-radius: 10px;
-
-    background: white;
-
-    color: #68788d;
-
-    border: 1px solid var(--line);
-
-    transition: all 0.2s ease;
-}
-
-.tab-button:hover,
-.operation-tab:hover {
-    border-color: var(--blue);
-
+    margin-bottom: 8px;
     color: var(--blue-dark);
 }
 
-.tab-button.active,
-.operation-tab.active {
-    color: white;
-
-    background: var(--blue);
-
-    border-color: var(--blue);
+.concept-info p {
+    margin-bottom: 17px;
+    color: var(--muted);
 }
 
+.close-info {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--blue-light);
+    color: var(--blue-dark);
+    font-size: 23px;
+}
 
-/* Material cards */
+/* ==================================================
+   8. KARTU DAN MATERI
+   ================================================== */
+.material-section {
+    background: var(--blue-pale);
+}
 
-.material-content {
-    max-width: 1050px;
-
-    margin: auto;
-
+.material-grid {
     display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 18px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 28px;
 }
 
-.content-card,
-.type-card,
-.application-card,
-.feature-item {
+.content-card {
+    padding: 28px;
+    border: 1px solid #e4ebf7;
+    border-radius: 20px;
     background: white;
-
-    border: 1px solid var(--line);
-
-    border-radius: var(--radius);
-
-    padding: 25px;
-
     box-shadow: var(--shadow);
-
-    transition: all 0.25s ease;
 }
 
-.content-card:hover,
-.type-card:hover,
-.application-card:hover,
-.feature-item:hover {
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 18px 40px rgba(57, 93, 145, 0.13);
-}
-
-.content-card h3,
-.type-card h3,
-.application-card h3 {
-    margin-bottom: 10px;
+.content-card h3 {
+    margin-bottom: 12px;
+    color: var(--blue-dark);
+    font-size: 18px;
 }
 
 .content-card p,
-.content-card li,
-.type-card p,
-.application-card p {
+.content-card li {
     color: var(--muted);
-
     font-size: 14px;
 }
 
 .content-card ul {
-    padding-left: 18px;
+    padding-left: 20px;
 }
 
+.content-card li + li {
+    margin-top: 7px;
+}
 
-/* Contoh bilangan */
+.card-icon {
+    display: inline-grid;
+    place-items: center;
+    min-width: 48px;
+    height: 48px;
+    margin-bottom: 18px;
+    padding: 8px;
+    color: var(--blue-dark);
+    background: var(--blue-light);
+    border-radius: 14px;
+    font-size: 21px;
+    font-weight: 850;
+}
 
 .example-list {
     display: flex;
-
-    gap: 8px;
-
     flex-wrap: wrap;
-
+    gap: 8px;
     margin-top: 15px;
 }
 
 .example-list span {
-    padding: 9px 13px;
-
-    border-radius: 10px;
-
-    background: var(--blue-light);
-
+    padding: 8px 12px;
     color: var(--blue-dark);
-
-    font-weight: 700;
-
-    transition: 0.2s ease;
+    background: var(--blue-light);
+    border-radius: 10px;
+    font-weight: 750;
 }
 
-.example-list span:hover {
-    background: var(--blue);
-
-    color: white;
-
-    transform: translateY(-2px);
-}
-
-
-/* =========================================================
-   12. HUBUNGAN KONSEP
-   ========================================================= */
-
-.transition-section,
-.conversion-section,
-.comparison-section,
-.equivalent-section,
-.fraction-types-section {
-    background: white;
-}
-
-.relationship-card,
-.conversion-card,
-.percent-example {
-    max-width: 900px;
-
-    margin: auto;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 15px;
-
-    flex-wrap: wrap;
-
-    padding: 30px;
-
-    background: #f7faff;
-
-    border: 1px solid var(--line);
-
-    border-radius: 24px;
-}
-
-.relationship-node,
-.conversion-value,
-.fraction-box,
-.decimal-box,
-.percent-box {
-    min-width: 110px;
-
-    padding: 18px 22px;
-
-    border-radius: 15px;
-
-    text-align: center;
-
-    background: white;
-
-    border: 1px solid var(--line);
-
-    font-size: 22px;
-
-    font-weight: 800;
-
-    transition: all 0.2s ease;
-}
-
-.relationship-node:hover,
-.conversion-value:hover {
-    transform: translateY(-3px);
-
-    border-color: var(--blue);
-
-    box-shadow: var(--shadow);
-}
-
-.relationship-node.highlight,
-.percent-box {
-    color: white;
-
-    background: var(--blue);
-
-    border-color: var(--blue);
-}
-
-.relationship-arrow,
-.conversion-arrow,
-.arrow {
-    font-size: 25px;
-
-    color: var(--blue);
-
-    font-weight: 800;
-}
-
-
-/* =========================================================
-   13. MATERI PECAHAN
-   ========================================================= */
-
+/* PECAHAN */
 .fraction-content {
-    max-width: 900px;
-
-    margin: auto;
-
     display: grid;
-
-    grid-template-columns: 0.8fr 1.2fr;
-
-    gap: 20px;
-}
-
-.fraction-display,
-.fraction-explanation {
-    background: white;
-
-    border: 1px solid var(--line);
-
-    border-radius: var(--radius);
-
-    padding: 35px;
-
-    box-shadow: var(--shadow);
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-bottom: 22px;
 }
 
 .fraction-display {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 240px;
 }
 
 .fraction-number {
-    display: inline-flex;
-
+    display: flex;
     flex-direction: column;
-
     align-items: center;
-
-    font-size: 42px;
-
-    font-weight: 800;
-
+    font-size: 45px;
+    font-weight: 850;
     line-height: 1.1;
 }
 
 .fraction-line {
     width: 80px;
-
-    height: 3px;
-
-    background: var(--text);
-
+    height: 4px;
     margin: 5px 0;
+    background: var(--text);
 }
 
 .fraction-display p {
-    color: var(--muted);
-
-    margin-top: 14px;
+    margin-top: 18px;
 }
 
-.explanation-item + .explanation-item {
-    margin-top: 24px;
+/* KONVERSI */
+.conversion-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    padding: 35px 20px;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background: white;
+    box-shadow: var(--shadow);
 }
 
-.explanation-item strong {
-    color: var(--blue-dark);
+.conversion-card > span {
+    color: var(--blue);
+    font-size: 27px;
+    font-weight: 800;
 }
 
-.explanation-item p {
-    color: var(--muted);
-
-    font-size: 14px;
-
-    margin-top: 4px;
-}
-
-
-/* =========================================================
-   14. JENIS PECAHAN
-   ========================================================= */
-
-.type-cards,
-.application-cards {
-    max-width: 1100px;
-
-    margin: auto;
-
+.conversion-value {
     display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 18px;
-}
-
-.type-visual {
-    height: 120px;
-
+    place-items: center;
+    min-width: 100px;
+    min-height: 78px;
+    padding: 15px;
     border-radius: 16px;
-
-    background: var(--blue-light);
-
-    display: grid;
-
-    place-items: center;
-
-    font-size: 34px;
-
-    font-weight: 800;
-
     color: var(--blue-dark);
-
-    margin-bottom: 18px;
+    background: var(--blue-light);
+    font-size: 23px;
+    font-weight: 850;
 }
 
-
-/* =========================================================
-   15. PECAHAN SENILAI
-   ========================================================= */
-
-.equivalent-fractions {
-    max-width: 900px;
-
-    margin: auto;
-
+/* ==================================================
+   9. OPERASI DAN LATIHAN
+   ================================================== */
+.operation-tabs,
+.quiz-options {
     display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 20px;
-
     flex-wrap: wrap;
-}
-
-.fraction-card {
-    background: #f7faff;
-
-    border: 1px solid var(--line);
-
-    border-radius: 20px;
-
-    padding: 22px;
-
-    min-width: 150px;
-
-    text-align: center;
-
-    transition: 0.25s ease;
-}
-
-.fraction-card:hover {
-    transform: translateY(-5px);
-
-    box-shadow: var(--shadow);
-
-    border-color: #c9daf2;
-}
-
-.fraction {
-    font-size: 28px;
-
-    font-weight: 800;
-
-    line-height: 1.1;
-}
-
-.circle-model {
-    margin-top: 14px;
-
-    font-size: 52px;
-
-    color: var(--blue);
-}
-
-.equals {
-    font-size: 28px;
-
-    font-weight: 800;
-
-    color: var(--blue);
-}
-
-
-/* =========================================================
-   16. KONVERSI DESIMAL
-   ========================================================= */
-
-.conversion-note {
-    max-width: 700px;
-
-    margin: 22px auto 0;
-
-    text-align: center;
-}
-
-.conversion-note p {
-    color: var(--muted);
-
-    margin-top: 5px;
-}
-
-
-/* =========================================================
-   17. PROGRESS BAR
-   ========================================================= */
-
-.progress-area {
-    max-width: 700px;
-
-    margin: 28px auto 0;
-}
-
-.progress-label {
-    display: flex;
-
-    justify-content: space-between;
-
-    font-size: 13px;
-
-    color: var(--muted);
-
-    margin: 10px 0;
-}
-
-.progress-bar {
-    height: 12px;
-
-    border-radius: 20px;
-
-    background: #e8eef7;
-
-    overflow: hidden;
-}
-
-.progress-fill {
-    width: 25%;
-
-    height: 100%;
-
-    background: linear-gradient(
-        90deg,
-        var(--blue),
-        #78a8fa
-    );
-
-    border-radius: inherit;
-
-    animation: progressAnimation 1.5s ease;
-}
-
-@keyframes progressAnimation {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 25%;
-    }
-}
-
-
-/* =========================================================
-   18. PERBANDINGAN PECAHAN
-   ========================================================= */
-
-.comparison-problem {
-    display: flex;
-
     justify-content: center;
-
-    align-items: center;
-
-    gap: 30px;
-
-    margin-bottom: 28px;
-}
-
-.comparison-fraction {
-    width: 140px;
-
-    height: 120px;
-
-    display: grid;
-
-    place-items: center;
-
-    background: white;
-
-    border: 1px solid var(--line);
-
-    border-radius: 20px;
-
-    box-shadow: var(--shadow);
-
-    font-size: 32px;
-
-    font-weight: 800;
-}
-
-.comparison-symbol {
-    font-size: 35px;
-
-    color: var(--blue);
-
-    font-weight: 800;
-}
-
-.answer-buttons {
-    display: flex;
-
-    justify-content: center;
-
     gap: 10px;
-
-    flex-wrap: wrap;
+    margin-bottom: 22px;
 }
 
-.answer-buttons button {
-    padding: 12px 18px;
-
-    background: white;
-
-    border: 1px solid var(--line);
-
+.operation-tab,
+.quiz-options button {
+    padding: 12px 17px;
+    border: 1px solid #dce6f5;
     border-radius: 12px;
-
-    color: var(--text);
-
+    background: white;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
     transition: all 0.2s ease;
 }
 
-.answer-buttons button:hover {
+.operation-tab:hover,
+.quiz-options button:hover {
     border-color: var(--blue);
-
     color: var(--blue-dark);
-
-    transform: translateY(-2px);
 }
 
-
-/* =========================================================
-   19. OPERASI PECAHAN
-   ========================================================= */
-
-.operation-section {
-    background: #f7faff;
+.operation-tab.active {
+    border-color: var(--blue);
+    color: white;
+    background: var(--blue);
 }
 
-.operation-content {
-    max-width: 900px;
-
-    margin: auto;
-
-    background: white;
-
-    border: 1px solid var(--line);
-
-    border-radius: 24px;
-
-    padding: 30px;
-
-    box-shadow: var(--shadow);
-}
-
-.operation-question {
-    text-align: center;
-
-    padding-bottom: 25px;
-
-    border-bottom: 1px solid var(--line);
-}
-
-.operation-question p {
-    color: var(--muted);
-}
-
-.operation-question h3 {
-    font-size: 32px;
-
-    margin-top: 8px;
-}
-
-.operation-steps {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 15px;
-
-    margin: 25px 0;
-}
-
-.step {
-    padding: 18px;
-
-    background: #f7faff;
-
-    border-radius: 15px;
-
-    transition: 0.2s ease;
-}
-
-.step:hover {
-    background: var(--blue-light);
-
-    transform: translateY(-3px);
-}
-
-.step span {
-    color: var(--blue);
-
-    font-weight: 800;
-}
-
-.step p {
-    margin-top: 7px;
-
-    font-size: 13px;
-
-    color: var(--muted);
-}
-
-.operation-result {
-    padding: 20px;
-
-    text-align: center;
-
-    background: #e8faf4;
-
-    border-radius: 15px;
-}
-
-.operation-result span {
-    display: block;
-
-    color: #419477;
-
-    font-size: 12px;
-}
-
-.operation-result strong {
-    font-size: 30px;
-
-    color: #218663;
-}
-
-
-/* =========================================================
-   20. PENERAPAN
-   ========================================================= */
-
-.application-section {
-    background: white;
-}
-
-.application-cards {
-    grid-template-columns: repeat(4, 1fr);
-}
-
-.application-icon {
-    font-size: 38px;
-
-    margin-bottom: 15px;
-}
-
-.application-example {
-    display: inline-block;
-
-    margin-top: 15px;
-
-    padding: 7px 10px;
-
-    background: #f0f5ff;
-
-    border-radius: 9px;
-
-    color: var(--blue-dark);
-
-    font-size: 12px;
-
-    font-weight: 700;
-}
-
-
-/* =========================================================
-   21. AKTIVITAS HUBUNGAN
-   ========================================================= */
-
-.relationship-section {
-    background: #f7faff;
-}
-
-.relationship-game {
+.operation-content,
+.quiz-card {
     max-width: 700px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 25px;
+    margin: 0 auto;
 }
 
-.relationship-column {
-    background: white;
-
-    border: 1px solid var(--line);
-
-    border-radius: 20px;
-
-    padding: 22px;
-}
-
-.relationship-column h3 {
-    margin-bottom: 15px;
-}
-
-.relationship-column button {
-    display: block;
-
-    width: 100%;
-
-    padding: 13px;
-
+.operation-content p {
     margin-top: 10px;
-
-    border-radius: 11px;
-
-    background: #f5f8fd;
-
-    border: 1px solid var(--line);
-
-    color: var(--text);
-
-    transition: 0.2s ease;
 }
 
-.relationship-column button:hover {
-    border-color: var(--blue);
-
-    background: var(--blue-light);
-
+#operationExample {
     color: var(--blue-dark);
+    font-size: 28px;
+    font-weight: 850;
 }
 
-
-/* =========================================================
-   22. REFLEKSI
-   ========================================================= */
-
-.reflection-section {
-    background: white;
-}
-
-.reflection-card {
-    max-width: 900px;
-
-    margin: auto;
-
-    padding: 45px;
-
-    border-radius: 28px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #eaf3ff,
-            #f3efff
-        );
-
-    display: flex;
-
-    gap: 30px;
-
-    align-items: center;
-}
-
-.reflection-icon {
-    width: 90px;
-
-    height: 90px;
-
-    flex: 0 0 90px;
-
-    display: grid;
-
-    place-items: center;
-
-    background: white;
-
-    border-radius: 25px;
-
-    font-size: 42px;
-
-    box-shadow: 0 8px 20px rgba(57, 93, 145, 0.08);
-}
-
-.reflection-content h2 {
-    margin: 5px 0 10px;
-}
-
-.reflection-content p {
-    color: var(--muted);
-}
-
-.reflection-button {
+.quiz-options {
+    justify-content: flex-start;
     margin-top: 20px;
+}
 
-    padding: 11px 18px;
-
-    background: var(--blue);
-
-    color: white;
-
-    border-radius: 11px;
-
+#quizFeedback,
+#reflectionFeedback {
+    margin-top: 15px;
     font-weight: 700;
-
-    transition: 0.2s ease;
 }
 
-.reflection-button:hover {
-    background: var(--blue-dark);
-
-    transform: translateY(-2px);
-}
-
-
-/* =========================================================
-   23. PERSONAL CONCEPT MAP
-   ========================================================= */
-
-.personal-map-section {
-    background: #f7faff;
-}
-
-.personal-map {
-    max-width: 800px;
-
-    height: 420px;
-
-    margin: auto;
-
-    position: relative;
-
-    border: 1px solid var(--line);
-
-    border-radius: 25px;
-
-    background: white;
-
-    overflow: hidden;
-
-    background-image:
-        radial-gradient(
-            #dbe9fa 1px,
-            transparent 1px
-        );
-
-    background-size: 22px 22px;
-}
-
-.personal-map-center,
-.personal-map-node {
-    position: absolute;
-
-    padding: 13px 18px;
-
-    border-radius: 14px;
-
-    font-weight: 700;
-
-    background: white;
-
-    border: 1px solid var(--line);
-
-    box-shadow:
-        0 8px 20px rgba(57, 93, 145, 0.08);
-
-    transition: 0.25s ease;
-
-    z-index: 2;
-}
-
-.personal-map-center {
-    left: 50%;
-
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    background: var(--blue);
-
-    color: white;
-
-    border-color: var(--blue);
-}
-
-.personal-map-node:hover {
-    transform: translateY(-4px);
-
-    border-color: var(--blue);
-
-    box-shadow: var(--shadow);
-}
-
-.personal-map-center:hover {
-    transform: translate(-50%, -50%) scale(1.05);
-}
-
-.node-a {
-    left: 10%;
-    top: 20%;
-}
-
-.node-b {
-    right: 10%;
-    top: 20%;
-}
-
-.node-c {
-    left: 8%;
-    bottom: 20%;
-}
-
-.node-d {
-    right: 8%;
-    bottom: 20%;
-}
-
-.node-e {
-    left: 50%;
-    top: 12%;
-
-    transform: translateX(-50%);
-}
-
-.node-f {
-    left: 50%;
-    bottom: 12%;
-
-    transform: translateX(-50%);
-}
-
-.node-e:hover,
-.node-f:hover {
-    transform: translateX(-50%) translateY(-4px);
-}
-
-.map-actions {
-    text-align: center;
-
-    margin-top: 22px;
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 10px;
-}
-
-
-/* =========================================================
-   24. ABOUT
-   ========================================================= */
-
-.about-section {
-    background: white;
-}
-
-.about-content {
-    max-width: 900px;
-
-    margin: auto;
-
-    text-align: center;
-}
-
-.about-content > p {
-    color: var(--muted);
-
-    margin: 8px auto;
-
-    max-width: 780px;
-}
-
-.about-features {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 15px;
-
-    margin-top: 30px;
-}
-
-.feature-item strong,
-.feature-item span {
+#reflectionForm label {
     display: block;
+    margin-bottom: 10px;
+    font-weight: 750;
 }
 
-.feature-item strong {
-    color: var(--blue-dark);
-
-    margin-bottom: 5px;
+#reflectionAnswer {
+    display: block;
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 14px;
+    resize: vertical;
+    border: 1px solid #dce6f5;
+    border-radius: 12px;
+    outline-color: var(--blue);
 }
 
-.feature-item span {
-    color: var(--muted);
-
-    font-size: 13px;
-}
-
-
-/* =========================================================
-   25. FOOTER
-   ========================================================= */
-
+/* ==================================================
+   10. FOOTER
+   ================================================== */
 .footer {
-    padding: 35px 7%;
-
-    background: #24354d;
-
-    color: white;
-
+    padding: 35px 24px;
     text-align: center;
+    color: var(--muted);
+    background: white;
+    border-top: 1px solid var(--line);
 }
 
-.footer-logo {
-    font-weight: 800;
-
+.footer strong {
+    color: #17477f;
     letter-spacing: 1px;
 }
 
 .footer p {
-    color: #b8c5d7;
-
-    font-size: 13px;
-
-    margin-top: 5px;
+    margin: 8px 0;
+    font-size: 14px;
 }
 
-.footer .copyright {
-    margin-top: 18px;
-
-    font-size: 11px;
+.footer small {
+    font-size: 12px;
 }
 
-
-/* =========================================================
-   26. SCROLLBAR
-   ========================================================= */
-
-::-webkit-scrollbar {
-    width: 8px;
+/* ==================================================
+   11. OVERLAY MOBILE
+   ================================================== */
+.sidebar-overlay {
+    display: none;
 }
 
-::-webkit-scrollbar-track {
-    background: #f1f5fa;
+/* ==================================================
+   12. TABLET
+   ================================================== */
+@media (max-width: 1100px) {
+    :root {
+        --sidebar-width: 225px;
+        --topbar-height: 76px;
+    }
+
+    .topbar {
+        gap: 17px;
+        padding: 12px 22px;
+    }
+
+    .brand-name {
+        font-size: 17px;
+    }
+
+    .topbar-nav {
+        gap: 18px;
+    }
+
+    .page-section {
+        padding: 60px 28px;
+    }
+
+    .landing-section {
+        grid-template-columns: 1fr 0.75fr;
+    }
+
+    .hero-illustration {
+        transform: scale(0.85);
+    }
 }
 
-::-webkit-scrollbar-thumb {
-    background: #c6d4e8;
+/* ==================================================
+   13. MOBILE
+   ================================================== */
+@media (max-width: 760px) {
+    :root {
+        --topbar-height: 70px;
+    }
 
-    border-radius: 20px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #a9bdd8;
-}
-
-
-/* =========================================================
-   27. RESPONSIVE TABLET
-   ========================================================= */
-
-@media (max-width: 1000px) {
-
-    /* Sidebar */
+    .main-content {
+        margin-left: 0;
+    }
 
     .sidebar {
-        transform: translateX(-100%);
+        width: min(290px, 85vw);
+        transform: translateX(-105%);
+        box-shadow: none;
     }
 
     .sidebar.open {
         transform: translateX(0);
+        box-shadow: 15px 0 45px rgba(27, 48, 82, 0.12);
     }
 
-
-    /* Main */
-
-    .main-content {
-        margin-left: 0;
-
-        width: 100%;
+    .sidebar-overlay {
+        position: fixed;
+        z-index: 950;
+        inset: 0;
+        display: block;
+        visibility: hidden;
+        background: rgba(23, 39, 65, 0.35);
+        opacity: 0;
+        transition: opacity 0.25s ease, visibility 0.25s ease;
     }
 
+    .sidebar-overlay.visible {
+        visibility: visible;
+        opacity: 1;
+    }
 
-    /* Menu */
+    .topbar {
+        gap: 12px;
+        padding: 10px 16px;
+    }
 
     .menu-toggle {
-        display: block;
+        display: grid;
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
     }
 
+    .search-button {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+    }
 
-    /* Hero */
+    .brand {
+        gap: 7px;
+    }
+
+    .brand-icon {
+        font-size: 27px;
+    }
+
+    .brand-name {
+        font-size: 14px;
+        letter-spacing: 0;
+    }
+
+    .topbar-nav {
+        display: none;
+    }
+
+    .search-panel {
+        top: var(--topbar-height);
+        padding: 12px 16px;
+    }
+
+    .page-section {
+        padding: 48px 20px;
+    }
 
     .landing-section {
+        min-height: auto;
         grid-template-columns: 1fr;
-
-        text-align: center;
+        gap: 10px;
+        padding-top: 60px;
     }
 
-    .hero-content {
-        display: flex;
-
-        flex-direction: column;
-
-        align-items: center;
+    .hero-content h1 {
+        font-size: clamp(52px, 14vw, 76px);
+        letter-spacing: -2px;
     }
 
     .hero-description {
-        margin: auto;
+        font-size: 15px;
     }
 
-    .hero-buttons {
-        justify-content: center;
+    .hero-illustration {
+        min-height: 290px;
+        transform: scale(0.8);
+        margin: -15px 0;
     }
 
-
-    /* Cards */
-
-    .material-content,
-    .type-cards,
-    .application-cards {
-        grid-template-columns: repeat(2, 1fr);
+    .material-grid {
+        grid-template-columns: 1fr;
     }
-
-
-    /* Fraction */
 
     .fraction-content {
         grid-template-columns: 1fr;
     }
 
-
-    /* Operation */
-
-    .operation-steps {
-        grid-template-columns: 1fr;
+    .concept-map {
+        padding: 26px 12px;
     }
 
+    .concept-level {
+        gap: 9px;
+    }
 
-    /* Application */
+    .concept-node {
+        min-height: 43px;
+        padding: 10px 13px;
+        font-size: 12px;
+    }
 
-    .application-cards {
-        grid-template-columns: repeat(2, 1fr);
+    .sub-node {
+        flex: 1 1 28%;
+    }
+
+    .connector {
+        height: 27px;
+    }
+
+    .content-card {
+        padding: 22px;
+    }
+
+    .conversion-card {
+        gap: 12px;
+    }
+
+    .conversion-value {
+        min-width: 75px;
+        min-height: 65px;
+        font-size: 19px;
+    }
+
+    .conversion-card > span {
+        font-size: 20px;
+    }
+
+    .operation-tabs {
+        gap: 7px;
+    }
+
+    .operation-tab {
+        padding: 10px 12px;
+        font-size: 12px;
     }
 }
 
+/* ==================================================
+   14. MOBILE KECIL
+   ================================================== */
+@media (max-width: 380px) {
+    .brand-name {
+        font-size: 12px;
+    }
 
-/* =========================================================
-   28. RESPONSIVE HP
-   ========================================================= */
-
-@media (max-width: 650px) {
-
-    /* Topbar */
+    .brand-icon {
+        font-size: 23px;
+    }
 
     .topbar {
-        padding: 0 18px;
+        gap: 8px;
+        padding-inline: 10px;
     }
 
-    .breadcrumb {
-        font-size: 11px;
-    }
-
-
-    /* Section */
-
-    .page-section {
-        padding: 55px 5%;
-    }
-
-
-    /* Hero */
-
-    .hero-content h1 {
-        font-size: 55px;
-
-        letter-spacing: -2px;
-    }
-
-    .hero-description {
-        font-size: 14px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-
-        width: 100%;
+    .menu-toggle,
+    .search-button {
+        width: 38px;
+        height: 38px;
     }
 
     .hero-buttons .btn {
         width: 100%;
     }
 
-    .hero-illustration {
-        min-height: 280px;
+    .concept-node {
+        padding: 9px;
+        font-size: 11px;
     }
+}
 
-
-    /* Cards */
-
-    .material-content,
-    .type-cards,
-    .application-cards,
-    .about-features,
-    .relationship-game {
-        grid-template-columns: 1fr;
-    }
-
-
-    /* Reflection */
-
-    .reflection-card {
-        flex-direction: column;
-
-        text-align: center;
-
-        padding: 30px;
-    }
-
-
-    /* Concept map */
-
-    .concept-map {
-        min-height: 520px;
-    }
-
-    .concept-map .main-node {
-        position: static;
-
-        transform: none;
-
-        width: max-content;
-
-        margin: 35px auto 25px;
-    }
-
-    .concept-map .main-node:hover {
-        transform: scale(1.03);
-    }
-
-    .concept-node:nth-of-type(8),
-    .concept-node:nth-of-type(9),
-    .concept-node:nth-of-type(10),
-    .concept-node:nth-of-type(11),
-    .concept-node:nth-of-type(12),
-    .concept-node:nth-of-type(13) {
-        position: static;
-
-        display: block;
-
-        width: max-content;
-
-        margin: 15px auto;
-
-        transform: none;
-    }
-
-    .concept-map .application-node {
-        position: static;
-
-        transform: none;
-
-        width: max-content;
-
-        margin: 20px auto;
-    }
-
-
-    /* Concept line */
-
-    .concept-line {
-        display: none;
-    }
-
-
-    /* Relationship */
-
-    .relationship-card,
-    .conversion-card,
-    .percent-example {
-        padding: 20px;
-
-        gap: 10px;
-    }
-
-    .relationship-arrow,
-    .conversion-arrow,
-    .arrow {
-        font-size: 20px;
-    }
-
-
-    /* Comparison */
-
-    .comparison-problem {
-        gap: 15px;
-    }
-
-    .comparison-fraction {
-        width: 110px;
-
-        height: 100px;
-
-        font-size: 26px;
-    }
-
-
-    /* Personal map */
-
-    .personal-map {
-        height: 480px;
-    }
-
-    .node-a {
-        left: 5%;
-        top: 18%;
-    }
-
-    .node-b {
-        right: 5%;
-        top: 18%;
-    }
-
-    .node-c {
-        left: 5%;
-        bottom: 18%;
-    }
-
-    .node-d {
-        right: 5%;
-        bottom: 18%;
-    }
-
-
-    /* Footer */
-
-    .footer {
-        padding: 30px 5%;
+/* Kurangi animasi jika diminta melalui pengaturan perangkat */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }

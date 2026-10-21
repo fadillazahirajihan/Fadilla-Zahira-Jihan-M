@@ -1,1662 +1,510 @@
+
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
-
-    <!-- Agar website responsif di laptop, tablet, dan HP -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="theme-color" content="#f5f8ff">
     <title>Math Connect - Belajar Matematika</title>
-
-    <!--
-        CSS akan kita tambahkan pada tahap berikutnya.
-        Untuk sekarang dibiarkan kosong.
-    -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-
 <body>
-
-    <!-- =====================================================
-         1. STRUKTUR UTAMA WEBSITE
-         ===================================================== -->
-
-    <div class="app-container">
-
-
-        <!-- =================================================
-             2. SIDEBAR / MENU SAMPING
-             ================================================= -->
-
-        <aside class="sidebar" id="sidebar">
-
-            <!-- Logo -->
-            <div class="logo-area">
-
-                <div class="logo-icon">
-                    M
-                </div>
-
-                <div class="logo-text">
-                    <h2>MATH</h2>
-                    <span>CONNECT</span>
-                </div>
-
-            </div>
-
-
-            <!-- Menu navigasi -->
-            <nav class="main-navigation">
-
-                <a href="#beranda" class="nav-item active">
-                    <span class="nav-icon">⌂</span>
-                    <span>Beranda</span>
-                </a>
-
-                <a href="#konsep" class="nav-item">
-                    <span class="nav-icon">◎</span>
-                    <span>Peta Konsep</span>
-                </a>
-
-                <a href="#bilangan" class="nav-item">
-                    <span class="nav-icon">123</span>
-                    <span>Bilangan</span>
-                </a>
-
-                <a href="#pecahan" class="nav-item">
-                    <span class="nav-icon">½</span>
-                    <span>Pecahan</span>
-                </a>
-
-                <a href="#desimal" class="nav-item">
-                    <span class="nav-icon">0,5</span>
-                    <span>Desimal</span>
-                </a>
-
-                <a href="#persen" class="nav-item">
-                    <span class="nav-icon">%</span>
-                    <span>Persen</span>
-                </a>
-
-                <a href="#rasio" class="nav-item">
-                    <span class="nav-icon">∶</span>
-                    <span>Rasio</span>
-                </a>
-
-                <a href="#operasi" class="nav-item">
-                    <span class="nav-icon">＋</span>
-                    <span>Operasi</span>
-                </a>
-
-                <a href="#penerapan" class="nav-item">
-                    <span class="nav-icon">⌘</span>
-                    <span>Penerapan</span>
-                </a>
-
-            </nav>
-
-
-            <!-- Bagian bawah sidebar -->
-
-            <div class="sidebar-bottom">
-
-                <a href="#tentang" class="nav-item">
-                    <span class="nav-icon">?</span>
-                    <span>Tentang</span>
-                </a>
-
-            </div>
-
-        </aside>
-
-
-
-        <!-- =================================================
-             3. AREA KONTEN UTAMA
-             ================================================= -->
-
-        <main class="main-content">
-
-
-            <!-- =================================================
-                 4. TOP BAR
-                 ================================================= -->
-
-            
-<header class="topbar landing-topbar">
-
-    <!-- Logo dan nama website -->
-    <a href="#beranda" class="brand">
-        <span class="brand-icon">📘</span>
-        <span class="brand-name">MATH CONNECT</span>
-    </a>
-
-    <!-- Navigasi landing page -->
-    <nav class="topbar-nav" id="topbarNav">
-        <a href="#beranda" class="nav-link active">Home</a>
-        <a href="#konsep" class="nav-link">Peta Konsep</a>
-        <a href="#bilangan" class="nav-link">Cari Konsep</a>
-    </nav>
-
-    <!-- Aksi bagian kanan -->
-    <div class="topbar-actions">
-
-        <button
-            type="button"
-            class="search-button"
-            id="searchToggle"
-            aria-label="Cari konsep"
-            title="Cari konsep">
-            <svg viewBox="0 0 24 24"
-                 width="21"
-                 height="21"
-                 fill="none"
-                 stroke="currentColor"
-                 stroke-width="2"
-                 stroke-linecap="round">
-                <circle cx="10.8" cy="10.8" r="6.5"></circle>
-                <path d="m16 16 4.5 4.5"></path>
-            </svg>
-        </button>
-
-        <!-- Pencarian -->
-        <form class="topbar-search" id="topbarSearch" hidden>
-            <input
-                type="search"
-                id="conceptSearch"
-                placeholder="Cari konsep..."
-                aria-label="Masukkan nama konsep">
-            <button type="submit">Cari</button>
-        </form>
-
-        <!-- Menu mobile -->
-        <button
-            type="button"
-            class="menu-toggle"
-            id="menuToggle"
-            aria-label="Buka menu"
-            aria-expanded="false">
-            ☰
-        </button>
-
-    </div>
-
-</header>
-
-
-
-            <!-- =================================================
-                 5. HALAMAN BERANDA / LANDING PAGE
-                 ================================================= -->
-
-            <section id="beranda" class="page-section landing-section">
-
-
-                <div class="hero-content">
-
-                    <span class="small-title">
-                        PLATFORM BELAJAR MATEMATIKA
-                    </span>
-
-                    <h1>
-                        MATH
-                        <span>CONNECT</span>
-                    </h1>
-
-                    <p class="hero-description">
-                        Matematika bukan sekadar kumpulan rumus.
-                        Temukan bagaimana setiap konsep saling
-                        terhubung dan membentuk pemahaman yang utuh.
-                    </p>
-
-
-                    <div class="hero-buttons">
-
-                        <a href="#konsep" class="btn btn-primary">
-                            Mulai Eksplorasi
-                        </a>
-
-                        <a href="#bilangan" class="btn btn-secondary">
-                            Mulai dari Bilangan
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Ilustrasi -->
-                <div class="hero-illustration">
-
-                    <div class="illustration-circle circle-one">
-                        1
-                    </div>
-
-                    <div class="illustration-circle circle-two">
-                        2
-                    </div>
-
-                    <div class="illustration-circle circle-three">
-                        3
-                    </div>
-
-                    <div class="illustration-circle circle-four">
-                        +
-                    </div>
-
-      
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================================
-                 6. PETA KONSEP
-                 ================================================= -->
-
-            
-<section id="konsep" class="page-section concept-section">
-
-    <div class="section-header">
-        <span class="section-label">EKSPLORASI</span>
-        <h2>Peta Konsep</h2>
-        <p>
-            Lihat bagaimana konsep-konsep matematika
-            saling berhubungan.
-        </p>
-    </div>
-
-    <!-- Area Peta Konsep -->
-    <div class="concept-map">
-
-        <div class="concept-tree">
-
-            <!-- Konsep utama -->
-            <div class="concept-level level-main">
-                <button class="concept-node main-node"
-                        data-concept="Bilangan">
-                    <span class="node-icon">▦</span>
-                    <span>Bilangan</span>
-                </button>
-            </div>
-
-            <!-- Hubungan ke konsep bilangan -->
-            <div class="tree-connector root-connector">
-                <span></span>
-            </div>
-
-            <!-- Cabang bilangan -->
-            <div class="concept-level number-level">
-
-                <button class="concept-node sub-node"
-                        data-concept="Bilangan Cacah">
-                    Bilangan Cacah
-                </button>
-
-                <button class="concept-node sub-node"
-                        data-concept="Bilangan Bulat">
-                    Bilangan Bulat
-                </button>
-
-                <button class="concept-node sub-node"
-                        data-concept="Bilangan Rasional">
-                    Bilangan Rasional
-                </button>
-
-            </div>
-
-            <!-- Hubungan menuju pecahan -->
-            <div class="tree-connector fraction-connector">
-                <span></span>
-            </div>
-
-            <!-- Konsep pecahan -->
-            <div class="concept-level level-fraction">
-                <button class="concept-node fraction-node"
-                        data-concept="Pecahan">
-                    <span class="node-icon">½</span>
-                    <span>Pecahan</span>
-                </button>
-            </div>
-
-            <!-- Hubungan pecahan ke turunannya -->
-            <div class="tree-connector derived-connector">
-                <span></span>
-            </div>
-
-            <!-- Desimal, persen, dan rasio -->
-            <div class="concept-level derived-level">
-
-                <button class="concept-node decimal-node"
-                        data-concept="Desimal">
-                    Desimal
-                </button>
-
-                <button class="concept-node percent-node"
-                        data-concept="Persen">
-                    Persen
-                </button>
-
-                <button class="concept-node ratio-node"
-                        data-concept="Rasio">
-                    Rasio
-                </button>
-
-            </div>
-
-            <!-- Hubungan menuju penerapan -->
-            <div class="tree-connector application-connector">
-                <span></span>
-            </div>
-
-            <!-- Penerapan -->
-            <div class="concept-level level-application">
-                <button class="concept-node application-node"
-                        data-concept="Penerapan">
-                    <span class="node-icon">▤</span>
-                    <span>Penerapan</span>
-                </button>
-            </div>
-
-        </div>
-
-        <!-- Panel informasi konsep -->
-        <div class="concept-info" id="conceptInfo" hidden>
-            <button class="concept-info-close"
-                    id="closeConceptInfo"
-                    aria-label="Tutup informasi">
-                &times;
+<div class="app-container">
+
+    <!-- OVERLAY MOBILE -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <a href="#beranda" class="logo-area">
+            <span class="logo-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M5 3h12a2 2 0 0 1 2 2v16H7a2 2 0 0 1-2-2z"/>
+                    <path d="M5 18a2 2 0 0 1 2-2h12M9 7h6M9 11h6"/>
+                </svg>
+            </span>
+            <span class="logo-text">
+                <strong>MATH CONNECT</strong>
+                <small>LEARN MATHEMATICS</small>
+            </span>
+        </a>
+
+        <nav class="main-navigation" aria-label="Navigasi utama">
+
+            <a href="#beranda" class="nav-item active">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <path d="m3 10 9-7 9 7"/>
+                    <path d="M5 9v11h14V9M9 20v-7h6v7"/>
+                </svg>
+                <span class="nav-label">Beranda</span>
+            </a>
+
+            <a href="#konsep" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <rect x="8" y="2" width="8" height="5" rx="1"/>
+                    <rect x="2" y="17" width="8" height="5" rx="1"/>
+                    <rect x="14" y="17" width="8" height="5" rx="1"/>
+                    <path d="M12 7v4M6 17v-3h12v3"/>
+                </svg>
+                <span class="nav-label">Peta Konsep</span>
+            </a>
+
+            <!-- MENU MATERI -->
+            <button type="button"
+                    class="nav-item materi-toggle"
+                    id="materiToggle"
+                    aria-expanded="false"
+                    aria-controls="materiSubmenu">
+
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <path d="M4 4a2 2 0 0 1 2-2h14v18H6a2 2 0 0 0-2 2z"/>
+                    <path d="M4 4v18M8 7h8M8 11h8"/>
+                </svg>
+
+                <span class="nav-label">Materi</span>
+
+                <svg class="nav-arrow" viewBox="0 0 24 24">
+                    <path d="m7 10 5 5 5-5"/>
+                </svg>
             </button>
 
-            <h3 id="conceptTitle"></h3>
-            <p id="conceptDescription"></p>
-            <a href="#bilangan"
-               class="btn btn-primary"
-               id="conceptLink">
-                Pelajari Konsep
+            <!-- SUBMENU -->
+            <div class="submenu" id="materiSubmenu" hidden>
+                <a href="#bilangan" class="submenu-item">
+                    <span class="submenu-dot"></span>Bilangan
+                </a>
+                <a href="#pecahan" class="submenu-item">
+                    <span class="submenu-dot"></span>Pecahan
+                </a>
+                <a href="#desimal" class="submenu-item">
+                    <span class="submenu-dot"></span>Desimal
+                </a>
+                <a href="#persen" class="submenu-item">
+                    <span class="submenu-dot"></span>Persen
+                </a>
+                <a href="#rasio" class="submenu-item">
+                    <span class="submenu-dot"></span>Rasio
+                </a>
+                <a href="#operasi" class="submenu-item">
+                    <span class="submenu-dot"></span>Operasi
+                </a>
+                <a href="#penerapan" class="submenu-item">
+                    <span class="submenu-dot"></span>Penerapan
+                </a>
+            </div>
+
+            <a href="#refleksi" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <rect x="4" y="3" width="16" height="18" rx="3"/>
+                    <path d="M8 8h8M8 12h8M8 16l2 2 5-5"/>
+                </svg>
+                <span class="nav-label">Refleksi</span>
             </a>
+
+            <a href="#profil" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="4"/>
+                    <path d="M4 21a8 8 0 0 1 16 0"/>
+                </svg>
+                <span class="nav-label">Profil</span>
+            </a>
+
+            <a href="#tentang" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9"/>
+                    <path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 2-2.5 2-2.5 4M12 17h.01"/>
+                </svg>
+                <span class="nav-label">Tentang</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-note">
+                <span class="note-icon">✦</span>
+                <div>
+                    <strong>Terus Belajar!</strong>
+                    <small>Pahami hubungan konsep.</small>
+                </div>
+            </div>
         </div>
-
-    </div>
-
-    <div class="section-action">
-        <a href="#bilangan" class="btn btn-primary">
-            Eksplorasi Konsep
-        </a>
-    </div>
-
-</section>
-
-
-
-
-            <!-- =================================================
-                 7. MATERI BILANGAN
-                 ================================================= -->
-
-            <section id="bilangan" class="page-section material-section">
-
-
-                <div class="section-header">
-
-                    <span class="section-label">
-                        MATERI 01
-                    </span>
-
-                    <h2>
-                        Bilangan
-                    </h2>
-
-                    <p>
-                        Bilangan digunakan untuk menyatakan jumlah,
-                        ukuran, urutan, dan berbagai situasi dalam
-                        kehidupan sehari-hari.
-                    </p>
-
-                </div>
-
-
-                <!-- Tab materi -->
-
-                <div class="material-tabs">
-
-                    <button class="tab-button active">
-                        Konsep
-                    </button>
-
-                    <button class="tab-button">
-                        Jenis
-                    </button>
-
-                    <button class="tab-button">
-                        Contoh
-                    </button>
-
-                    <button class="tab-button">
-                        Hubungan
-                    </button>
-
-                </div>
-
-
-                <!-- Isi materi -->
-
-                <div class="material-content">
-
-
-                    <article class="content-card">
-
-                        <h3>
-                            Apa itu Bilangan?
-                        </h3>
-
-                        <p>
-                            Bilangan adalah suatu konsep matematika
-                            yang digunakan untuk menyatakan banyaknya
-                            suatu objek atau menunjukkan suatu nilai.
-                        </p>
-
-                    </article>
-
-
-                    <article class="content-card">
-
-                        <h3>
-                            Jenis-Jenis Bilangan
-                        </h3>
-
-                        <ul>
-
-                            <li>
-                                Bilangan Cacah
-                            </li>
-
-                            <li>
-                                Bilangan Bulat
-                            </li>
-
-                            <li>
-                                Bilangan Rasional
-                            </li>
-
-                            <li>
-                                Bilangan Irasional
-                            </li>
-
-                            <li>
-                                Bilangan Real
-                            </li>
-
-                        </ul>
-
-                    </article>
-
-
-                    <article class="content-card">
-
-                        <h3>
-                            Contoh Bilangan
-                        </h3>
-
-                        <div class="example-list">
-
-                            <span>3</span>
-                            <span>−5</span>
-                            <span>½</span>
-                            <span>0,75</span>
-                            <span>25%</span>
-
-                        </div>
-
-                    </article>
-
-
-                </div>
-
-
-                <!-- Tombol -->
-
-                <div class="section-action">
-
-                    <a href="#pecahan" class="btn btn-primary">
-                        Lanjut ke Pecahan →
-                    </a>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================================
-                 8. MENUJU PECAHAN
-                 ================================================= -->
-
-            <section id="pecahan" class="page-section transition-section">
-
-
-                <div class="section-header">
-
-                    <span class="section-label">
-                        HUBUNGAN KONSEP
-                    </span>
-
-                    <h2>
-                        Dari Bilangan ke Pecahan
-                    </h2>
-
-                    <p>
-                        Pecahan merupakan salah satu bentuk bilangan
-                        yang menyatakan bagian dari keseluruhan.
-                    </p>
-
-                </div>
-
-
-                <div class="relationship-card">
-
-                    <div class="relationship-node">
-                        Bilangan
-                    </div>
-
-                    <div class="relationship-arrow">
-                        ↓
-                    </div>
-
-                    <div class="relationship-node highlight">
-                        Pecahan
-                    </div>
-
-                    <div class="relationship-arrow">
-                        ↓
-                    </div>
-
-                    <div class="relationship-node">
-                        Desimal
-                    </div>
-
-                    <div class="relationship-arrow">
-                        ↓
-                    </div>
-
-                    <div class="relationship-node">
-                        Persen
-                    </div>
-
-                </div>
-
-
-            </section>
-
-
-
-            <!-- =================================================
-                 9. MATERI PECAHAN
-                 ================================================= -->
-
-            <section id="materi-pecahan" class="page-section material-section">
-
-
-                <div class="section-header">
-
-                    <span class="section-label">
-                        MATERI 02
-                    </span>
-
-                    <h2>
-                        Pecahan
-                    </h2>
-
-                    <p>
-                        Pecahan digunakan untuk menyatakan bagian
-                        dari suatu keseluruhan.
-                    </p>
-
-                </div>
-
-
-                <div class="fraction-content">
-
-
-                    <!-- Bentuk pecahan -->
-
-                    <div class="fraction-display">
-
-                        <div class="fraction-number">
-
-                            <span class="numerator">
-                                3
-                            </span>
-
-                            <span class="fraction-line">
-                            </span>
-
-                            <span class="denominator">
-                                4
-                            </span>
-
-                        </div>
-
-                        <p>
-                            Pecahan tiga per empat
-                        </p>
-
-                    </div>
-
-
-                    <!-- Penjelasan -->
-
-                    <div class="fraction-explanation">
-
-                        <div class="explanation-item">
-
-                            <strong>
-                                Pembilang
-                            </strong>
-
-                            <p>
-                                Menunjukkan banyak bagian yang
-                                diperhatikan.
-                            </p>
-
-                        </div>
-
-
-                        <div class="explanation-item">
-
-                            <strong>
-                                Penyebut
-                            </strong>
-
-                            <p>
-                                Menunjukkan banyak bagian sama besar
-                                dari keseluruhan.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-            </section>
-
-
-
-            <!-- =================================================
-                 10. JENIS-JENIS PECAHAN
-                 ================================================= -->
-
-            <section class="page-section fraction-types-section">
-
-
-                <div class="section-header">
-
-                    <span class="section-label">
-                        EKSPLORASI
-                    </span>
-
-                    <h2>
-                        Jenis-Jenis Pecahan
-                    </h2>
-
-                </div>
-
-
-                <div class="type-cards">
-
-
-                    <article class="type-card">
-
-                        <div class="type-visual">
-                            3/4
-                        </div>
-
-                        <h3>
-                            Pecahan Biasa
-                        </h3>
-
-                        <p>
-                            Pecahan yang ditulis dalam bentuk
-                            pembilang dan penyebut.
-                        </p>
-
-                    </article>
-
-
-                    <article class="type-card">
-
-                        <div class="type-visual">
-                            1 ½
-                        </div>
-
-                        <h3>
-                            Pecahan Campuran
-                        </h3>
-
-                        <p>
-                            Gabungan antara bilangan bulat
-                            dan pecahan biasa.
-                        </p>
-
-                    </article>
-
-
-                    <article class="type-card">
-
-                        <div class="type-visual">
-                            0,75
-                        </div>
-
-                        <h3>
-                            Desimal
-                        </h3>
-
-                        <p>
-                            Pecahan yang dinyatakan menggunakan
-                            sistem desimal.
-                        </p>
-
-                    </article>
-
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================================
-                 11. PECAHAN SENILAI
-                 ================================================= -->
-
-            <section id="pecahan-senilai" class="page-section equivalent-section">
-
-
-                <div class="section-header">
-
-                    <span class="section-label">
-                        KONSEP
-                    </span>
-
-                    <h2>
-                        Pecahan Senilai
-                    </h2>
-
-                    <p>
-                        Pecahan berbeda dapat memiliki nilai yang sama.
-                    </p>
-
-                </div>
-
-
-                <div class="equivalent-fractions">
-
-
-                    <div class="fraction-card">
-
-                        <div class="fraction">
-                            1<br>
-                            ─<br>
-                            2
-                        </div>
-
-                        <div class="circle-model">
-                            ◐
-                        </div>
-
-                    </div>
-
-
-                    <div class="equals">
-                        =
-                    </div>
-
-
-                    <div class="fraction-card">
-
-                        <div class="fraction">
-                            2<br>
-                            ─<br>
-                            4
-                        </div>
-
-                        <div class="circle-model">
-                            ◑
-                        </div>
-
-                    </div>
-
-
-                    <div class="equals">
-                        =
-                    </div>
-
-
-                    <div class="fraction-card">
-
-                        <div class="fraction">
-                            4<br>
-                            ─<br>
-                            8
-                        </div>
-
-                        <div class="circle-model">
-                            ◕
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-            </section>
-
-
-
-            <!-- =================================================
-                 12. PECAHAN KE DESIMAL
-                 ================================================= -->
-
-            <section id="desimal" class="page-section conversion-section">
-
-
-                <div class="section-header">
-
-                    <span class="section-label">
-                        HUBUNGAN KONSEP
-                    </span>
-
-                    <h2>
-                        Pecahan → Desimal
-                    </h2>
-
-                    <p>
-                        Pecahan dapat dinyatakan dalam bentuk desimal.
-                    </p>
-
-                </div>
-
-
-                <div class="conversion-card">
-
-
-                    <div class="conversion-value">
-                        1/2
-                    </div>
-
-
-                    <div class="conversion-arrow">
-                        →
-                    </div>
-
-
-                    <div class="conversion-value">
-                        0,5
-                    </div>
-
-
-                    <div class="conversion-arrow">
-                        →
-                    </div>
-
-
-                    <div class="conversion-value">
-                        50%
-                    </div>
-
-
-                </div>
-
-
-                <div class="conversion-note">
-
-                    <h3>
-                        Coba pahami hubungan ketiganya!
-                    </h3>
-
-                    <p>
-                        Ketiga bentuk tersebut dapat memiliki nilai
-                        yang sama meskipun ditulis dengan cara berbeda.
-                    </p>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================================
-                 13. PECAHAN → PERSEN
-                 ================================================= -->
-
-            <section id="persen" class="page-section conversion-section">
-
-
-                <div class="section-header">
-
-                    <span class="section-label">
-                        HUBUNGAN KONSEP
-                    </span>
-
-                    <h2>
-                        Pecahan → Persen
-                    </h2>
-
-                </div>
-
-
-                <div class="percent-example">
-
-                    <div class="fraction-box">
-                        1/4
-                    </div>
-
-                    <div class="arrow">
-                        →
-                    </div>
-
-                    <div class="decimal-box">
-                        0,25
-                    </div>
-
-                    <div class="arrow">
-                        →
-                    </div>
-
-                    <div class="percent-box">
-                        25%
-                    </div>
-
-                </div>
-
-
-                <div class="progress-area">
-
-                    <div class="progress-label">
-
-                        <span>
-                            Desimal
-                        </span>
-
-                        <strong>
-                            25%
-                        </strong>
-
-                    </div>
-
-                    <div class="progress-bar">
-
-                        <div class="progress-fill">
-                        </div>
-
-                    </div>
-
-
-                    <div class="progress-label">
-
-                        <span>
-                            Persen
-                        </span>
-
-                        <strong>
-                            25%
-                        </strong>
-
-                    </div>
-
-                    <div class="progress-bar">
-
-                        <div class="progress-fill">
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================================
-                 14. PERBANDINGAN PECAHAN
-                 ================================================= -->
-
-            <section class="page-section comparison-section">
-
-
-                <div class="section-header">
-
-                    <span class="section-label">
-                        LATIHAN
-                    </span>
-
-                    <h2>
-                        Perbandingan Pecahan
-                    </h2>
-
-                    <p>
-                        Manakah pecahan yang lebih besar?
-                    </p>
-
-                </div>
-
-
-                <div class="comparison-problem">
-
-
-                    <div class="comparison-fraction">
-                        1/2
-                    </div>
-
-
-                    <div class="comparison-symbol">
-                        ?
-                    </div>
-
-
-                    <div class="comparison-fraction">
-                        2/3
-                    </div>
-
-
-                </div>
-
-
-                <div class="answer-buttons">
-
-                    <button>
-                        1/2 &gt; 2/3
-                    </button>
-
-                    <button>
-                        1/2 &lt; 2/3
-                    </button>
-
-                    <button>
-                        1/2 = 2/3
-                    </button>
-
-                </div>
-
-
-            </section>
-
-
-
-            <!-- =================================================
-                 15. OPERASI PECAHAN
-                 ================================================= -->
-
-            <section id="operasi" class="page-section operation-section">
-
-
-                <div class="section-header">
-
-                    <span class="section-label">
-                        MATERI
-                    </span>
-
-                    <h2>
-                        Operasi Pecahan
-                    </h2>
-
-                    <p>
-                        Pelajari bagaimana melakukan operasi
-                        pada pecahan.
-                    </p>
-
-                </div>
-
-
-                <div class="operation-tabs">
-
-                    <button class="operation-tab active">
-                        Penjumlahan
-                    </button>
-
-                    <button class="operation-tab">
-                        Pengurangan
-                    </button>
-
-                    <button class="operation-tab">
-                        Perkalian
-                    </button>
-
-                    <button class="operation-tab">
-                        Pembagian
-                    </button>
-
-                </div>
-
-
-                <div class="operation-content">
-
-
-                    <div class="operation-question">
-
-                        <p>
-                            Perhatikan operasi berikut.
-                        </p>
-
-                        <h3>
-                            1/2 + 1/4 = ?
-                        </h3>
-
-                    </div>
-
-
-                    <div class="operation-steps">
-
-                        <div class="step">
-
-                            <span>
-                                01
-                            </span>
-
-                            <p>
-                                Samakan penyebut.
-                            </p>
-
-                        </div>
-
-
-                        <div class="step">
-
-                            <span>
-                                02
-                            </span>
-
-                            <p>
-                                Ubah pecahan menjadi
-                                pecahan senilai.
-                            </p>
-
-                        </div>
-
-
-                        <div class="step">
-
-                            <span>
-                                03
-                            </span>
-
-                            <p>
-                                Jumlahkan pembilang.
-                            </p>
-
-                        </div>
-
-
-                    </div>
-
-
-                    <div class="operation-result">
-
-                        <span>
-                            Hasil
-                        </span>
-
-                        <strong>
-                            3/4
-                        </strong>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================================
-                 16. PENERAPAN DALAM KEHIDUPAN SEHARI-HARI
-                 ================================================= -->
-
-            <section id="penerapan" class="page-section application-section">
-
-
-                <div class="section-header">
-
-                    <span class="section-label">
-                        PENERAPAN
-                    </span>
-
-                    <h2>
-                        Matematika di Kehidupan Sehari-hari
-                    </h2>
-
-                    <p>
-                        Konsep matematika dapat ditemukan
-                        dalam berbagai aktivitas sehari-hari.
-                    </p>
-
-                </div>
-
-
-                <div class="application-cards">
-
-
-                    <article class="application-card">
-
-                        <div class="application-icon">
-                            🍕
-                        </div>
-
-                        <h3>
-                            Makanan
-                        </h3>
-
-                        <p>
-                            Pecahan dapat digunakan untuk menyatakan
-                            bagian pizza atau makanan lainnya.
-                        </p>
-
-                        <span class="application-example">
-                            3/8 bagian
-                        </span>
-
-                    </article>
-
-
-                    <article class="application-card">
-
-                        <div class="application-icon">
-                            🛒
-                        </div>
-
-                        <h3>
-                            Belanja
-                        </h3>
-
-                        <p>
-                            Persen digunakan untuk memahami diskon
-                            dan perubahan harga.
-                        </p>
-
-                        <span class="application-example">
-                            Diskon 25%
-                        </span>
-
-                    </article>
-
-
-                    <article class="application-card">
-
-                        <div class="application-icon">
-                            📏
-                        </div>
-
-                        <h3>
-                            Ukuran
-                        </h3>
-
-                        <p>
-                            Desimal dan pecahan digunakan untuk
-                            menyatakan ukuran.
-                        </p>
-
-                        <span class="application-example">
-                            0,75 meter
-                        </span>
-
-                    </article>
-
-
-                    <article class="application-card">
-
-                        <div class="application-icon">
-                            💰
-                        </div>
-
-                        <h3>
-                            Keuangan
-                        </h3>
-
-                        <p>
-                            Persentase digunakan dalam perhitungan
-                            tabungan dan keuntungan.
-                        </p>
-
-                        <span class="application-example">
-                            Bunga 5%
-                        </span>
-
-                    </article>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================================
-                 17. TEMUKAN HUBUNGANNYA
-                 ================================================= -->
-
-            <section class="page-section relationship-section">
-
-
-                <div class="section-header">
-
-                    <span class="section-label">
-                        TANTANGAN
-                    </span>
-
-                    <h2>
-                        Temukan Hubungannya
-                    </h2>
-
-                    <p>
-                        Hubungkan konsep yang memiliki hubungan
-                        satu sama lain.
-                    </p>
-
-                </div>
-
-
-                <div class="relationship-game">
-
-
-                    <div class="relationship-column">
-
-                        <h3>
-                            Konsep
-                        </h3>
-
-                        <button>
-                            1/2
-                        </button>
-
-                        <button>
-                            0,5
-                        </button>
-
-                        <button>
-                            50%
-                        </button>
-
-                    </div>
-
-
-                    <div class="relationship-column">
-
-                        <h3>
-                            Representasi
-                        </h3>
-
-                        <button>
-                            Pecahan
-                        </button>
-
-                        <button>
-                            Desimal
-                        </button>
-
-                        <button>
-                            Persen
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================================
-                 18. REFLEKSI
-                 ================================================= -->
-
-            <section class="page-section reflection-section">
-
-
-                <div class="reflection-card">
-
-
-                    <div class="reflection-icon">
-                        💡
-                    </div>
-
-
-                    <div class="reflection-content">
-
-                        <span class="section-label">
-                            REFLEKSI
-                        </span>
-
-                        <h2>
-                            Sekarang coba pikirkan...
-                        </h2>
-
-                        <p>
-                            Apakah kamu dapat menjelaskan hubungan
-                            antara pecahan, desimal, dan persen
-                            dengan menggunakan kata-katamu sendiri?
-                        </p>
-
-
-                        <button class="reflection-button">
-                            Mulai Refleksi
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================================
-                 19. PERSONAL CONCEPT MAP
-                 ================================================= -->
-
-            <section class="page-section personal-map-section">
-
-
-                <div class="section-header">
-
-                    <span class="section-label">
-                        KONSEP PRIBADI
-                    </span>
-
-                    <h2>
-                        Peta Konsepku
-                    </h2>
-
-                    <p>
-                        Susun pemahamanmu tentang hubungan
-                        antar konsep matematika.
-                    </p>
-
-                </div>
-
-
-                <div class="personal-map">
-
-
-                    <div class="personal-map-center">
-                        Pecahan
-                    </div>
-
-
-                    <div class="personal-map-node node-a">
-                        Bilangan
-                    </div>
-
-
-                    <div class="personal-map-node node-b">
-                        Desimal
-                    </div>
-
-
-                    <div class="personal-map-node node-c">
-                        Persen
-                    </div>
-
-
-                    <div class="personal-map-node node-d">
-                        Rasio
-                    </div>
-
-
-                    <div class="personal-map-node node-e">
-                        Operasi
-                    </div>
-
-
-                    <div class="personal-map-node node-f">
-                        Penerapan
-                    </div>
-
-                </div>
-
-
-                <div class="map-actions">
-
-                    <button class="btn btn-primary">
-                        Simpan Peta Konsep
-                    </button>
-
-                    <button class="btn btn-secondary">
-                        Reset
-                    </button>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================================
-                 20. TENTANG WEBSITE
-                 ================================================= -->
-
-            <section id="tentang" class="page-section about-section">
-
-
-                <div class="section-header">
-
-                    <span class="section-label">
-                        TENTANG
-                    </span>
-
-                    <h2>
-                        Tentang Math Connect
-                    </h2>
-
-                </div>
-
-
-                <div class="about-content">
-
-                    <p>
-                        Math Connect merupakan media pembelajaran
-                        matematika yang dirancang untuk membantu siswa
-                        memahami keterkaitan antar konsep matematika.
-                    </p>
-
-                    <p>
-                        Website ini tidak hanya menyajikan materi,
-                        tetapi juga membantu siswa mengeksplorasi
-                        hubungan antara berbagai representasi
-                        matematika.
-                    </p>
-
-
-                    <div class="about-features">
-
-                        <div class="feature-item">
-
-                            <strong>
-                                Eksploratif
-                            </strong>
-
-                            <span>
-                                Siswa dapat menjelajahi konsep.
-                            </span>
-
-                        </div>
-
-
-                        <div class="feature-item">
-
-                            <strong>
-                                Terhubung
-                            </strong>
-
-                            <span>
-                                Konsep matematika saling berkaitan.
-                            </span>
-
-                        </div>
-
-
-                        <div class="feature-item">
-
-                            <strong>
-                                Interaktif
-                            </strong>
-
-                            <span>
-                                Terdapat aktivitas dan latihan.
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================================
-                 21. FOOTER
-                 ================================================= -->
-
-            <footer class="footer">
-
-                <div class="footer-logo">
-                    MATH CONNECT
-                </div>
-
-                <p>
-                    Belajar matematika dengan memahami
-                    keterkaitan konsep.
+    </aside>
+
+    <!-- KONTEN UTAMA -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <button class="menu-toggle"
+                    id="menuToggle"
+                    type="button"
+                    aria-label="Buka menu"
+                    aria-expanded="false">
+                <svg viewBox="0 0 24 24">
+                    <path d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+
+            <a href="#beranda" class="brand">
+                <span class="brand-icon">▣</span>
+                <span class="brand-name">MATH CONNECT</span>
+            </a>
+
+            <nav class="topbar-nav">
+                <a href="#beranda" class="top-link active">Home</a>
+                <a href="#konsep" class="top-link">Peta Konsep</a>
+                <a href="#cari" class="top-link">Cari Konsep</a>
+            </nav>
+
+            <button class="search-button"
+                    id="searchToggle"
+                    type="button"
+                    aria-label="Buka pencarian">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="10.8" cy="10.8" r="6.5"/>
+                    <path d="m16 16 4.5 4.5"/>
+                </svg>
+            </button>
+        </header>
+
+        <!-- FORM PENCARIAN -->
+        <form class="search-panel" id="searchForm" hidden>
+            <input id="conceptSearch"
+                   type="search"
+                   placeholder="Cari bilangan, pecahan, desimal..."
+                   aria-label="Cari materi">
+            <button class="btn btn-primary" type="submit">Cari</button>
+        </form>
+
+        <!-- BERANDA -->
+        <section id="beranda" class="page-section landing-section">
+            <div class="hero-content">
+                <span class="section-label">PLATFORM BELAJAR MATEMATIKA</span>
+                <h1>MATH <span>CONNECT</span></h1>
+                <p class="hero-description">
+                    Matematika bukan sekadar kumpulan rumus.
+                    Temukan bagaimana setiap konsep saling terhubung
+                    dan membentuk pemahaman yang utuh.
                 </p>
+                <div class="hero-buttons">
+                    <a href="#konsep" class="btn btn-primary">Mulai Eksplorasi</a>
+                    <a href="#bilangan" class="btn btn-secondary">Mulai dari Bilangan</a>
+                </div>
+            </div>
 
-                <p class="copyright">
-                    © 2026 Math Connect
-                </p>
+            <div class="hero-illustration" aria-hidden="true">
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+                <div class="floating-number number-one">1</div>
+                <div class="floating-number number-two">2</div>
+                <div class="floating-number number-three">3</div>
+                <div class="floating-number number-four">+</div>
+                <div class="floating-center">∑</div>
+            </div>
+        </section>
 
-            </footer>
+        <!-- PETA KONSEP -->
+        <section id="konsep" class="page-section concept-section">
+            <div class="section-header">
+                <span class="section-label">EKSPLORASI</span>
+                <h2>Peta Konsep</h2>
+                <p>Jelajahi hubungan antara konsep-konsep matematika.</p>
+            </div>
 
+            <div class="concept-map">
+                <div class="concept-tree">
 
-        </main>
+                    <div class="concept-level">
+                        <button class="concept-node main-node"
+                                data-concept="Bilangan">
+                            <span>▦</span>Bilangan
+                        </button>
+                    </div>
 
-    </div>
+                    <div class="connector"></div>
 
+                    <div class="concept-level number-level">
+                        <button class="concept-node sub-node"
+                                data-concept="Bilangan Cacah">Bilangan Cacah</button>
+                        <button class="concept-node sub-node"
+                                data-concept="Bilangan Bulat">Bilangan Bulat</button>
+                        <button class="concept-node sub-node"
+                                data-concept="Bilangan Rasional">Bilangan Rasional</button>
+                    </div>
 
+                    <div class="connector"></div>
 
-    <!-- =====================================================
-         22. JAVASCRIPT
-         ===================================================== -->
+                    <div class="concept-level">
+                        <button class="concept-node fraction-node"
+                                data-concept="Pecahan">
+                            <span>½</span>Pecahan
+                        </button>
+                    </div>
 
-    <!--
-        JavaScript akan kita buat pada tahap berikutnya.
-    -->
+                    <div class="connector"></div>
 
-    <script src="js/app.js"></script>
+                    <div class="concept-level derived-level">
+                        <button class="concept-node decimal-node"
+                                data-concept="Desimal">Desimal</button>
+                        <button class="concept-node percent-node"
+                                data-concept="Persen">Persen</button>
+                        <button class="concept-node ratio-node"
+                                data-concept="Rasio">Rasio</button>
+                    </div>
 
+                    <div class="connector"></div>
+
+                    <div class="concept-level">
+                        <button class="concept-node application-node"
+                                data-concept="Penerapan">
+                            <span>▤</span>Penerapan
+                        </button>
+                    </div>
+                </div>
+
+                <div class="concept-info" id="conceptInfo" hidden>
+                    <button id="closeConceptInfo"
+                            class="close-info"
+                            type="button"
+                            aria-label="Tutup">×</button>
+                    <h3 id="conceptTitle"></h3>
+                    <p id="conceptDescription"></p>
+                    <a href="#bilangan" class="btn btn-primary"
+                       id="conceptLink">Pelajari Konsep</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEMPLATE KONTEN MATERI -->
+        <section id="bilangan" class="page-section material-section">
+            <div class="section-header">
+                <span class="section-label">MATERI 01</span>
+                <h2>Bilangan</h2>
+                <p>Bilangan menyatakan jumlah, ukuran, urutan, dan nilai.</p>
+            </div>
+            <div class="material-grid">
+                <article class="content-card">
+                    <span class="card-icon">123</span>
+                    <h3>Apa itu Bilangan?</h3>
+                    <p>Bilangan adalah konsep matematika untuk menyatakan jumlah atau nilai suatu objek.</p>
+                </article>
+                <article class="content-card">
+                    <span class="card-icon">∞</span>
+                    <h3>Jenis Bilangan</h3>
+                    <ul>
+                        <li>Bilangan cacah</li>
+                        <li>Bilangan bulat</li>
+                        <li>Bilangan rasional</li>
+                        <li>Bilangan irasional</li>
+                        <li>Bilangan real</li>
+                    </ul>
+                </article>
+                <article class="content-card">
+                    <span class="card-icon">✎</span>
+                    <h3>Contoh Bilangan</h3>
+                    <div class="example-list">
+                        <span>3</span><span>−5</span><span>½</span>
+                        <span>0,75</span><span>25%</span>
+                    </div>
+                </article>
+            </div>
+            <a href="#pecahan" class="btn btn-primary">Lanjut ke Pecahan →</a>
+        </section>
+
+        <section id="pecahan" class="page-section material-section">
+            <div class="section-header">
+                <span class="section-label">MATERI 02</span>
+                <h2>Pecahan</h2>
+                <p>Pecahan digunakan untuk menyatakan bagian dari suatu keseluruhan.</p>
+            </div>
+            <div class="fraction-content">
+                <article class="fraction-display content-card">
+                    <div class="fraction-number">
+                        <span>3</span><span class="fraction-line"></span><span>4</span>
+                    </div>
+                    <p>Pecahan tiga per empat</p>
+                </article>
+                <article class="content-card">
+                    <h3>Pembilang</h3>
+                    <p>Menunjukkan banyak bagian yang diperhatikan.</p>
+                    <h3>Penyebut</h3>
+                    <p>Menunjukkan banyak bagian sama besar dari keseluruhan.</p>
+                </article>
+            </div>
+            <div class="content-card">
+                <h3>Jenis-Jenis Pecahan</h3>
+                <div class="material-grid">
+                    <div><strong>3/4</strong><p>Pecahan biasa</p></div>
+                    <div><strong>1 ½</strong><p>Pecahan campuran</p></div>
+                    <div><strong>0,75</strong><p>Desimal</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="desimal" class="page-section material-section">
+            <div class="section-header">
+                <span class="section-label">MATERI 03</span>
+                <h2>Desimal</h2>
+                <p>Bilangan desimal menggunakan tanda koma untuk menyatakan nilai pecahan.</p>
+            </div>
+            <div class="conversion-card">
+                <div class="conversion-value">1/2</div>
+                <span>→</span>
+                <div class="conversion-value">0,5</div>
+                <span>→</span>
+                <div class="conversion-value">50%</div>
+            </div>
+            <article class="content-card">
+                <h3>Contoh</h3>
+                <p>0,25 sama dengan 25/100 atau 1/4.</p>
+            </article>
+        </section>
+
+        <section id="persen" class="page-section material-section">
+            <div class="section-header">
+                <span class="section-label">MATERI 04</span>
+                <h2>Persen</h2>
+                <p>Persen menyatakan bagian dari seratus.</p>
+            </div>
+            <div class="conversion-card">
+                <div class="conversion-value">1/4</div>
+                <span>→</span>
+                <div class="conversion-value">0,25</div>
+                <span>→</span>
+                <div class="conversion-value">25%</div>
+            </div>
+            <article class="content-card">
+                <h3>Contoh dalam kehidupan</h3>
+                <p>Diskon 25% berarti potongan harga sebesar 25 dari setiap 100 bagian harga.</p>
+            </article>
+        </section>
+
+        <section id="rasio" class="page-section material-section">
+            <div class="section-header">
+                <span class="section-label">MATERI 05</span>
+                <h2>Rasio</h2>
+                <p>Rasio membandingkan dua besaran.</p>
+            </div>
+            <article class="content-card">
+                <h3>Contoh rasio</h3>
+                <p>Jika terdapat 2 apel dan 3 jeruk, rasio apel terhadap jeruk adalah 2 : 3.</p>
+            </article>
+        </section>
+
+        <section id="operasi" class="page-section material-section">
+            <div class="section-header">
+                <span class="section-label">MATERI 06</span>
+                <h2>Operasi Pecahan</h2>
+                <p>Pilih jenis operasi untuk melihat contoh perhitungannya.</p>
+            </div>
+            <div class="operation-tabs">
+                <button class="operation-tab active" data-operation="tambah">Penjumlahan</button>
+                <button class="operation-tab" data-operation="kurang">Pengurangan</button>
+                <button class="operation-tab" data-operation="kali">Perkalian</button>
+                <button class="operation-tab" data-operation="bagi">Pembagian</button>
+            </div>
+            <article class="content-card operation-content">
+                <h3 id="operationTitle">Penjumlahan Pecahan</h3>
+                <p id="operationExample">1/2 + 1/4 = 3/4</p>
+                <p id="operationExplanation">Samakan penyebut, lalu jumlahkan pembilangnya.</p>
+            </article>
+        </section>
+
+        <section id="penerapan" class="page-section material-section">
+            <div class="section-header">
+                <span class="section-label">MATERI 07</span>
+                <h2>Penerapan Matematika</h2>
+                <p>Konsep matematika dapat ditemukan dalam kehidupan sehari-hari.</p>
+            </div>
+            <div class="material-grid">
+                <article class="content-card">
+                    <span class="card-icon">🍕</span>
+                    <h3>Makanan</h3>
+                    <p>Pecahan menyatakan bagian pizza, misalnya 3/8 bagian.</p>
+                </article>
+                <article class="content-card">
+                    <span class="card-icon">🛒</span>
+                    <h3>Belanja</h3>
+                    <p>Persen digunakan untuk menghitung diskon 25%.</p>
+                </article>
+                <article class="content-card">
+                    <span class="card-icon">📏</span>
+                    <h3>Pengukuran</h3>
+                    <p>Desimal dapat digunakan untuk menyatakan panjang 0,75 meter.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- LATIHAN -->
+        <section id="latihan" class="page-section material-section">
+            <div class="section-header">
+                <span class="section-label">LATIHAN</span>
+                <h2>Uji Pemahamanmu</h2>
+                <p>Bandingkan kedua pecahan berikut.</p>
+            </div>
+            <article class="content-card quiz-card">
+                <h3>1/2 ... 2/3</h3>
+                <div class="quiz-options">
+                    <button data-answer="salah">1/2 &gt; 2/3</button>
+                    <button data-answer="benar">1/2 &lt; 2/3</button>
+                    <button data-answer="salah">1/2 = 2/3</button>
+                </div>
+                <p id="quizFeedback" aria-live="polite"></p>
+            </article>
+        </section>
+
+        <!-- REFLEKSI -->
+        <section id="refleksi" class="page-section material-section">
+            <div class="section-header">
+                <span class="section-label">REFLEKSI</span>
+                <h2>Apa yang Kamu Pelajari?</h2>
+                <p>Tuliskan pemahamanmu tentang hubungan pecahan, desimal, dan persen.</p>
+            </div>
+            <form id="reflectionForm" class="content-card">
+                <label for="reflectionAnswer">Jawaban refleksi</label>
+                <textarea id="reflectionAnswer" rows="5"
+                          placeholder="Tuliskan pemahamanmu di sini..."
+                          required></textarea>
+                <button class="btn btn-primary" type="submit">Simpan Refleksi</button>
+                <p id="reflectionFeedback" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <!-- PROFIL -->
+        <section id="profil" class="page-section material-section">
+            <div class="section-header">
+                <span class="section-label">PROFIL</span>
+                <h2>Profil Pembelajar</h2>
+                <p>Selamat datang di Math Connect.</p>
+            </div>
+            <article class="content-card">
+                <h3>Belajar dengan memahami hubungan konsep</h3>
+                <p>Gunakan menu Materi untuk menjelajahi konsep matematika secara bertahap.</p>
+            </article>
+        </section>
+
+        <!-- TENTANG -->
+        <section id="tentang" class="page-section material-section">
+            <div class="section-header">
+                <span class="section-label">TENTANG</span>
+                <h2>Tentang Math Connect</h2>
+            </div>
+            <article class="content-card">
+                <p>Math Connect merupakan media pembelajaran matematika untuk membantu siswa memahami keterkaitan antarkonsep melalui materi, peta konsep, dan latihan interaktif.</p>
+            </article>
+        </section>
+
+        <footer class="footer">
+            <strong>MATH CONNECT</strong>
+            <p>Belajar matematika dengan memahami keterkaitan konsep.</p>
+            <small>© 2026 Math Connect</small>
+        </footer>
+
+    </main>
+</div>
+
+<script src="js/app.js"></script>
 </body>
-
 </html>
