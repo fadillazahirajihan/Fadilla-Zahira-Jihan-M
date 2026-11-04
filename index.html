@@ -239,7 +239,7 @@
                     <div class="concept-level">
                         <button class="concept-node fraction-node"
                                 data-concept="Pecahan">
-                            <span>½</span>Pecahan
+                            </span>Pecahan
                         </button>
                     </div>
 
@@ -343,43 +343,121 @@
             </div>
         </section>
 
-        <section id="desimal" class="page-section material-section">
-            <div class="section-header">
-                <span class="section-label">MATERI 03</span>
-                <h2>Desimal</h2>
-                <p>Bilangan desimal menggunakan tanda koma untuk menyatakan nilai pecahan.</p>
-            </div>
-            <div class="conversion-card">
-                <div class="conversion-value">1/2</div>
-                <span>→</span>
-                <div class="conversion-value">0,5</div>
-                <span>→</span>
-                <div class="conversion-value">50%</div>
-            </div>
-            <article class="content-card">
-                <h3>Contoh</h3>
-                <p>0,25 sama dengan 25/100 atau 1/4.</p>
-            </article>
-        </section>
+        
+<section id="desimal" class="page-section material-section">
+    <div class="section-header">
+        <span class="section-label">MATERI 03</span>
+        <h2>Desimal</h2>
+        <p>Bilangan desimal menggunakan tanda koma untuk menyatakan nilai pecahan.</p>
+    </div>
 
-        <section id="persen" class="page-section material-section">
-            <div class="section-header">
-                <span class="section-label">MATERI 04</span>
-                <h2>Persen</h2>
-                <p>Persen menyatakan bagian dari seratus.</p>
+    <div class="conversion-card">
+        <div class="conversion-item">
+            <label for="numerator">Pecahan</label>
+            <div class="fraction-input">
+                <input type="number" id="numerator"
+                       placeholder="1" step="any">
+                <span class="fraction-line"></span>
+                <input type="number" id="denominator"
+                       placeholder="2" step="any">
             </div>
-            <div class="conversion-card">
-                <div class="conversion-value">1/4</div>
-                <span>→</span>
-                <div class="conversion-value">0,25</div>
-                <span>→</span>
-                <div class="conversion-value">25%</div>
+        </div>
+
+        <span class="conversion-arrow">⇄</span>
+
+        <div class="conversion-item">
+            <label for="decimal">Desimal</label>
+            <input type="text" id="decimal"
+                   class="conversion-input"
+                   placeholder="0,5">
+        </div>
+
+        <span class="conversion-arrow">⇄</span>
+
+        <div class="conversion-item">
+            <label for="percent">Persen</label>
+            <div class="percent-input">
+                <input type="text" id="percent"
+                       class="conversion-input"
+                       placeholder="50">
+                <span>%</span>
             </div>
-            <article class="content-card">
-                <h3>Contoh dalam kehidupan</h3>
-                <p>Diskon 25% berarti potongan harga sebesar 25 dari setiap 100 bagian harga.</p>
-            </article>
-        </section>
+        </div>
+    </div>
+
+    <p id="conversion-status" class="conversion-status">
+        Masukkan angka pada salah satu kolom untuk memulai konversi.
+    </p>
+
+    <article class="content-card">
+        <h3>Contoh</h3>
+        <p>0,25 sama dengan 25/100 atau 1/4.</p>
+    </article>
+</section>
+
+
+        
+<section id="persen" class="page-section material-section">
+    <div class="section-header">
+        <span class="section-label">MATERI 04</span>
+        <h2>Persen</h2>
+        <p>Persen menyatakan bagian dari seratus.</p>
+    </div>
+
+    <div class="conversion-card persen-conversion">
+
+        <!-- Input Pecahan -->
+        <div class="conversion-item">
+            <label for="persenNumerator">Pecahan</label>
+            <div class="fraction-input">
+                <input type="number" id="persenNumerator"
+                       placeholder="1" step="any">
+
+                <span class="fraction-line"></span>
+
+                <input type="number" id="persenDenominator"
+                       placeholder="4" step="any">
+            </div>
+        </div>
+
+        <span class="conversion-arrow">⇄</span>
+
+        <!-- Input Desimal -->
+        <div class="conversion-item">
+            <label for="persenDecimal">Desimal</label>
+            <input type="text" id="persenDecimal"
+                   class="conversion-input"
+                   placeholder="0,25">
+        </div>
+
+        <span class="conversion-arrow">⇄</span>
+
+        <!-- Input Persen -->
+        <div class="conversion-item">
+            <label for="persenValue">Persen</label>
+            <div class="percent-input">
+                <input type="text" id="persenValue"
+                       class="conversion-input"
+                       placeholder="25">
+                <span>%</span>
+            </div>
+        </div>
+
+    </div>
+
+    <p id="persenStatus" class="conversion-status">
+        Masukkan angka pada salah satu kolom untuk memulai konversi.
+    </p>
+
+    <article class="content-card">
+        <h3>Contoh dalam kehidupan</h3>
+        <p>
+            Diskon 25% berarti potongan harga sebesar 25
+            dari setiap 100 bagian harga.
+        </p>
+    </article>
+</section>
+
 
         <section id="rasio" class="page-section material-section">
             <div class="section-header">

@@ -342,8 +342,287 @@ document.addEventListener("DOMContentLoaded", function () {
         conceptInfo.hidden = true;
     });
 
+    
     // ==================================================
-    // 8. TAB OPERASI PECAHAN
+    // 8. DESIMAL
+    // ==================================================
+
+    const numerator = document.getElementById("numerator");
+    const denominator = document.getElementById("denominator");
+    const decimal = document.getElementById("decimal");
+    const percent = document.getElementById("percent");
+    const conversionStatus = document.getElementById("conversion-status");
+
+    // Mengubah koma menjadi titik
+    function parseValue(value) {
+        return Number(value.trim().replace(",", "."));
+    }
+
+    // Mencari FPB
+    function gcd(a, b) {
+        a = Math.abs(a);
+        b = Math.abs(b);
+
+        while (b !== 0) {
+            let temp = b;
+            b = a % b;
+            a = temp;
+        }
+
+        return a || 1;
+    }
+
+    // Menyederhanakan pecahan
+    function toFraction(value) {
+        const precision = 100000000;
+        let n = Math.round(value * precision);
+        let d = precision;
+
+        const divisor = gcd(n, d);
+
+        return {
+            numerator: n / divisor,
+            denominator: d / divisor
+        };
+    }
+
+    // Format desimal Indonesia
+    function formatDecimal(value) {
+        return new Intl.NumberFormat("id-ID", {
+            maximumFractionDigits: 10
+        }).format(value);
+    }
+
+    // Memperbarui semua bentuk bilangan
+    function updateConversion(value) {
+        if (!Number.isFinite(value)) return;
+
+        const fraction = toFraction(value);
+
+        numerator.value = fraction.numerator;
+        denominator.value = fraction.denominator;
+        decimal.value = formatDecimal(value);
+        percent.value = formatDecimal(value * 100);
+
+        conversionStatus.textContent =
+            "Konversi berhasil! Ketiga bentuk bilangan memiliki nilai yang sama.";
+    }
+
+    // Konversi dari pecahan
+    function convertFraction() {
+        const n = Number(numerator.value);
+        const d = Number(denominator.value);
+
+        if (numerator.value === "" || denominator.value === "") {
+            conversionStatus.textContent = "Silakan isi pembilang dan penyebut.";
+            return;
+        }
+
+        if (!Number.isFinite(n) || !Number.isFinite(d)) {
+            conversionStatus.textContent = "Masukkan angka yang valid.";
+            return;
+        }
+
+        if (d === 0) {
+            conversionStatus.textContent = "Penyebut tidak boleh nol.";
+            return;
+        }
+
+        updateConversion(n / d);
+    }
+
+    // Konversi dari desimal
+    function convertDecimal() {
+        const value = parseValue(decimal.value);
+
+        if (decimal.value.trim() === "" || !Number.isFinite(value)) {
+            conversionStatus.textContent = "Masukkan nilai desimal yang valid.";
+            return;
+        }
+
+        updateConversion(value);
+    }
+
+    // Konversi dari persen
+    function convertPercent() {
+        const value = parseValue(percent.value);
+
+        if (percent.value.trim() === "" || !Number.isFinite(value)) {
+            conversionStatus.textContent = "Masukkan nilai persen yang valid.";
+            return;
+        }
+
+        updateConversion(value / 100);
+    }
+
+    // Event listener
+    if (numerator && denominator && decimal && percent && conversionStatus) {
+        numerator.addEventListener("input", convertFraction);
+        denominator.addEventListener("input", convertFraction);
+        decimal.addEventListener("input", convertDecimal);
+        percent.addEventListener("input", convertPercent);
+    }
+
+// ==================================================
+    // 9. TAB OPERASI PECAHAN
+    // ==================================================
+ const persenNumerator = document.getElementById("persenNumerator");
+    const persenDenominator = document.getElementById("persenDenominator");
+    const persenDecimal = document.getElementById("persenDecimal");
+    const persenValue = document.getElementById("persenValue");
+    const persenStatus = document.getElementById("persenStatus");
+
+    // Memastikan elemen HTML tersedia
+    if (
+        persenNumerator &&
+        persenDenominator &&
+        persenDecimal &&
+        persenValue &&
+        persenStatus
+    ) {
+
+        // Mengubah koma menjadi titik
+        function parsePersenValue(value) {
+            return Number(value.trim().replace(",", "."));
+        }
+
+        // Mencari FPB
+        function gcdPersen(a, b) {
+            a = Math.abs(a);
+            b = Math.abs(b);
+
+            while (b !== 0) {
+                const temp = b;
+                b = a % b;
+                a = temp;
+            }
+
+            return a || 1;
+        }
+
+        // Mengubah desimal menjadi pecahan
+        function toPersenFraction(value) {
+            const precision = 100000000;
+            const n = Math.round(value * precision);
+            const d = precision;
+
+            const divisor = gcdPersen(n, d);
+
+            return {
+                numerator: n / divisor,
+                denominator: d / divisor
+            };
+        }
+
+        // Format angka menggunakan koma
+        function formatPersenDecimal(value) {
+            return new Intl.NumberFormat("id-ID", {
+                maximumFractionDigits: 10
+            }).format(value);
+        }
+
+        // Memperbarui ketiga bentuk bilangan
+        function updatePersenConversion(value) {
+            if (!Number.isFinite(value)) return;
+
+            const fraction = toPersenFraction(value);
+
+            persenNumerator.value = fraction.numerator;
+            persenDenominator.value = fraction.denominator;
+
+            persenDecimal.value = formatPersenDecimal(value);
+
+            persenValue.value = formatPersenDecimal(value * 100);
+
+            persenStatus.textContent =
+                "Konversi berhasil! Ketiga bentuk bilangan memiliki nilai yang sama.";
+        }
+
+        // Konversi dari pecahan
+        function convertFromPersenFraction() {
+            const n = Number(persenNumerator.value);
+            const d = Number(persenDenominator.value);
+
+            if (
+                persenNumerator.value === "" ||
+                persenDenominator.value === ""
+            ) {
+                persenStatus.textContent =
+                    "Silakan isi pembilang dan penyebut.";
+                return;
+            }
+
+            if (!Number.isFinite(n) || !Number.isFinite(d)) {
+                persenStatus.textContent =
+                    "Masukkan angka yang valid.";
+                return;
+            }
+
+            if (d === 0) {
+                persenStatus.textContent =
+                    "Penyebut tidak boleh bernilai nol.";
+                return;
+            }
+
+            updatePersenConversion(n / d);
+        }
+
+        // Konversi dari desimal
+        function convertFromPersenDecimal() {
+            const value = parsePersenValue(persenDecimal.value);
+
+            if (
+                persenDecimal.value.trim() === "" ||
+                !Number.isFinite(value)
+            ) {
+                persenStatus.textContent =
+                    "Masukkan nilai desimal yang valid.";
+                return;
+            }
+
+            updatePersenConversion(value);
+        }
+
+        // Konversi dari persen
+        function convertFromPersenValue() {
+            const value = parsePersenValue(persenValue.value);
+
+            if (
+                persenValue.value.trim() === "" ||
+                !Number.isFinite(value)
+            ) {
+                persenStatus.textContent =
+                    "Masukkan nilai persen yang valid.";
+                return;
+            }
+
+            updatePersenConversion(value / 100);
+        }
+
+        // Menghubungkan input dengan fungsi konversi
+        persenNumerator.addEventListener(
+            "input",
+            convertFromPersenFraction
+        );
+
+        persenDenominator.addEventListener(
+            "input",
+            convertFromPersenFraction
+        );
+
+        persenDecimal.addEventListener(
+            "input",
+            convertFromPersenDecimal
+        );
+
+        persenValue.addEventListener(
+            "input",
+            convertFromPersenValue
+        );
+    }
+    
+    // ==================================================
+    // 11. TAB OPERASI PECAHAN
     // ==================================================
     const operationData = {
         tambah: {
@@ -397,7 +676,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // ==================================================
-    // 9. LATIHAN PERBANDINGAN PECAHAN
+    // 12. LATIHAN PERBANDINGAN PECAHAN
     // ==================================================
     const quizFeedback = document.getElementById("quizFeedback");
 
@@ -416,7 +695,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // ==================================================
-    // 10. FORM REFLEKSI
+    // 13. FORM REFLEKSI
     // ==================================================
     const reflectionForm = document.getElementById("reflectionForm");
     const reflectionAnswer = document.getElementById("reflectionAnswer");
