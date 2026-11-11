@@ -104,10 +104,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const isActive = link.getAttribute("href") === currentHash;
 
             link.classList.toggle("active", isActive);
-
-            if (link.classList.contains("nav-item")) {
-                link.classList.toggle("active", isActive);
-            }
         });
 
         // Jika yang aktif adalah salah satu materi,
@@ -116,7 +112,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "#bilangan",
             "#pecahan",
             "#desimal",
-            "#persen",
             "#rasio",
             "#operasi",
             "#penerapan"
@@ -136,13 +131,14 @@ document.addEventListener("DOMContentLoaded", function () {
             if (
                 materiSubmenu &&
                 materiToggle &&
-                target !== "#bilangan" &&
-                target !== "#pecahan" &&
-                target !== "#desimal" &&
-                target !== "#persen" &&
-                target !== "#rasio" &&
-                target !== "#operasi" &&
-                target !== "#penerapan"
+                ![
+                    "#bilangan",
+                    "#pecahan",
+                    "#desimal",
+                    "#rasio",
+                    "#operasi",
+                    "#penerapan"
+                ].includes(target)
             ) {
                 materiSubmenu.hidden = true;
                 materiToggle.setAttribute("aria-expanded", "false");
@@ -200,15 +196,20 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             keywords: ["persen", "persentase", "diskon"],
-            target: "#persen"
+            target: "#desimal"
         },
         {
             keywords: ["rasio", "perbandingan"],
             target: "#rasio"
         },
         {
-            keywords: ["operasi", "penjumlahan", "pengurangan",
-                "perkalian", "pembagian"],
+            keywords: [
+                "operasi",
+                "penjumlahan",
+                "pengurangan",
+                "perkalian",
+                "pembagian"
+            ],
             target: "#operasi"
         },
         {
@@ -248,6 +249,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (target) {
                     window.location.hash = result.target;
+
                     target.scrollIntoView({
                         behavior: "smooth",
                         block: "start"
@@ -257,13 +259,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     if (materiSubmenu && materiToggle) {
                         const isMaterial = [
-                            "#bilangan", "#pecahan", "#desimal",
-                            "#persen", "#rasio", "#operasi", "#penerapan"
+                            "#bilangan",
+                            "#pecahan",
+                            "#desimal",
+                            "#rasio",
+                            "#operasi",
+                            "#penerapan"
                         ].includes(result.target);
 
                         if (isMaterial) {
                             materiSubmenu.hidden = false;
-                            materiToggle.setAttribute("aria-expanded", "true");
+                            materiToggle.setAttribute(
+                                "aria-expanded",
+                                "true"
+                            );
                         }
                     }
                 }
@@ -278,27 +287,37 @@ document.addEventListener("DOMContentLoaded", function () {
     // ==================================================
     const conceptInfo = document.getElementById("conceptInfo");
     const conceptTitle = document.getElementById("conceptTitle");
-    const conceptDescription = document.getElementById("conceptDescription");
+    const conceptDescription =
+        document.getElementById("conceptDescription");
     const conceptLink = document.getElementById("conceptLink");
-    const closeConceptInfo = document.getElementById("closeConceptInfo");
+    const closeConceptInfo =
+        document.getElementById("closeConceptInfo");
 
     const conceptDescriptions = {
         "Bilangan":
             "Bilangan digunakan untuk menyatakan jumlah, ukuran, urutan, dan nilai.",
+
         "Bilangan Cacah":
             "Bilangan cacah dimulai dari nol dan dilanjutkan dengan bilangan bulat positif.",
+
         "Bilangan Bulat":
             "Bilangan bulat terdiri atas bilangan negatif, nol, dan bilangan positif.",
+
         "Bilangan Rasional":
             "Bilangan rasional dapat dinyatakan sebagai a/b dengan a dan b bilangan bulat serta b tidak sama dengan nol.",
+
         "Pecahan":
             "Pecahan menyatakan bagian dari keseluruhan dan ditulis dalam bentuk pembilang serta penyebut.",
+
         "Desimal":
             "Desimal menyatakan nilai menggunakan sistem bilangan berbasis sepuluh, misalnya 0,5.",
+
         "Persen":
             "Persen menyatakan bagian dari seratus. Contohnya, 25% sama dengan 1/4.",
+
         "Rasio":
             "Rasio adalah perbandingan dua besaran, misalnya 2 : 3.",
+
         "Penerapan":
             "Konsep bilangan, pecahan, desimal, persen, dan rasio dapat digunakan dalam situasi sehari-hari."
     };
@@ -310,7 +329,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Bilangan Rasional": "#bilangan",
         "Pecahan": "#pecahan",
         "Desimal": "#desimal",
-        "Persen": "#persen",
+        "Persen": "#desimal",
         "Rasio": "#rasio",
         "Penerapan": "#penerapan"
     };
@@ -319,11 +338,17 @@ document.addEventListener("DOMContentLoaded", function () {
         node.addEventListener("click", function () {
             const concept = node.dataset.concept;
 
-            if (!conceptInfo || !conceptTitle || !conceptDescription) {
+            if (
+                !conceptInfo ||
+                !conceptTitle ||
+                !conceptDescription ||
+                !conceptLink
+            ) {
                 return;
             }
 
             conceptTitle.textContent = concept;
+
             conceptDescription.textContent =
                 conceptDescriptions[concept] ||
                 "Pelajari konsep ini untuk memahami hubungan matematika.";
@@ -339,19 +364,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     closeConceptInfo?.addEventListener("click", function () {
-        conceptInfo.hidden = true;
+        if (conceptInfo) {
+            conceptInfo.hidden = true;
+        }
     });
 
-    
     // ==================================================
-    // 8. DESIMAL
+    // 8. KONVERSI PECAHAN, DESIMAL, DAN PERSEN
     // ==================================================
 
     const numerator = document.getElementById("numerator");
     const denominator = document.getElementById("denominator");
     const decimal = document.getElementById("decimal");
     const percent = document.getElementById("percent");
-    const conversionStatus = document.getElementById("conversion-status");
+    const conversionStatus =
+        document.getElementById("conversion-status");
 
     // Mengubah koma menjadi titik
     function parseValue(value) {
@@ -413,18 +440,24 @@ document.addEventListener("DOMContentLoaded", function () {
         const n = Number(numerator.value);
         const d = Number(denominator.value);
 
-        if (numerator.value === "" || denominator.value === "") {
-            conversionStatus.textContent = "Silakan isi pembilang dan penyebut.";
+        if (
+            numerator.value.trim() === "" ||
+            denominator.value.trim() === ""
+        ) {
+            conversionStatus.textContent =
+                "Silakan isi pembilang dan penyebut.";
             return;
         }
 
         if (!Number.isFinite(n) || !Number.isFinite(d)) {
-            conversionStatus.textContent = "Masukkan angka yang valid.";
+            conversionStatus.textContent =
+                "Masukkan angka yang valid.";
             return;
         }
 
         if (d === 0) {
-            conversionStatus.textContent = "Penyebut tidak boleh nol.";
+            conversionStatus.textContent =
+                "Penyebut tidak boleh nol.";
             return;
         }
 
@@ -435,8 +468,12 @@ document.addEventListener("DOMContentLoaded", function () {
     function convertDecimal() {
         const value = parseValue(decimal.value);
 
-        if (decimal.value.trim() === "" || !Number.isFinite(value)) {
-            conversionStatus.textContent = "Masukkan nilai desimal yang valid.";
+        if (
+            decimal.value.trim() === "" ||
+            !Number.isFinite(value)
+        ) {
+            conversionStatus.textContent =
+                "Masukkan nilai desimal yang valid.";
             return;
         }
 
@@ -447,8 +484,12 @@ document.addEventListener("DOMContentLoaded", function () {
     function convertPercent() {
         const value = parseValue(percent.value);
 
-        if (percent.value.trim() === "" || !Number.isFinite(value)) {
-            conversionStatus.textContent = "Masukkan nilai persen yang valid.";
+        if (
+            percent.value.trim() === "" ||
+            !Number.isFinite(value)
+        ) {
+            conversionStatus.textContent =
+                "Masukkan nilai persen yang valid.";
             return;
         }
 
@@ -456,173 +497,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Event listener
-    if (numerator && denominator && decimal && percent && conversionStatus) {
+    if (
+        numerator &&
+        denominator &&
+        decimal &&
+        percent &&
+        conversionStatus
+    ) {
         numerator.addEventListener("input", convertFraction);
         denominator.addEventListener("input", convertFraction);
         decimal.addEventListener("input", convertDecimal);
         percent.addEventListener("input", convertPercent);
     }
 
-// ==================================================
-    // 9. TAB OPERASI PECAHAN
+
     // ==================================================
- const persenNumerator = document.getElementById("persenNumerator");
-    const persenDenominator = document.getElementById("persenDenominator");
-    const persenDecimal = document.getElementById("persenDecimal");
-    const persenValue = document.getElementById("persenValue");
-    const persenStatus = document.getElementById("persenStatus");
-
-    // Memastikan elemen HTML tersedia
-    if (
-        persenNumerator &&
-        persenDenominator &&
-        persenDecimal &&
-        persenValue &&
-        persenStatus
-    ) {
-
-        // Mengubah koma menjadi titik
-        function parsePersenValue(value) {
-            return Number(value.trim().replace(",", "."));
-        }
-
-        // Mencari FPB
-        function gcdPersen(a, b) {
-            a = Math.abs(a);
-            b = Math.abs(b);
-
-            while (b !== 0) {
-                const temp = b;
-                b = a % b;
-                a = temp;
-            }
-
-            return a || 1;
-        }
-
-        // Mengubah desimal menjadi pecahan
-        function toPersenFraction(value) {
-            const precision = 100000000;
-            const n = Math.round(value * precision);
-            const d = precision;
-
-            const divisor = gcdPersen(n, d);
-
-            return {
-                numerator: n / divisor,
-                denominator: d / divisor
-            };
-        }
-
-        // Format angka menggunakan koma
-        function formatPersenDecimal(value) {
-            return new Intl.NumberFormat("id-ID", {
-                maximumFractionDigits: 10
-            }).format(value);
-        }
-
-        // Memperbarui ketiga bentuk bilangan
-        function updatePersenConversion(value) {
-            if (!Number.isFinite(value)) return;
-
-            const fraction = toPersenFraction(value);
-
-            persenNumerator.value = fraction.numerator;
-            persenDenominator.value = fraction.denominator;
-
-            persenDecimal.value = formatPersenDecimal(value);
-
-            persenValue.value = formatPersenDecimal(value * 100);
-
-            persenStatus.textContent =
-                "Konversi berhasil! Ketiga bentuk bilangan memiliki nilai yang sama.";
-        }
-
-        // Konversi dari pecahan
-        function convertFromPersenFraction() {
-            const n = Number(persenNumerator.value);
-            const d = Number(persenDenominator.value);
-
-            if (
-                persenNumerator.value === "" ||
-                persenDenominator.value === ""
-            ) {
-                persenStatus.textContent =
-                    "Silakan isi pembilang dan penyebut.";
-                return;
-            }
-
-            if (!Number.isFinite(n) || !Number.isFinite(d)) {
-                persenStatus.textContent =
-                    "Masukkan angka yang valid.";
-                return;
-            }
-
-            if (d === 0) {
-                persenStatus.textContent =
-                    "Penyebut tidak boleh bernilai nol.";
-                return;
-            }
-
-            updatePersenConversion(n / d);
-        }
-
-        // Konversi dari desimal
-        function convertFromPersenDecimal() {
-            const value = parsePersenValue(persenDecimal.value);
-
-            if (
-                persenDecimal.value.trim() === "" ||
-                !Number.isFinite(value)
-            ) {
-                persenStatus.textContent =
-                    "Masukkan nilai desimal yang valid.";
-                return;
-            }
-
-            updatePersenConversion(value);
-        }
-
-        // Konversi dari persen
-        function convertFromPersenValue() {
-            const value = parsePersenValue(persenValue.value);
-
-            if (
-                persenValue.value.trim() === "" ||
-                !Number.isFinite(value)
-            ) {
-                persenStatus.textContent =
-                    "Masukkan nilai persen yang valid.";
-                return;
-            }
-
-            updatePersenConversion(value / 100);
-        }
-
-        // Menghubungkan input dengan fungsi konversi
-        persenNumerator.addEventListener(
-            "input",
-            convertFromPersenFraction
-        );
-
-        persenDenominator.addEventListener(
-            "input",
-            convertFromPersenFraction
-        );
-
-        persenDecimal.addEventListener(
-            "input",
-            convertFromPersenDecimal
-        );
-
-        persenValue.addEventListener(
-            "input",
-            convertFromPersenValue
-        );
-    }
-    
-    // ==================================================
-    // 11. TAB OPERASI PECAHAN
+    // 10. TAB OPERASI PECAHAN
     // ==================================================
     const operationData = {
         tambah: {
@@ -631,18 +521,21 @@ document.addEventListener("DOMContentLoaded", function () {
             explanation:
                 "Samakan penyebut menjadi 4. Hasilnya 2/4 + 1/4 = 3/4."
         },
+
         kurang: {
             title: "Pengurangan Pecahan",
             example: "3/4 - 1/4 = 2/4 = 1/2",
             explanation:
                 "Karena penyebut sama, kurangkan pembilangnya: 3 - 1 = 2."
         },
+
         kali: {
             title: "Perkalian Pecahan",
             example: "1/2 × 1/4 = 1/8",
             explanation:
                 "Kalikan pembilang dengan pembilang dan penyebut dengan penyebut."
         },
+
         bagi: {
             title: "Pembagian Pecahan",
             example: "1/2 ÷ 1/4 = 2",
@@ -652,7 +545,8 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     const operationTitle = document.getElementById("operationTitle");
-    const operationExample = document.getElementById("operationExample");
+    const operationExample =
+        document.getElementById("operationExample");
     const operationExplanation =
         document.getElementById("operationExplanation");
 
@@ -661,7 +555,14 @@ document.addEventListener("DOMContentLoaded", function () {
             const type = button.dataset.operation;
             const data = operationData[type];
 
-            if (!data) return;
+            if (
+                !data ||
+                !operationTitle ||
+                !operationExample ||
+                !operationExplanation
+            ) {
+                return;
+            }
 
             document.querySelectorAll(".operation-tab").forEach(function (tab) {
                 tab.classList.remove("active");
@@ -676,7 +577,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // ==================================================
-    // 12. LATIHAN PERBANDINGAN PECAHAN
+    // 10. LATIHAN PERBANDINGAN PECAHAN
     // ==================================================
     const quizFeedback = document.getElementById("quizFeedback");
 
@@ -690,15 +591,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 ? "Benar! 1/2 = 3/6, sedangkan 2/3 = 4/6. Jadi, 1/2 < 2/3."
                 : "Belum tepat. Samakan penyebut menjadi 6, lalu bandingkan 3/6 dan 4/6.";
 
-            quizFeedback.style.color = isCorrect ? "#16865f" : "#d97732";
+            quizFeedback.style.color = isCorrect
+                ? "#16865f"
+                : "#d97732";
         });
     });
 
     // ==================================================
-    // 13. FORM REFLEKSI
+    // 11. FORM REFLEKSI
     // ==================================================
     const reflectionForm = document.getElementById("reflectionForm");
-    const reflectionAnswer = document.getElementById("reflectionAnswer");
+    const reflectionAnswer =
+        document.getElementById("reflectionAnswer");
     const reflectionFeedback =
         document.getElementById("reflectionFeedback");
 
@@ -706,9 +610,17 @@ document.addEventListener("DOMContentLoaded", function () {
         reflectionForm.addEventListener("submit", function (event) {
             event.preventDefault();
 
+            if (
+                !reflectionAnswer ||
+                !reflectionFeedback
+            ) {
+                return;
+            }
+
             if (!reflectionAnswer.value.trim()) {
                 reflectionFeedback.textContent =
                     "Silakan tuliskan refleksimu terlebih dahulu.";
+
                 reflectionFeedback.style.color = "#d97732";
                 return;
             }
@@ -721,7 +633,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // ==================================================
-    // 11. AKHIR INISIALISASI
+    // 12. AKHIR INISIALISASI
     // ==================================================
     console.log("Math Connect berhasil diinisialisasi.");
 });
