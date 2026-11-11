@@ -514,6 +514,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // ==================================================
     // 10. TAB OPERASI PECAHAN
     // ==================================================
+    // Hindari dua handler pada tab yang sama: script.js menangani panel operasi lengkap.
+    if (!document.getElementById("operasi-pecahan")) {
     const operationData = {
         tambah: {
             title: "Penjumlahan Pecahan",
@@ -575,6 +577,7 @@ document.addEventListener("DOMContentLoaded", function () {
             operationExplanation.textContent = data.explanation;
         });
     });
+    }
 
     // ==================================================
     // 10. LATIHAN PERBANDINGAN PECAHAN

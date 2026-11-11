@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f5f8ff">
+    <meta name="description" content="Math Connect - Platform belajar matematika yang terstruktur, interaktif, dan menyenangkan.">
+    <title>Math Connect - Belajar Matematika</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="app-container">
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <a href="#beranda" class="logo-area" aria-label="Math Connect - Beranda">
+            <img
+                src="assets/image/logo-math-connect.png"
+                class="sidebar-logo-image"
+                alt="Math Connect - Learn Mathematics">
+        </a>
+
+        <nav class="main-navigation" aria-label="Navigasi utama">
+            <a href="#beranda" class="nav-item active">
+                <img src="assets/icons/ic-home.png" class="nav-icon" alt="">
+                <span class="nav-label">Beranda</span>
+            </a>
+
+            <a href="#konsep" class="nav-item">
+                <img src="assets/icons/ic-konsep.png" class="nav-icon" alt="">
+                <span class="nav-label">Peta Konsep</span>
+            </a>
+
+            <button type="button" class="nav-item materi-toggle"
+                    id="materiToggle" aria-expanded="false"
+                    aria-controls="materiSubmenu">
+                <img src="assets/icons/ic-materi.png" class="nav-icon" alt="">
+                <span class="nav-label">Materi</span>
+                <span class="nav-arrow" aria-hidden="true">⌄</span>
+            </button>
+
+            <div class="submenu" id="materiSubmenu" hidden>
+                <a href="#bilangan" class="submenu-item">Bilangan</a>
+                <a href="#pecahan" class="submenu-item">Pecahan</a>
+                <a href="#desimal" class="submenu-item">Desimal</a>
+                <a href="#perbandingan-pecahan" class="submenu-item">Rasio &amp; Perbandingan</a>
+                <a href="#operasi-pecahan" class="submenu-item">Operasi Bilangan</a>
+                <a href="#penerapan" class="submenu-item">Penerapan</a>
+            </div>
+
+            <a href="#latihan" class="nav-item">
+                <svg class="nav-icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <rect x="5" y="3.5" width="14" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/>
+                    <path d="M9 8h6M9 12h6M9 16h4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                    <path d="M7.3 8h.1M7.3 12h.1M7.3 16h.1" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+                </svg>
+                <span class="nav-label">Latihan</span>
+            </a>
+
+            <a href="#refleksi" class="nav-item">
+                <svg class="nav-icon-svg nav-icon-reflection" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M6 4.5h9.2a2 2 0 0 1 2 2v12.8H7.5A2.5 2.5 0 0 1 5 16.8V5.5a1 1 0 0 1 1-1Z"
+                          fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                    <path d="M8.5 8h5M8.5 11.5h3.5"
+                          fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                    <path d="m14.2 15.9 4.1-4.1 1.6 1.6-4.1 4.1-2.1.5.5-2.1Z"
+                          fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                    <path d="M7.5 19.3h9.7"
+                          fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                </svg>
+                <span class="nav-label">Refleksi</span>
+            </a>
+
+            <a href="#tentang" class="nav-item">
+                <img src="assets/icons/ic-tentang.png" class="nav-icon" alt="">
+                <span class="nav-label">Tentang</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-note">
+                <span class="note-icon" aria-hidden="true">✦</span>
+                <div>
+                    <strong>Terus Belajar!</strong>
+                    <small>Pahami konsep, latih kemampuan, dan terapkan dalam kehidupan.</small>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- KONTEN UTAMA -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <button class="menu-toggle" id="menuToggle"
+                    type="button" aria-label="Buka menu"
+                    aria-expanded="false">
+                <span aria-hidden="true">☰</span>
+            </button>
+
+            <a href="#beranda" class="brand" aria-label="Math Connect - Beranda">
+                <img src="assets/image/logo-math-connect.png"
+                     class="brand-logo-image" alt="">
+                <span class="brand-name">MATH CONNECT</span>
+            </a>
+
+            <nav class="topbar-nav" aria-label="Navigasi cepat">
+                <a href="#beranda" class="top-link active">Home</a>
+                <a href="#konsep" class="top-link">Peta Konsep</a>
+                <a href="#bilangan" class="top-link">Cari Konsep</a>
+            </nav>
+
+            <button class="search-button" id="searchToggle"
+                    type="button" aria-label="Buka pencarian">
+                <img src="assets/icons/ic-search.png" alt="">
+                <span class="search-placeholder">Cari materi, rumus, atau contoh...</span>
+            </button>
+
+            <div class="notification-menu-wrap" id="notificationMenuWrap">
+                <button class="notification-button" id="notificationToggle" type="button"
+                        aria-label="Buka notifikasi" title="Notifikasi"
+                        aria-expanded="false" aria-controls="notificationDropdown">
+                    <img src="assets/icons/ic-notifikasi.png" alt="">
+                    <span class="notification-badge" id="notificationBadge" hidden>0</span>
+                </button>
+
+                <section class="notification-dropdown" id="notificationDropdown"
+                         aria-label="Pusat notifikasi" hidden>
+                    <div class="notification-panel-heading">
+                        <div>
+                            <h2>Notifikasi</h2>
+                            <p id="notificationSubtitle">Informasi perjalanan belajarmu</p>
+                        </div>
+                        <button type="button" class="notification-close"
+                                id="notificationClose" aria-label="Tutup notifikasi">×</button>
+                    </div>
+
+                    <div class="notification-toolbar">
+                        <button type="button" id="markAllNotificationsRead">Tandai semua dibaca</button>
+                        <button type="button" id="clearAllNotifications">Hapus semua</button>
+                    </div>
+
+                    <div class="notification-list" id="notificationList" aria-live="polite">
+                        <div class="notification-empty" id="notificationEmpty">
+                            <span aria-hidden="true">✦</span>
+                            <strong>Belum ada notifikasi</strong>
+                            <p>Informasi belajar akan muncul di sini.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="profile-menu-wrap">
+                <button class="profile-button" id="profileToggle" type="button"
+                        title="Profil Pembelajar" aria-label="Buka profil pembelajar"
+                        aria-expanded="false" aria-controls="profileDropdown">
+                    <img src="assets/icons/ic-profil.png" alt="">
+                </button>
+                <div class="profile-dropdown profile-dropdown-rich" id="profileDropdown" hidden>
+                    <div class="profile-dropdown-heading">
+                        <span class="profile-avatar">
+                            <img src="assets/icons/ic-profil.png" alt="">
+                        </span>
+                        <div class="profile-heading-copy">
+                            <strong id="profileDisplayName">Pembelajar Math Connect</strong>
+                            <small id="profileDisplayClass">Pelajar Math Connect</small>
+                        </div>
+                    </div>
+
+                    <div class="profile-edit-fields">
+                        <label for="profileNameInput">Nama pembelajar</label>
+                        <input id="profileNameInput" type="text" maxlength="40"
+                               placeholder="Masukkan namamu">
+                        <label for="profileClassInput">Kelas</label>
+                        <select id="profileClassInput">
+                            <option value="">Pilih kelas</option>
+                            <option value="VII">VII</option>
+                            <option value="VIII">VIII</option>
+                            <option value="IX">IX</option>
+                        </select>
+                        <button type="button" class="profile-save-button" id="saveProfileDetails">Simpan Identitas</button>
+                        <p class="profile-inline-feedback" id="profileInlineFeedback" aria-live="polite"></p>
+                    </div>
+
+                    <div class="profile-mini-stats">
+                        <div>
+                            <strong id="profileTopicsCount">0</strong>
+                            <span>Materi dibuka</span>
+                        </div>
+                        <div>
+                            <strong id="profileQuizScore">-</strong>
+                            <span>Nilai terakhir</span>
+                        </div>
+                    </div>
+
+                    <div class="profile-target-card">
+                        <span class="profile-target-label">TARGET BELAJAR</span>
+                        <strong id="profileLearningTarget">Belum ada target</strong>
+                        <small id="profileLearningPlan">Tentukan target melalui halaman Refleksi.</small>
+                    </div>
+
+                    <div class="profile-motivation">
+                        <span aria-hidden="true">✦</span>
+                        <p>Teruslah belajar. Setiap langkah kecil membawamu lebih dekat pada pemahaman yang lebih baik.</p>
+                    </div>
+
+                    <button type="button" class="profile-journey-button" id="profileJourneyButton">
+                        Lihat Perjalanan Belajarku <span aria-hidden="true">→</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- PENCARIAN -->
+        <form class="search-panel" id="searchForm" hidden>
+            <input id="conceptSearch" type="search"
+                   placeholder="Cari materi, rumus, atau contoh..."
+                   aria-label="Cari materi">
+            <button class="btn btn-primary" type="submit">Cari</button>
+        </form>
+
+        <!-- BERANDA / HERO -->
+        <section id="beranda" class="page-section landing-section">
+            <div class="hero-banner">
+                <img
+                    src="assets/image/hero-math-connect.png"
+                    class="hero-banner-image"
+                    alt="Platform belajar matematika Math Connect dengan ilustrasi siswa dan simbol matematika">
+
+                <!-- Teks judul dan tagline sudah menjadi bagian dari gambar hero.
+                     Karena itu tidak ditulis ulang di HTML agar tidak bertumpuk. -->
+                <div class="hero-overlay-content">
+                    <div class="hero-benefits">
+                        <span><b aria-hidden="true">✓</b> Materi Lengkap</span>
+                        <span><b aria-hidden="true">✓</b> Visual Interaktif</span>
+                        <span><b aria-hidden="true">✓</b> Latihan &amp; Refleksi</span>
+                    </div>
+
+                    <div class="hero-buttons">
+                        <a href="#konsep" class="btn btn-primary">
+                            <span aria-hidden="true">▶</span> Mulai Eksplorasi
+                        </a>
+                        <a href="#bilangan" class="btn btn-secondary">
+                            <span aria-hidden="true">▥</span> Mulai dari Bilangan
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KARTU AKSES CEPAT -->
+        <section class="quick-access-section" aria-label="Akses cepat">
+            <a href="#konsep" class="quick-access-card">
+                <img src="assets/icons/ic-peta-konsep.png" alt="" class="quick-access-icon">
+                <span class="quick-access-text">
+                    <strong>Peta Konsep</strong>
+                    <small>Temukan hubungan antar konsep.</small>
+                </span>
+                <span class="quick-access-arrow" aria-hidden="true">›</span>
+            </a>
+
+            <a href="#bilangan" class="quick-access-card">
+                <img src="assets/icons/ic-cari-konsep.png" alt="" class="quick-access-icon">
+                <span class="quick-access-text">
+                    <strong>Cari Konsep</strong>
+                    <small>Cari materi, rumus, atau contoh.</small>
+                </span>
+                <span class="quick-access-arrow" aria-hidden="true">›</span>
+            </a>
+
+            <a href="#latihan" class="quick-access-card">
+                <img src="assets/icons/ic-latihan.png" alt="" class="quick-access-icon">
+                <span class="quick-access-text">
+                    <strong>Latihan Interaktif</strong>
+                    <small>Uji pemahamanmu.</small>
+                </span>
+                <span class="quick-access-arrow" aria-hidden="true">›</span>
+            </a>
+
+            <a href="#refleksi" class="quick-access-card">
+                <img src="assets/icons/ic-refleksi-fitur.png" alt="" class="quick-access-icon">
+                <span class="quick-access-text">
+                    <strong>Refleksi</strong>
+                    <small>Evaluasi dan catat perkembangan.</small>
+                </span>
+                <span class="quick-access-arrow" aria-hidden="true">›</span>
+            </a>
+        </section>
+
+        <!-- DAFTAR MATERI PEMBELAJARAN -->
+        <section class="home-materials-section" aria-labelledby="homeMaterialsTitle">
+            <div class="home-materials-heading">
+                <div class="home-materials-title">
+                    <span class="materials-heading-icon" aria-hidden="true">▤</span>
+                    <h2 id="homeMaterialsTitle">Daftar Materi Pembelajaran</h2>
+                </div>
+                <div class="materials-carousel-controls">
+                    <button type="button" class="materials-arrow is-disabled"
+                            aria-label="Materi sebelumnya" disabled>‹</button>
+                    <button type="button" class="materials-arrow"
+                            aria-label="Materi berikutnya">›</button>
+                </div>
+            </div>
+
+            <div class="home-materials-grid">
+                <a href="#bilangan" class="home-material-card material-blue">
+                    <img src="assets/icons/ic-bilangan.png" alt="" class="home-material-icon">
+                    <span class="material-number">01</span>
+                    <strong>Bilangan</strong>
+                    <small>Mengenal berbagai jenis bilangan.</small>
+                    <span class="material-card-arrow" aria-hidden="true">›</span>
+                </a>
+
+                <a href="#pecahan" class="home-material-card material-purple">
+                    <img src="assets/icons/ic-pecahan.png" alt="" class="home-material-icon">
+                    <span class="material-number">02</span>
+                    <strong>Pecahan</strong>
+                    <small>Konsep, bagian-bagian, dan jenis pecahan.</small>
+                    <span class="material-card-arrow" aria-hidden="true">›</span>
+                </a>
+
+                <a href="#desimal" class="home-material-card material-green">
+                    <img src="assets/icons/ic-desimal.png" alt="" class="home-material-icon">
+                    <span class="material-number">03</span>
+                    <strong>Desimal</strong>
+                    <small>Bentuk desimal, operasi, dan penerapan.</small>
+                    <span class="material-card-arrow" aria-hidden="true">›</span>
+                </a>
+
+                <a href="#perbandingan-pecahan" class="home-material-card material-orange">
+                    <img src="assets/icons/ic-rasio.png" alt="" class="home-material-icon">
+                    <span class="material-number">04</span>
+                    <strong>Rasio &amp; Perbandingan</strong>
+                    <small>Hubungan dua besaran.</small>
+                    <span class="material-card-arrow" aria-hidden="true">›</span>
+                </a>
+
+                <a href="#operasi-pecahan" class="home-material-card material-pink">
+                    <img src="assets/icons/ic-operasi.png" alt="" class="home-material-icon">
+                    <span class="material-number">05</span>
+                    <strong>Operasi Bilangan</strong>
+                    <small>Operasi hitung pada berbagai bilangan.</small>
+                    <span class="material-card-arrow" aria-hidden="true">›</span>
+                </a>
+
+                <a href="#penerapan" class="home-material-card material-sky">
+                    <img src="assets/icons/ic-penerapan.png" alt="" class="home-material-icon">
+                    <span class="material-number">06</span>
+                    <strong>Penerapan</strong>
+                    <small>Pemecahan masalah dalam kehidupan nyata.</small>
+                    <span class="material-card-arrow" aria-hidden="true">›</span>
+                </a>
+            </div>
+
+            <div class="materials-pagination" aria-hidden="true">
+                <span class="active"></span><span></span><span></span>
+                <span></span><span></span><span></span>
+            </div>
+        </section>
+
+        <!-- PETA KONSEP -->
+        <section id="konsep" class="page-section concept-section">
+            <div class="section-header">
+                <span class="section-label">EKSPLORASI</span>
+                <h2>Peta Konsep</h2>
+                <p>Jelajahi hubungan antara konsep-konsep matematika.</p>
+            </div>
+
+            <div class="concept-map">
+                <div class="concept-tree">
+                    <div class="concept-level">
+                        <button class="concept-node main-node" data-concept="Bilangan">
+                            <span>▦</span> Bilangan
+                        </button>
+                    </div>
+
+                    <div class="connector"></div>
+
+                    <div class="concept-level number-level">
+                        <button class="concept-node sub-node" data-concept="Bilangan Cacah">Bilangan Cacah</button>
+                        <button class="concept-node sub-node" data-concept="Bilangan Bulat">Bilangan Bulat</button>
+                        <button class="concept-node sub-node" data-concept="Bilangan Rasional">Bilangan Rasional</button>
+                    </div>
+
+                    <div class="connector"></div>
+
+                    <div class="concept-level">
+                        <button class="concept-node fraction-node" data-concept="Pecahan">Pecahan</button>
+                    </div>
+
+                    <div class="connector"></div>
+
+                    <div class="concept-level derived-level">
+                        <button class="concept-node decimal-node" data-concept="Desimal">Desimal</button>
+                        <button class="concept-node percent-node" data-concept="Persen">Persen</button>
+                        <button class="concept-node ratio-node" data-concept="Rasio">Rasio</button>
+                    </div>
+
+                    <div class="connector"></div>
+
+                    <div class="concept-level">
+                        <button class="concept-node application-node" data-concept="Penerapan">
+                            <span>▤</span> Penerapan
+                        </button>
+                    </div>
+                </div>
+
+                <div class="concept-info" id="conceptInfo" hidden>
+                    <button id="closeConceptInfo" class="close-info"
+                            type="button" aria-label="Tutup">×</button>
+                    <h3 id="conceptTitle"></h3>
+                    <p id="conceptDescription"></p>
+                    <a href="#bilangan" class="btn btn-primary" id="conceptLink">
+                        Pelajari Konsep
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- MATERI 01: BILANGAN -->
+        <section id="bilangan" class="page-section material-section">
+            <div class="section-header">
+                <span class="section-label">MATERI 01</span>
+                <h2>Bilangan</h2>
+                <p>Bilangan menyatakan jumlah, ukuran, urutan, dan nilai.</p>
+            </div>
+
+            <div class="material-grid">
+                <article class="content-card">
+                    <span class="card-icon">123</span>
+                    <h3>Apa itu Bilangan?</h3>
+                    <p>Bilangan adalah konsep matematika untuk menyatakan jumlah atau nilai suatu objek.</p>
+                </article>
+
+                <article class="content-card">
+                    <span class="card-icon">∞</span>
+                    <h3>Jenis Bilangan</h3>
+                    <ul>
+                        <li>Bilangan cacah</li>
+                        <li>Bilangan bulat</li>
+                        <li>Bilangan rasional</li>
+                        <li>Bilangan irasional</li>
+                        <li>Bilangan real</li>
+                    </ul>
+                </article>
+
+                <article class="content-card">
+                    <span class="card-icon">✎</span>
+                    <h3>Contoh Bilangan</h3>
+                    <div class="example-list">
+                        <span>3</span><span>−5</span><span><span class="operation-fraction" role="math" aria-label="1 per 2"><span class="numerator">1</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">2</span></span></span>
+                        <span>0,75</span><span>25%</span>
+                    </div>
+                </article>
+            </div>
+            <a href="#pecahan" class="btn btn-primary">Lanjut ke Pecahan →</a>
+        </section>
+
+        <!-- MATERI 02: PECAHAN -->
+        <section id="pecahan" class="page-section material-section">
+            <div class="section-header">
+                <span class="section-label">MATERI 02</span>
+                <h2>Pecahan</h2>
+                <p>Mengenal konsep pecahan, bagian-bagiannya, dan jenis-jenis pecahan.</p>
+            </div>
+
+            <div class="fraction-learning">
+                <div class="fraction-scene-nav">
+                    <button class="fraction-nav-btn active" id="sceneMiniBtn"
+                            data-scene="mini">Mini Materi</button>
+                    <button class="fraction-nav-btn" id="sceneTypesBtn"
+                            data-scene="types">Jenis Pecahan</button>
+                </div>
+
+                <!-- MINI MATERI -->
+                <div id="fractionMiniScene" class="fraction-scene active">
+                    <div class="fraction-mini-header">
+                        <div>
+                            <span class="fraction-breadcrumb">Peta Konsep › Pecahan</span>
+                            <h3>Mini Materi Pecahan</h3>
+                        </div>
+                        <span class="fraction-scene-number">SCENE 6</span>
+                    </div>
+
+                    <div class="fraction-workspace">
+                        <div class="fraction-panel fraction-know-panel">
+                            <h4>Kenali</h4>
+                            <div class="fraction-main-display">
+                                <div class="fraction-number">
+                                    <span id="fractionNumeratorDisplay">3</span>
+                                    <span class="fraction-line"></span>
+                                    <span id="fractionDenominatorDisplay">4</span>
+                                </div>
+                            </div>
+
+                            <div class="fraction-explanation">
+                                <p><strong id="fractionNumeratorInfo">3</strong> → Pembilang</p>
+                                <p><strong id="fractionDenominatorInfo">4</strong> → Penyebut</p>
+                            </div>
+
+                            <div class="fraction-description">
+                                <p>Pecahan merupakan bilangan yang menyatakan bagian dari keseluruhan.</p>
+                            </div>
+                        </div>
+
+                        <div class="fraction-panel fraction-visual-panel">
+                            <h4>Representasi Visual</h4>
+
+                            <div class="fraction-slider-group">
+                                <div class="fraction-slider-row">
+                                    <label for="fractionNumeratorSlider">Pembilang</label>
+                                    <div class="fraction-slider-control">
+                                        <span class="slider-number" id="fractionNumeratorValue">3</span>
+                                        <input type="range" id="fractionNumeratorSlider"
+                                               min="0" max="4" value="3">
+                                    </div>
+                                </div>
+
+                                <div class="fraction-slider-row">
+                                    <label for="fractionDenominatorSlider">Penyebut</label>
+                                    <div class="fraction-slider-control">
+                                        <span class="slider-number denominator-color" id="fractionDenominatorValue">4</span>
+                                        <input type="range" id="fractionDenominatorSlider"
+                                               min="2" max="10" value="4">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="fraction-circle-wrapper">
+                                <div id="fractionCircle" class="fraction-circle"></div>
+                            </div>
+
+                            <div class="fraction-conversion">
+                                <div class="conversion-item">
+                                    <div class="fraction-small">
+                                        <span id="fractionResultTop">3</span>
+                                        <span></span>
+                                        <span id="fractionResultBottom">4</span>
+                                    </div>
+                                </div>
+                                <span class="conversion-equal">=</span>
+                                <div class="conversion-item"><strong id="fractionDecimalResult">0,75</strong></div>
+                                <span class="conversion-equal">=</span>
+                                <div class="conversion-item"><strong id="fractionPercentResult">75%</strong></div>
+                            </div>
+
+                            <p id="fractionVisualDescription" class="fraction-visual-description">
+                                3 dari 4 bagian sama besar telah diarsir.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="fraction-scene-footer">
+                        <p>Gunakan slider untuk mengubah nilai pecahan dan melihat representasi visualnya.</p>
+                    </div>
+
+                    <div class="fraction-scene-actions">
+                        <button class="fraction-next-btn" data-scene="types">
+                            Selanjutnya <span>→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- JENIS PECAHAN -->
+                <div id="fractionTypesScene" class="fraction-scene" hidden>
+                    <div class="fraction-mini-header">
+                        <div>
+                            <span class="fraction-breadcrumb">Peta Konsep › Pecahan</span>
+                            <h3>Jenis-Jenis Pecahan</h3>
+                        </div>
+                        <span class="fraction-scene-number">SCENE 7</span>
+                    </div>
+
+                    <div class="fraction-types-intro">
+                        <p>Pecahan dapat dinyatakan dalam beberapa bentuk. Berikut tiga jenis pecahan yang perlu kamu kenali.</p>
+                    </div>
+
+                    <div class="fraction-types-grid">
+                        <article class="fraction-type-card ordinary-card">
+                            <h4>Pecahan Biasa</h4>
+                            <div class="fraction-type-example">
+                                <div class="fraction-number">
+                                    <span>3</span><span class="fraction-line"></span><span>4</span>
+                                </div>
+                            </div>
+                            <ul><li>Pecahan murni</li><li>Pecahan tidak murni</li></ul>
+                            <div class="fraction-example-text">Contoh: <span><span class="operation-fraction" role="math" aria-label="3 per 4"><span class="numerator">3</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">4</span></span>, <span class="operation-fraction" role="math" aria-label="5 per 4"><span class="numerator">5</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">4</span></span></span></div>
+                        </article>
+
+                        <article class="fraction-type-card mixed-card">
+                            <h4>Pecahan Campuran</h4>
+                            <div class="fraction-type-example">
+                                <div class="mixed-fraction-display">
+                                    <span class="mixed-whole">1</span>
+                                    <div class="fraction-number">
+                                        <span>1</span><span class="fraction-line"></span><span>2</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul><li>Terdiri dari bilangan bulat dan pecahan</li></ul>
+                            <div class="fraction-example-text">Contoh: <span><span class="mixed-whole">1</span> <span class="operation-fraction" role="math" aria-label="1 dan 1 per 2"><span class="numerator">1</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">2</span></span>, <span class="mixed-whole">2</span> <span class="operation-fraction" role="math" aria-label="2 dan 3 per 4"><span class="numerator">3</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">4</span></span></span></div>
+                        </article>
+
+                        <article class="fraction-type-card decimal-card">
+                            <h4>Pecahan Desimal</h4>
+                            <div class="fraction-type-example"><div class="decimal-example">0,75</div></div>
+                            <ul><li>Menggunakan tanda koma</li></ul>
+                            <div class="fraction-example-text">Contoh: <span>0,5, 1,25</span></div>
+                        </article>
+                    </div>
+
+                    <div class="fraction-scene-footer">
+                        <p>Kenali berbagai jenis pecahan melalui penjelasan dan contoh.</p>
+                    </div>
+
+                    <div class="fraction-scene-actions">
+                        <button class="fraction-back-btn" data-scene="mini">← Sebelumnya</button>
+                        <button class="fraction-next-btn" data-scene="mini">Kembali ke Awal</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MATERI 03: PECAHAN, DESIMAL, PERSEN -->
+        <section id="desimal" class="page-section material-section">
+            <div class="section-header">
+                <span class="section-label">MATERI 03</span>
+                <h2>Pecahan, Desimal, dan Persen</h2>
+                <p>Ketiganya merupakan bentuk berbeda untuk menyatakan nilai yang sama.</p>
+            </div>
+
+            <div class="material-grid">
+                <article class="content-card">
+                    <h3>Pecahan</h3>
+                    <div class="fraction-display">
+                        <div class="fraction-number">
+                            <span>3</span><span class="fraction-line"></span><span>4</span>
+                        </div>
+                    </div>
+                    <p>Pecahan menyatakan bagian dari suatu keseluruhan. Pembilang menunjukkan banyak bagian yang diperhatikan, sedangkan penyebut menunjukkan jumlah seluruh bagian yang sama besar.</p>
+                </article>
+
+                <article class="content-card">
+                    <h3>Desimal</h3>
+                    <p>Desimal menggunakan tanda koma untuk memisahkan bagian bilangan bulat dan bagian pecahannya.</p>
+                    <div class="example-list"><span>0,5</span><span>0,75</span><span>1,25</span></div>
+                </article>
+
+                <article class="content-card">
+                    <h3>Persen</h3>
+                    <p>Persen berarti per seratus dan digunakan untuk menyatakan suatu nilai sebagai bagian dari 100.</p>
+                    <div class="example-list"><span>25%</span><span>50%</span><span>75%</span></div>
+                </article>
+            </div>
+
+            <article class="content-card">
+                <h3>Rangkuman dan Cara Mengubah Bentuk Bilangan</h3>
+                <p>Pecahan, desimal, dan persen dapat digunakan untuk menyatakan nilai yang sama.</p>
+                <div class="material-grid">
+                    <div>
+                        <strong>Pecahan ke Desimal</strong>
+                        <p>Bagilah pembilang dengan penyebut.</p>
+                        <p>Contoh: <span class="operation-fraction" role="math" aria-label="1 per 2"><span class="numerator">1</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">2</span></span> = 1 ÷ 2 = 0,5</p>
+                    </div>
+                    <div>
+                        <strong>Pecahan ke Persen</strong>
+                        <p>Kalikan pecahan dengan 100%.</p>
+                        <p>Contoh: <span class="operation-fraction" role="math" aria-label="1 per 4"><span class="numerator">1</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">4</span></span> × 100% = 25%</p>
+                    </div>
+                    <div>
+                        <strong>Desimal ke Persen</strong>
+                        <p>Kalikan bilangan desimal dengan 100.</p>
+                        <p>Contoh: 0,25 × 100% = 25%</p>
+                    </div>
+                </div>
+                <p><strong>Kesimpulan:</strong> <span class="operation-fraction" role="math" aria-label="1 per 2"><span class="numerator">1</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">2</span></span> = 0,5 = 50%. Ketiganya menunjukkan nilai yang sama.</p>
+            </article>
+
+            <article class="content-card">
+                <h3>Konversi Interaktif</h3>
+                <p>Masukkan nilai pada salah satu kolom untuk melihat bentuk yang setara.</p>
+
+                <div class="conversion-card">
+                    <div class="conversion-item">
+                        <label for="numerator">Pecahan</label>
+                        <div class="fraction-input">
+                            <input type="number" id="numerator" placeholder="1" step="any">
+                            <span class="fraction-line"></span>
+                            <input type="number" id="denominator" placeholder="2" step="any">
+                        </div>
+                    </div>
+
+                    <span class="conversion-arrow">⇄</span>
+
+                    <div class="conversion-item">
+                        <label for="decimal">Desimal</label>
+                        <input type="text" id="decimal" class="conversion-input" placeholder="0,5">
+                    </div>
+
+                    <span class="conversion-arrow">⇄</span>
+
+                    <div class="conversion-item">
+                        <label for="percent">Persen</label>
+                        <div class="percent-input">
+                            <input type="text" id="percent" class="conversion-input" placeholder="50">
+                            <span>%</span>
+                        </div>
+                    </div>
+                </div>
+                <p id="conversion-status" class="conversion-status" aria-live="polite">
+                    Masukkan angka pada salah satu kolom untuk memulai konversi.
+                </p>
+            </article>
+        </section>
+
+        <!-- MATERI 04: PERBANDINGAN -->
+        <section id="perbandingan-pecahan" class="page-section material-section">
+            <div class="section-header">
+                <span class="section-label">MATERI 04</span>
+                <h2>Perbandingan Pecahan</h2>
+                <p>Menentukan hubungan nilai dua pecahan: lebih besar (&gt;), lebih kecil (&lt;), atau sama dengan (=).</p>
+            </div>
+
+            <div class="comparison-container">
+                <div class="comparison-topbar">
+                    <div class="comparison-brand"><span class="comparison-brand-icon">✥</span> MATH CONNECT</div>
+                    <div class="comparison-profile">♙</div>
+                </div>
+
+                <div class="comparison-content">
+                    <div class="comparison-left">
+                        <div class="comparison-heading"><h2>Perbandingan Pecahan</h2></div>
+
+                        <div class="fraction-comparison-area">
+                            <div class="fraction-card" data-numerator="1" data-denominator="2">
+                                <span class="fraction-value"><span>1</span><span class="fraction-bar"></span><span>2</span></span>
+                            </div>
+                            <div class="comparison-question-mark">?</div>
+                            <div class="fraction-card" data-numerator="2" data-denominator="3">
+                                <span class="fraction-value"><span>2</span><span class="fraction-bar"></span><span>3</span></span>
+                            </div>
+                        </div>
+
+                        <div class="comparison-options">
+                            <button type="button" class="comparison-sign" data-sign="&lt;" aria-label="Kurang dari">&lt;</button>
+                            <button type="button" class="comparison-sign" data-sign="=" aria-label="Sama dengan">=</button>
+                            <button type="button" class="comparison-sign" data-sign="&gt;" aria-label="Lebih dari">&gt;</button>
+                        </div>
+
+                        <p class="comparison-selected-info" id="comparisonSelectedInfo">
+                            Pilih tanda yang tepat untuk membandingkan kedua pecahan.
+                        </p>
+                    </div>
+
+                    <div class="comparison-right">
+                        <div class="comparison-method-card">
+                            <h3>Bagaimana kamu mengetahuinya?</h3>
+                            <p class="comparison-method-description">Pilih cara yang kamu gunakan untuk membandingkan kedua pecahan.</p>
+
+                            <div class="thinking-options">
+                                <label class="thinking-option"><input type="radio" name="thinkingMethod" value="gambar"><span class="custom-radio"></span><span>Menggunakan gambar</span></label>
+                                <label class="thinking-option"><input type="radio" name="thinkingMethod" value="penyebut"><span class="custom-radio"></span><span>Menyamakan penyebut</span></label>
+                                <label class="thinking-option"><input type="radio" name="thinkingMethod" value="desimal"><span class="custom-radio"></span><span>Mengubah ke desimal</span></label>
+                                <label class="thinking-option"><input type="radio" name="thinkingMethod" value="lain"><span class="custom-radio"></span><span>Cara lain</span></label>
+                            </div>
+
+                            <div class="comparison-other-method" id="comparisonOtherMethod" hidden>
+                                <label for="comparisonOtherExplanation">Tuliskan bagaimana kamu menyelesaikan soal ini.</label>
+                                <textarea id="comparisonOtherExplanation" rows="5" maxlength="12000" placeholder="Tuliskan langkah-langkah penyelesaianmu..."></textarea>
+                                <div class="comparison-word-counter"><span id="comparisonWordCount">0</span> / 2.000 kata</div>
+                            </div>
+
+                            <button type="button" class="comparison-check-btn" id="checkComparisonAnswer">Cek Jawaban</button>
+                            <div class="comparison-feedback" id="comparisonFeedback" aria-live="polite" hidden></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-solution" id="comparisonSolution" hidden>
+                    <div class="comparison-solution-header">
+                        <div>
+                            <span class="comparison-solution-label">HASIL PEMERIKSAAN</span>
+                            <h3 id="comparisonSolutionTitle">Pembahasan Jawaban</h3>
+                        </div>
+                        <span id="comparisonSolutionStatus" class="comparison-solution-status"></span>
+                    </div>
+                    <p id="comparisonSolutionMessage" class="comparison-solution-message"></p>
+                    <div class="comparison-solution-divider"></div>
+                    <h4 class="comparison-solution-subtitle">Langkah-langkah Penyelesaian</h4>
+                    <div id="comparisonSolutionContent" class="comparison-solution-content"></div>
+                    <div class="comparison-final-answer">
+                        <strong>Kesimpulan:</strong>
+                        <p id="comparisonFinalAnswer"></p>
+                    </div>
+                    <button type="button" class="comparison-retry-btn" id="comparisonRetry">Coba Kembali</button>
+                </div>
+
+                <div class="comparison-footer">
+                    <p>Siswa tidak hanya menjawab, tetapi juga memilih cara berpikir yang digunakan.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MATERI 05: OPERASI PECAHAN -->
+        <section id="operasi-pecahan" class="page-section material-section">
+            <div class="section-header">
+                <span class="section-label">MATERI 05</span>
+                <h2>Operasi Pecahan</h2>
+                <p>Pelajari penjumlahan, pengurangan, perkalian, dan pembagian pecahan.</p>
+            </div>
+
+            <div class="operation-container">
+                <div class="operation-tabs">
+                    <button class="operation-tab active" data-operation="addition">Penjumlahan</button>
+                    <button class="operation-tab" data-operation="subtraction">Pengurangan</button>
+                    <button class="operation-tab" data-operation="multiplication">Perkalian</button>
+                    <button class="operation-tab" data-operation="division">Pembagian</button>
+                </div>
+
+                <!-- PENJUMLAHAN -->
+                <div class="operation-panel active" id="addition">
+                    <div class="operation-material-card">
+                        <h2>Penjumlahan Pecahan</h2>
+                        <p class="operation-intro">Penjumlahan dilakukan dengan menjumlahkan pembilang. Jika penyebut berbeda, samakan penyebut terlebih dahulu.</p>
+
+                        <div class="operation-topic">
+                            <span class="operation-topic-label">BAGIAN 1</span>
+                            <h3>A. Penjumlahan dengan Penyebut Sama</h3>
+                            <p>Jika dua pecahan memiliki penyebut sama, cukup jumlahkan pembilangnya. Penyebut tetap.</p>
+                            <div class="operation-formula">
+                                <span class="operation-fraction"><span class="numerator">a</span><span class="fraction-bar"></span><span class="denominator">c</span></span>
+                                <span class="formula-sign">+</span>
+                                <span class="operation-fraction"><span class="numerator">b</span><span class="fraction-bar"></span><span class="denominator">c</span></span>
+                                <span class="formula-sign">=</span>
+                                <span class="operation-fraction"><span class="numerator">a + b</span><span class="fraction-bar"></span><span class="denominator">c</span></span>
+                            </div>
+                            <div class="operation-example">
+                                <strong>Contoh:</strong>
+                                <div class="operation-example-math"><span class="operation-fraction" role="math" aria-label="1 per 5"><span class="numerator">1</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">5</span></span> + <span class="operation-fraction" role="math" aria-label="2 per 5"><span class="numerator">2</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">5</span></span> = <span class="operation-fraction" role="math" aria-label="3 per 5"><span class="numerator">3</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">5</span></span></div>
+                                <p>Pembilang dijumlahkan, yaitu 1 + 2 = 3, sedangkan penyebut tetap 5.</p>
+                            </div>
+                        </div>
+
+                        <div class="operation-topic">
+                            <span class="operation-topic-label">BAGIAN 2</span>
+                            <h3>B. Penjumlahan dengan Penyebut Berbeda</h3>
+                            <p>Tentukan KPK penyebut untuk memperoleh penyebut yang sama, kemudian ubah menjadi pecahan senilai.</p>
+                            <div class="operation-example">
+                                <strong>Contoh:</strong>
+                                <div class="operation-example-math"><span class="operation-fraction" role="math" aria-label="1 per 2"><span class="numerator">1</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">2</span></span> + <span class="operation-fraction" role="math" aria-label="1 per 4"><span class="numerator">1</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">4</span></span> = <span class="operation-fraction" role="math" aria-label="3 per 4"><span class="numerator">3</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">4</span></span></div>
+                                <p><strong>Langkah 1.</strong> Menentukan KPK.</p>
+                                <div class="operation-example-math">KPK (2, 4) = 4</div>
+                                <p><strong>Langkah 2.</strong> Menyamakan penyebut.</p>
+                                <div class="operation-example-math"><span class="operation-fraction" role="math" aria-label="1 per 2"><span class="numerator">1</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">2</span></span> = <span class="operation-fraction" role="math" aria-label="2 per 4"><span class="numerator">2</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">4</span></span></div>
+                                <p><strong>Langkah 3.</strong> Menjumlahkan pembilang.</p>
+                                <div class="operation-example-math"><span class="operation-fraction" role="math" aria-label="2 per 4"><span class="numerator">2</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">4</span></span> + <span class="operation-fraction" role="math" aria-label="1 per 4"><span class="numerator">1</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">4</span></span> = <span class="operation-fraction" role="math" aria-label="3 per 4"><span class="numerator">3</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">4</span></span></div>
+                                <p>Jadi, hasil penjumlahan adalah <span class="operation-fraction" role="math" aria-label="3 per 4"><span class="numerator">3</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">4</span></span>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="operation-activity-card">
+                        <div class="operation-activity-heading">
+                            <span class="operation-activity-label">AKTIVITAS 01</span>
+                            <h2>Ayo, Coba Kerjakan!</h2>
+                            <p>Lengkapi bagian yang kosong berdasarkan langkah penyelesaian.</p>
+                        </div>
+                        <div class="operation-question">
+                            <span class="operation-question-label">SOAL</span>
+                            <div class="operation-question-math"><span class="operation-fraction" role="math" aria-label="1 per 3"><span class="numerator">1</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">3</span></span> + <span class="operation-fraction" role="math" aria-label="1 per 6"><span class="numerator">1</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">6</span></span> = ....</div>
+                        </div>
+                        <div class="operation-workspace" data-exercise="addition">
+                            <h3>Langkah Penyelesaian</h3>
+                            <div class="operation-step"><span class="operation-step-number">1</span><div class="operation-step-content"><p>Menentukan KPK dari 3 dan 6.</p><div class="operation-answer-line">KPK (3, 6) = <input type="text" data-answer="6" placeholder="..."></div></div></div>
+                            <div class="operation-step"><span class="operation-step-number">2</span><div class="operation-step-content"><p>Mengubah pecahan pertama.</p><div class="operation-answer-line"><span class="operation-fraction" role="math" aria-label="1 per 3"><span class="numerator">1</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">3</span></span> = <input type="text" data-answer="2/6" placeholder="..."></div></div></div>
+                            <div class="operation-step"><span class="operation-step-number">3</span><div class="operation-step-content"><p>Menjumlahkan kedua pecahan.</p><div class="operation-answer-line"><span class="operation-fraction" role="math" aria-label="2 per 6"><span class="numerator">2</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">6</span></span> + <span class="operation-fraction" role="math" aria-label="1 per 6"><span class="numerator">1</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">6</span></span> = <input type="text" data-answer="3/6" placeholder="..."></div></div></div>
+                            <div class="operation-step"><span class="operation-step-number">4</span><div class="operation-step-content"><p>Menyederhanakan hasil.</p><div class="operation-answer-line">Hasil akhir = <input type="text" data-answer="1/2" placeholder="..."></div></div></div>
+                            <button class="operation-check-btn" type="button" data-check="addition">Periksa Jawaban</button>
+                            <div class="operation-feedback" aria-live="polite" hidden></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PENGURANGAN -->
+                <div class="operation-panel" id="subtraction" hidden>
+                    <div class="operation-material-card">
+                        <h2>Pengurangan Pecahan</h2>
+                        <p class="operation-intro">Pengurangan dilakukan dengan mengurangkan pembilang. Jika penyebut berbeda, samakan terlebih dahulu.</p>
+
+                        <div class="operation-topic">
+                            <span class="operation-topic-label">BAGIAN 1</span>
+                            <h3>A. Pengurangan dengan Penyebut Sama</h3>
+                            <p>Kurangkan pembilangnya dan pertahankan penyebut tersebut.</p>
+                            <div class="operation-formula">
+                                <span class="operation-fraction"><span class="numerator">a</span><span class="fraction-bar"></span><span class="denominator">c</span></span>
+                                <span class="formula-sign">−</span>
+                                <span class="operation-fraction"><span class="numerator">b</span><span class="fraction-bar"></span><span class="denominator">c</span></span>
+                                <span class="formula-sign">=</span>
+                                <span class="operation-fraction"><span class="numerator">a − b</span><span class="fraction-bar"></span><span class="denominator">c</span></span>
+                            </div>
+                            <div class="operation-example"><strong>Contoh:</strong><div class="operation-example-math"><span class="operation-fraction" role="math" aria-label="4 per 7"><span class="numerator">4</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">7</span></span> − <span class="operation-fraction" role="math" aria-label="2 per 7"><span class="numerator">2</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">7</span></span> = <span class="operation-fraction" role="math" aria-label="2 per 7"><span class="numerator">2</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">7</span></span></div><p>4 − 2 = 2, sedangkan penyebut tetap 7.</p></div>
+                        </div>
+
+                        <div class="operation-topic">
+                            <span class="operation-topic-label">BAGIAN 2</span>
+                            <h3>B. Pengurangan dengan Penyebut Berbeda</h3>
+                            <p>Tentukan KPK penyebut, kemudian ubah kedua pecahan menjadi pecahan senilai.</p>
+                            <div class="operation-example">
+                                <strong>Contoh:</strong>
+                                <div class="operation-example-math"><span class="operation-fraction" role="math" aria-label="3 per 4"><span class="numerator">3</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">4</span></span> − <span class="operation-fraction" role="math" aria-label="1 per 2"><span class="numerator">1</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">2</span></span> = <span class="operation-fraction" role="math" aria-label="1 per 4"><span class="numerator">1</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">4</span></span></div>
+                                <p><strong>Langkah 1.</strong> KPK (4, 2) = 4.</p>
+                                <p><strong>Langkah 2.</strong> <span class="operation-fraction" role="math" aria-label="1 per 2"><span class="numerator">1</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">2</span></span> = <span class="operation-fraction" role="math" aria-label="2 per 4"><span class="numerator">2</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">4</span></span>.</p>
+                                <p><strong>Langkah 3.</strong> <span class="operation-fraction" role="math" aria-label="3 per 4"><span class="numerator">3</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">4</span></span> − <span class="operation-fraction" role="math" aria-label="2 per 4"><span class="numerator">2</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">4</span></span> = <span class="operation-fraction" role="math" aria-label="1 per 4"><span class="numerator">1</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">4</span></span>.</p>
+                                <p>Jadi, hasil pengurangan adalah <span class="operation-fraction" role="math" aria-label="1 per 4"><span class="numerator">1</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">4</span></span>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="operation-activity-card">
+                        <div class="operation-activity-heading">
+                            <span class="operation-activity-label">AKTIVITAS 02</span>
+                            <h2>Ayo, Coba Kerjakan!</h2>
+                            <p>Lengkapi langkah penyelesaian pengurangan berikut.</p>
+                        </div>
+                        <div class="operation-question"><span class="operation-question-label">SOAL</span><div class="operation-question-math"><span class="operation-fraction" role="math" aria-label="5 per 6"><span class="numerator">5</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">6</span></span> − <span class="operation-fraction" role="math" aria-label="1 per 3"><span class="numerator">1</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">3</span></span> = ....</div></div>
+                        <div class="operation-workspace" data-exercise="subtraction">
+                            <h3>Langkah Penyelesaian</h3>
+                            <div class="operation-step"><span class="operation-step-number">1</span><div class="operation-step-content"><p>Menentukan KPK dari 6 dan 3.</p><div class="operation-answer-line">KPK (6, 3) = <input type="text" data-answer="6" placeholder="..."></div></div></div>
+                            <div class="operation-step"><span class="operation-step-number">2</span><div class="operation-step-content"><p>Mengubah pecahan kedua.</p><div class="operation-answer-line"><span class="operation-fraction" role="math" aria-label="1 per 3"><span class="numerator">1</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">3</span></span> = <input type="text" data-answer="2/6" placeholder="..."></div></div></div>
+                            <div class="operation-step"><span class="operation-step-number">3</span><div class="operation-step-content"><p>Mengurangkan kedua pecahan.</p><div class="operation-answer-line"><span class="operation-fraction" role="math" aria-label="5 per 6"><span class="numerator">5</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">6</span></span> − <span class="operation-fraction" role="math" aria-label="2 per 6"><span class="numerator">2</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">6</span></span> = <input type="text" data-answer="3/6" placeholder="..."></div></div></div>
+                            <div class="operation-step"><span class="operation-step-number">4</span><div class="operation-step-content"><p>Menyederhanakan hasil.</p><div class="operation-answer-line">Hasil akhir = <input type="text" data-answer="1/2" placeholder="..."></div></div></div>
+                            <button class="operation-check-btn" type="button" data-check="subtraction">Periksa Jawaban</button>
+                            <div class="operation-feedback" aria-live="polite" hidden></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PERKALIAN -->
+                <div class="operation-panel" id="multiplication" hidden>
+                    <div class="operation-material-card">
+                        <h2>Perkalian Pecahan</h2>
+                        <p class="operation-intro">Kalikan pembilang dengan pembilang dan penyebut dengan penyebut.</p>
+                        <div class="operation-topic">
+                            <h3>Rumus Perkalian Pecahan</h3>
+                            <div class="operation-formula">
+                                <span class="operation-fraction"><span class="numerator">a</span><span class="fraction-bar"></span><span class="denominator">b</span></span>
+                                <span class="formula-sign">×</span>
+                                <span class="operation-fraction"><span class="numerator">c</span><span class="fraction-bar"></span><span class="denominator">d</span></span>
+                                <span class="formula-sign">=</span>
+                                <span class="operation-fraction"><span class="numerator">a × c</span><span class="fraction-bar"></span><span class="denominator">b × d</span></span>
+                            </div>
+                            <div class="operation-example">
+                                <strong>Contoh:</strong>
+                                <div class="operation-example-math"><span class="operation-fraction" role="math" aria-label="2 per 3"><span class="numerator">2</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">3</span></span> × <span class="operation-fraction" role="math" aria-label="3 per 5"><span class="numerator">3</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">5</span></span> = <span class="operation-fraction" role="math" aria-label="6 per 15"><span class="numerator">6</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">15</span></span></div>
+                                <p><strong>Langkah 1.</strong> 2 × 3 = 6.</p>
+                                <p><strong>Langkah 2.</strong> 3 × 5 = 15.</p>
+                                <p><strong>Langkah 3.</strong> <span class="operation-fraction" role="math" aria-label="6 per 15"><span class="numerator">6</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">15</span></span> = <span class="operation-fraction" role="math" aria-label="2 per 5"><span class="numerator">2</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">5</span></span>.</p>
+                                <p>Jadi, hasil perkalian adalah <span class="operation-fraction" role="math" aria-label="2 per 5"><span class="numerator">2</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">5</span></span>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="operation-activity-card">
+                        <div class="operation-activity-heading"><span class="operation-activity-label">AKTIVITAS 03</span><h2>Ayo, Coba Kerjakan!</h2><p>Lengkapi proses perkalian pecahan berikut.</p></div>
+                        <div class="operation-question"><span class="operation-question-label">SOAL</span><div class="operation-question-math"><span class="operation-fraction" role="math" aria-label="3 per 4"><span class="numerator">3</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">4</span></span> × <span class="operation-fraction" role="math" aria-label="2 per 5"><span class="numerator">2</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">5</span></span> = ....</div></div>
+                        <div class="operation-workspace" data-exercise="multiplication">
+                            <h3>Langkah Penyelesaian</h3>
+                            <div class="operation-step"><span class="operation-step-number">1</span><div class="operation-step-content"><p>Mengalikan pembilang.</p><div class="operation-answer-line">3 × 2 = <input type="text" data-answer="6" placeholder="..."></div></div></div>
+                            <div class="operation-step"><span class="operation-step-number">2</span><div class="operation-step-content"><p>Mengalikan penyebut.</p><div class="operation-answer-line">4 × 5 = <input type="text" data-answer="20" placeholder="..."></div></div></div>
+                            <div class="operation-step"><span class="operation-step-number">3</span><div class="operation-step-content"><p>Membentuk pecahan.</p><div class="operation-answer-line">Hasil = <input type="text" data-answer="6/20" placeholder="..."></div></div></div>
+                            <div class="operation-step"><span class="operation-step-number">4</span><div class="operation-step-content"><p>Menyederhanakan hasil.</p><div class="operation-answer-line">Hasil akhir = <input type="text" data-answer="3/10" placeholder="..."></div></div></div>
+                            <button class="operation-check-btn" type="button" data-check="multiplication">Periksa Jawaban</button>
+                            <div class="operation-feedback" aria-live="polite" hidden></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PEMBAGIAN -->
+                <div class="operation-panel" id="division" hidden>
+                    <div class="operation-material-card">
+                        <h2>Pembagian Pecahan</h2>
+                        <p class="operation-intro">Pembagian pecahan diubah menjadi perkalian dengan membalik pecahan pembagi.</p>
+                        <div class="operation-topic">
+                            <h3>Rumus Pembagian Pecahan</h3>
+                            <div class="operation-formula">
+                                <span class="operation-fraction"><span class="numerator">a</span><span class="fraction-bar"></span><span class="denominator">b</span></span>
+                                <span class="formula-sign">÷</span>
+                                <span class="operation-fraction"><span class="numerator">c</span><span class="fraction-bar"></span><span class="denominator">d</span></span>
+                                <span class="formula-sign">=</span>
+                                <span class="operation-fraction"><span class="numerator">a</span><span class="fraction-bar"></span><span class="denominator">b</span></span>
+                                <span class="formula-sign">×</span>
+                                <span class="operation-fraction"><span class="numerator">d</span><span class="fraction-bar"></span><span class="denominator">c</span></span>
+                            </div>
+                            <div class="operation-example">
+                                <strong>Contoh:</strong>
+                                <div class="operation-example-math"><span class="operation-fraction" role="math" aria-label="3 per 4"><span class="numerator">3</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">4</span></span> ÷ <span class="operation-fraction" role="math" aria-label="2 per 5"><span class="numerator">2</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">5</span></span></div>
+                                <p><strong>Langkah 1.</strong> Membalik pecahan pembagi: <span class="operation-fraction" role="math" aria-label="5 per 2"><span class="numerator">5</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">2</span></span>.</p>
+                                <p><strong>Langkah 2.</strong> <span class="operation-fraction" role="math" aria-label="3 per 4"><span class="numerator">3</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">4</span></span> × <span class="operation-fraction" role="math" aria-label="5 per 2"><span class="numerator">5</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">2</span></span> = <span class="operation-fraction" role="math" aria-label="15 per 8"><span class="numerator">15</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">8</span></span>.</p>
+                                <p>
+                                    <strong>Langkah 3.</strong>
+                                    <span class="operation-fraction">
+                                        <span class="numerator">15</span>
+                                        <span class="fraction-bar"></span>
+                                        <span class="denominator">8</span>
+                                    </span>
+                                    =
+                                    <span class="mixed-fraction-display">
+                                        <span class="mixed-whole">1</span>
+                                        <span class="operation-fraction">
+                                            <span class="numerator">7</span>
+                                            <span class="fraction-bar"></span>
+                                            <span class="denominator">8</span>
+                                        </span>
+                                    </span>.
+                                </p>
+
+                                <p>
+                                    Jadi, hasil pembagian adalah
+                                    <span class="mixed-fraction-display">
+                                        <span class="mixed-whole">1</span>
+                                        <span class="operation-fraction">
+                                            <span class="numerator">7</span>
+                                            <span class="fraction-bar"></span>
+                                            <span class="denominator">8</span>
+                                        </span>
+                                    </span>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="operation-activity-card">
+                        <div class="operation-activity-heading"><span class="operation-activity-label">AKTIVITAS 04</span><h2>Ayo, Coba Kerjakan!</h2><p>Lengkapi langkah pembagian pecahan berikut.</p></div>
+                        <div class="operation-question"><span class="operation-question-label">SOAL</span><div class="operation-question-math"><span class="operation-fraction" role="math" aria-label="2 per 3"><span class="numerator">2</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">3</span></span> ÷ <span class="operation-fraction" role="math" aria-label="4 per 5"><span class="numerator">4</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">5</span></span> = ....</div></div>
+                        <div class="operation-workspace" data-exercise="division">
+                            <h3>Langkah Penyelesaian</h3>
+                            <div class="operation-step"><span class="operation-step-number">1</span><div class="operation-step-content"><p>Membalik pecahan pembagi.</p><div class="operation-answer-line"><span class="operation-fraction" role="math" aria-label="4 per 5"><span class="numerator">4</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">5</span></span> menjadi <input type="text" data-answer="5/4" placeholder="..."></div></div></div>
+                            <div class="operation-step"><span class="operation-step-number">2</span><div class="operation-step-content"><p>Mengubah menjadi perkalian.</p><div class="operation-answer-line"><span class="operation-fraction" role="math" aria-label="2 per 3"><span class="numerator">2</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">3</span></span> × <span class="operation-fraction" role="math" aria-label="5 per 4"><span class="numerator">5</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">4</span></span> = <input type="text" data-answer="10/12" placeholder="..."></div></div></div>
+                            <div class="operation-step"><span class="operation-step-number">3</span><div class="operation-step-content"><p>Menyederhanakan hasil.</p><div class="operation-answer-line">Hasil akhir = <input type="text" data-answer="5/6" placeholder="..."></div></div></div>
+                            <button class="operation-check-btn" type="button" data-check="division">Periksa Jawaban</button>
+                            <div class="operation-feedback" aria-live="polite" hidden></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="operation-footer">
+                    <p>Terus berlatih dan pahami setiap langkah penyelesaian operasi pecahan.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MATERI 06: PENERAPAN MATEMATIKA INTERAKTIF -->
+        <section id="penerapan" class="page-section material-section application-section">
+            <div class="section-header">
+                <span class="section-label">EKSPLORASI</span>
+                <h2>Matematika di Sekitar Kita</h2>
+                <p>Temukan bagaimana konsep pecahan, desimal, dan persen digunakan dalam berbagai aktivitas sehari-hari. Amati, eksplorasi, dan selesaikan tantangannya!</p>
+            </div>
+
+            <!-- SIMULASI 01: MAKANAN / PECAHAN -->
+            <article class="application-card application-food" id="foodSimulation">
+                <div class="application-card-heading">
+                    <div class="application-heading-icon" aria-hidden="true">🍕</div>
+                    <div>
+                        <span class="application-number">SIMULASI 01</span>
+                        <h3>Makanan: Berbagi Pizza</h3>
+                        <p>Atur jumlah potongan pizza yang dimakan untuk memahami pecahan.</p>
+                    </div>
+                </div>
+
+                <div class="application-simulation-layout">
+                    <div class="pizza-visual-area">
+                        <div class="pizza-visual" id="pizzaVisual" role="group"
+                             aria-label="Pizza yang dibagi menjadi delapan potongan">
+                            <button type="button" class="pizza-slice is-selected"
+                                    data-pizza-slice="1" aria-label="Potongan 1" aria-pressed="true"></button>
+                            <button type="button" class="pizza-slice is-selected"
+                                    data-pizza-slice="2" aria-label="Potongan 2" aria-pressed="true"></button>
+                            <button type="button" class="pizza-slice is-selected"
+                                    data-pizza-slice="3" aria-label="Potongan 3" aria-pressed="true"></button>
+                            <button type="button" class="pizza-slice"
+                                    data-pizza-slice="4" aria-label="Potongan 4" aria-pressed="false"></button>
+                            <button type="button" class="pizza-slice"
+                                    data-pizza-slice="5" aria-label="Potongan 5" aria-pressed="false"></button>
+                            <button type="button" class="pizza-slice"
+                                    data-pizza-slice="6" aria-label="Potongan 6" aria-pressed="false"></button>
+                            <button type="button" class="pizza-slice"
+                                    data-pizza-slice="7" aria-label="Potongan 7" aria-pressed="false"></button>
+                            <button type="button" class="pizza-slice"
+                                    data-pizza-slice="8" aria-label="Potongan 8" aria-pressed="false"></button>
+                        </div>
+                        <p class="simulation-hint">Pilih potongan pizza untuk menandai bagian yang dimakan.</p>
+                    </div>
+
+                    <div class="application-controls">
+                        <label for="pizzaAmount">Jumlah potongan yang dimakan</label>
+                        <div class="simulation-value">
+                            <output id="pizzaAmountValue" for="pizzaAmount">3</output>
+                            <span>dari 8 potong</span>
+                        </div>
+                        <input type="range" id="pizzaAmount" name="pizzaAmount"
+                               min="0" max="8" step="1" value="3">
+                        <div class="range-scale"><span>0 potong</span><span>8 potong</span></div>
+
+                        <div class="simulation-result" aria-live="polite">
+                            <span class="result-label">Pecahan pizza yang dimakan</span>
+                            <strong id="pizzaFractionResult">3/8</strong>
+                            <p id="pizzaExplanation">3 dari 8 bagian pizza telah dimakan.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- SIMULASI 02: BELANJA / PERSEN -->
+            <article class="application-card application-shopping" id="shoppingSimulation">
+                <div class="application-card-heading">
+                    <div class="application-heading-icon" aria-hidden="true">🛒</div>
+                    <div>
+                        <span class="application-number">SIMULASI 02</span>
+                        <h3>Belanja: Menghitung Diskon</h3>
+                        <p>Ubah harga barang dan besar diskon untuk mengetahui harga yang harus dibayar.</p>
+                    </div>
+                </div>
+
+                <div class="application-simulation-layout">
+                    <div class="shopping-visual-area" aria-hidden="true">
+                        <div class="shopping-illustration">🛍️</div>
+                        <span class="discount-sticker" id="discountSticker">25% OFF</span>
+                        <p>Simulasi harga barang</p>
+                    </div>
+
+                    <div class="application-controls">
+                        <label for="itemPrice">Harga awal barang</label>
+                        <div class="simulation-value">
+                            <output id="itemPriceValue" for="itemPrice">Rp100.000</output>
+                        </div>
+                        <input type="range" id="itemPrice" name="itemPrice"
+                               min="20000" max="200000" step="10000" value="100000">
+                        <div class="range-scale"><span>Rp20.000</span><span>Rp200.000</span></div>
+
+                        <label for="discountRate">Besar diskon</label>
+                        <div class="simulation-value">
+                            <output id="discountRateValue" for="discountRate">25%</output>
+                        </div>
+                        <input type="range" id="discountRate" name="discountRate"
+                               min="0" max="90" step="5" value="25">
+                        <div class="range-scale"><span>0%</span><span>90%</span></div>
+
+                        <div class="simulation-result shopping-result" aria-live="polite">
+                            <div class="result-row">
+                                <span>Harga awal</span>
+                                <strong id="originalPriceResult">Rp100.000</strong>
+                            </div>
+                            <div class="result-row">
+                                <span>Potongan harga</span>
+                                <strong id="discountAmountResult">Rp25.000</strong>
+                            </div>
+                            <div class="result-final">
+                                <span>Harga setelah diskon</span>
+                                <strong id="finalPriceResult">Rp75.000</strong>
+                            </div>
+                            <p id="discountExplanation">Kamu menghemat Rp25.000 dari harga awal.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- SIMULASI 03: PENGUKURAN / DESIMAL -->
+            <article class="application-card application-measurement" id="measurementSimulation">
+                <div class="application-card-heading">
+                    <div class="application-heading-icon" aria-hidden="true">📏</div>
+                    <div>
+                        <span class="application-number">SIMULASI 03</span>
+                        <h3>Pengukuran: Panjang Benda</h3>
+                        <p>Atur panjang benda dan amati hubungan satuan sentimeter dengan meter.</p>
+                    </div>
+                </div>
+
+                <div class="application-simulation-layout">
+                    <div class="measurement-visual-area">
+                        <div class="measurement-object" id="measurementObject" aria-hidden="true">
+                            <span class="measurement-object-label">Panjang benda</span>
+                        </div>
+                        <div class="measurement-ruler" aria-hidden="true">
+                            <span>0</span><span>50</span><span>100</span><span>150</span><span>200 cm</span>
+                        </div>
+                        <p class="simulation-hint">Ilustrasi panjang benda mengikuti nilai pengukuran.</p>
+                    </div>
+
+                    <div class="application-controls">
+                        <label for="objectLength">Panjang benda</label>
+                        <div class="simulation-value">
+                            <output id="objectLengthValue" for="objectLength">75 cm</output>
+                        </div>
+                        <input type="range" id="objectLength" name="objectLength"
+                               min="10" max="200" step="5" value="75">
+                        <div class="range-scale"><span>10 cm</span><span>200 cm</span></div>
+
+                        <div class="simulation-result" aria-live="polite">
+                            <span class="result-label">Konversi ke meter</span>
+                            <strong id="lengthMeterResult">0,75 m</strong>
+                            <p id="lengthExplanation">75 cm sama dengan 0,75 meter.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- TANTANGAN KONTEKSTUAL -->
+            <section class="application-challenge" id="applicationChallenge"
+                     aria-labelledby="applicationChallengeTitle">
+                <div class="challenge-heading">
+                    <span class="challenge-label">TANTANGAN MATEMATIKA</span>
+                    <h3 id="applicationChallengeTitle">Saatnya Menguji Pemahamanmu!</h3>
+                    <p>Selesaikan soal berdasarkan situasi yang kamu temui dalam kehidupan sehari-hari.</p>
+                </div>
+
+                <div class="challenge-question">
+                    <span class="challenge-topic">SOAL 01 · PECAHAN</span>
+                    <p>Ani memakan 3 dari 8 potong pizza yang sama besar. Pecahan yang menyatakan bagian pizza yang dimakan Ani adalah ....</p>
+                    <div class="challenge-options" role="group" aria-label="Pilihan jawaban soal pecahan">
+                        <button type="button" class="challenge-option" data-challenge="pizza" data-answer="3/8">A. 3/8</button>
+                        <button type="button" class="challenge-option" data-challenge="pizza" data-answer="3/5">B. 3/5</button>
+                        <button type="button" class="challenge-option" data-challenge="pizza" data-answer="8/3">C. 8/3</button>
+                        <button type="button" class="challenge-option" data-challenge="pizza" data-answer="5/8">D. 5/8</button>
+                    </div>
+                    <p class="challenge-feedback" id="pizzaChallengeFeedback" aria-live="polite"></p>
+                </div>
+
+                <div class="challenge-question">
+                    <span class="challenge-topic">SOAL 02 · PERSEN</span>
+                    <p>Sebuah tas seharga Rp100.000 mendapat diskon 25%. Berapa harga tas setelah diskon?</p>
+                    <div class="challenge-options" role="group" aria-label="Pilihan jawaban soal diskon">
+                        <button type="button" class="challenge-option" data-challenge="discount" data-answer="75000">A. Rp75.000</button>
+                        <button type="button" class="challenge-option" data-challenge="discount" data-answer="80000">B. Rp80.000</button>
+                        <button type="button" class="challenge-option" data-challenge="discount" data-answer="25000">C. Rp25.000</button>
+                        <button type="button" class="challenge-option" data-challenge="discount" data-answer="125000">D. Rp125.000</button>
+                    </div>
+                    <p class="challenge-feedback" id="discountChallengeFeedback" aria-live="polite"></p>
+                </div>
+
+                <div class="challenge-question">
+                    <span class="challenge-topic">SOAL 03 · DESIMAL</span>
+                    <p>Panjang sebuah meja adalah 0,75 meter. Berapa panjang meja tersebut dalam sentimeter?</p>
+                    <div class="challenge-options" role="group" aria-label="Pilihan jawaban soal pengukuran">
+                        <button type="button" class="challenge-option" data-challenge="measurement" data-answer="7.5">A. 7,5 cm</button>
+                        <button type="button" class="challenge-option" data-challenge="measurement" data-answer="75">B. 75 cm</button>
+                        <button type="button" class="challenge-option" data-challenge="measurement" data-answer="750">C. 750 cm</button>
+                        <button type="button" class="challenge-option" data-challenge="measurement" data-answer="0.075">D. 0,075 cm</button>
+                    </div>
+                    <p class="challenge-feedback" id="measurementChallengeFeedback" aria-live="polite"></p>
+                </div>
+
+                <div class="challenge-summary" id="applicationChallengeSummary" aria-live="polite" hidden>
+                    <strong id="applicationChallengeScore">Skor: 0/3</strong>
+                    <p id="applicationChallengeMessage">Selesaikan semua soal untuk melihat hasilmu.</p>
+                    <button type="button" class="btn btn-secondary" id="resetApplicationChallenge">
+                        Ulangi Tantangan
+                    </button>
+                </div>
+            </section>
+        </section>
+
+        <!-- LATIHAN: EVALUASI PEMBELAJARAN -->
+        <section id="latihan" class="page-section material-section">
+            <div class="quiz-hub">
+                <header class="quiz-hub-header">
+                    <span class="quiz-kicker">EVALUASI PEMBELAJARAN</span>
+                    <div class="quiz-header-icon" aria-hidden="true">🎓</div>
+                    <h2>Uji Kemampuanmu!</h2>
+                    <p>Kamu sudah mempelajari konsep dan mencoba menerapkannya. Sekarang, buktikan pemahamanmu melalui 10 soal berikut.</p>
+                    <div class="quiz-summary-tags">
+                        <span>10 Soal</span>
+                        <span>100 Poin</span>
+                        <span>Semua Materi</span>
+                    </div>
+                </header>
+
+                <div class="quiz-progress-panel">
+                    <div class="quiz-progress-top">
+                        <strong id="quizProgressLabel">Soal 1 dari 10</strong>
+                        <span id="quizProgressPercent">10%</span>
+                    </div>
+                    <div class="quiz-progress-track" role="progressbar"
+                         aria-label="Progres latihan" aria-valuemin="0"
+                         aria-valuemax="10" aria-valuenow="1" id="quizProgressBar">
+                        <span id="quizProgressFill" style="width:10%"></span>
+                    </div>
+                    <div class="quiz-topic-row">
+                        <span class="quiz-topic-dot active" data-topic-step="1">1</span>
+                        <span class="quiz-topic-dot" data-topic-step="2">2</span>
+                        <span class="quiz-topic-dot" data-topic-step="3">3</span>
+                        <span class="quiz-topic-dot" data-topic-step="4">4</span>
+                        <span class="quiz-topic-dot" data-topic-step="5">5</span>
+                        <span class="quiz-topic-dot" data-topic-step="6">6</span>
+                        <span class="quiz-topic-dot" data-topic-step="7">7</span>
+                        <span class="quiz-topic-dot" data-topic-step="8">8</span>
+                        <span class="quiz-topic-dot" data-topic-step="9">9</span>
+                        <span class="quiz-topic-dot" data-topic-step="10">10</span>
+                    </div>
+                </div>
+
+                <div class="quiz-question-stage" id="quizQuestionStage">
+                    <article class="quiz-question-card active" data-question="1" data-correct="B">
+                        <div class="quiz-question-meta">
+                            <span class="quiz-question-number">SOAL 01</span>
+                            <span class="quiz-question-category">Mengenal Bilangan</span>
+                            <span class="quiz-points">10 poin</span>
+                        </div>
+                        <h3>Manakah bilangan berikut yang termasuk bilangan bulat?</h3>
+                        <div class="quiz-options-grid">
+                            <button type="button" class="quiz-option" data-option="A">A. 1/2</button>
+                            <button type="button" class="quiz-option" data-option="B">B. −3</button>
+                            <button type="button" class="quiz-option" data-option="C">C. 0,75</button>
+                            <button type="button" class="quiz-option" data-option="D">D. 2/3</button>
+                        </div>
+                        <div class="quiz-feedback" aria-live="polite" hidden></div>
+                        <div class="quiz-question-actions">
+                            <button type="button" class="btn btn-primary quiz-check-btn" disabled>Periksa Jawaban</button>
+                            <button type="button" class="quiz-hint-btn" data-hint="Bilangan bulat terdiri atas bilangan negatif, nol, dan bilangan positif tanpa bagian pecahan.">Lihat Petunjuk</button>
+                            <button type="button" class="quiz-next-btn" hidden>Soal Berikutnya →</button>
+                        </div>
+                    </article>
+
+                    <article class="quiz-question-card" data-question="2" data-correct="A" hidden>
+                        <div class="quiz-question-meta">
+                            <span class="quiz-question-number">SOAL 02</span>
+                            <span class="quiz-question-category">Konsep Pecahan</span>
+                            <span class="quiz-points">10 poin</span>
+                        </div>
+                        <h3>Ani memakan 3 dari 8 potong pizza yang sama besar. Pecahan yang menyatakan bagian pizza yang dimakan Ani adalah ...</h3>
+                        <div class="quiz-options-grid">
+                            <button type="button" class="quiz-option" data-option="A">A. 3/8</button>
+                            <button type="button" class="quiz-option" data-option="B">B. 3/5</button>
+                            <button type="button" class="quiz-option" data-option="C">C. 8/3</button>
+                            <button type="button" class="quiz-option" data-option="D">D. 5/8</button>
+                        </div>
+                        <div class="quiz-feedback" aria-live="polite" hidden></div>
+                        <div class="quiz-question-actions">
+                            <button type="button" class="btn btn-primary quiz-check-btn" disabled>Periksa Jawaban</button>
+                            <button type="button" class="quiz-hint-btn" data-hint="Pembilang menunjukkan bagian yang diambil, sedangkan penyebut menunjukkan jumlah seluruh bagian yang sama besar.">Lihat Petunjuk</button>
+                            <button type="button" class="quiz-next-btn" hidden>Soal Berikutnya →</button>
+                        </div>
+                    </article>
+
+                    <article class="quiz-question-card" data-question="3" data-correct="B" hidden>
+                        <div class="quiz-question-meta">
+                            <span class="quiz-question-number">SOAL 03</span>
+                            <span class="quiz-question-category">Jenis Pecahan</span>
+                            <span class="quiz-points">10 poin</span>
+                        </div>
+                        <h3>Pecahan 7/4 termasuk ke dalam jenis pecahan ...</h3>
+                        <div class="quiz-options-grid">
+                            <button type="button" class="quiz-option" data-option="A">A. Pecahan murni</button>
+                            <button type="button" class="quiz-option" data-option="B">B. Pecahan tidak murni</button>
+                            <button type="button" class="quiz-option" data-option="C">C. Pecahan campuran</button>
+                            <button type="button" class="quiz-option" data-option="D">D. Bilangan bulat</button>
+                        </div>
+                        <div class="quiz-feedback" aria-live="polite" hidden></div>
+                        <div class="quiz-question-actions">
+                            <button type="button" class="btn btn-primary quiz-check-btn" disabled>Periksa Jawaban</button>
+                            <button type="button" class="quiz-hint-btn" data-hint="Perhatikan hubungan antara pembilang dan penyebut. Pada pecahan tidak murni, pembilang lebih besar daripada penyebut.">Lihat Petunjuk</button>
+                            <button type="button" class="quiz-next-btn" hidden>Soal Berikutnya →</button>
+                        </div>
+                    </article>
+
+                    <article class="quiz-question-card" data-question="4" data-correct="C" hidden>
+                        <div class="quiz-question-meta">
+                            <span class="quiz-question-number">SOAL 04</span>
+                            <span class="quiz-question-category">Pecahan, Desimal, dan Persen</span>
+                            <span class="quiz-points">10 poin</span>
+                        </div>
+                        <h3>Bentuk desimal dan persen dari pecahan 3/5 secara berurutan adalah ...</h3>
+                        <div class="quiz-options-grid">
+                            <button type="button" class="quiz-option" data-option="A">A. 0,3 dan 30%</button>
+                            <button type="button" class="quiz-option" data-option="B">B. 0,5 dan 50%</button>
+                            <button type="button" class="quiz-option" data-option="C">C. 0,6 dan 60%</button>
+                            <button type="button" class="quiz-option" data-option="D">D. 0,8 dan 80%</button>
+                        </div>
+                        <div class="quiz-feedback" aria-live="polite" hidden></div>
+                        <div class="quiz-question-actions">
+                            <button type="button" class="btn btn-primary quiz-check-btn" disabled>Periksa Jawaban</button>
+                            <button type="button" class="quiz-hint-btn" data-hint="Ubah pecahan ke desimal dengan membagi pembilang oleh penyebut. Untuk persen, kalikan desimal dengan 100%.">Lihat Petunjuk</button>
+                            <button type="button" class="quiz-next-btn" hidden>Soal Berikutnya →</button>
+                        </div>
+                    </article>
+
+                    <article class="quiz-question-card" data-question="5" data-correct="A" hidden>
+                        <div class="quiz-question-meta">
+                            <span class="quiz-question-number">SOAL 05</span>
+                            <span class="quiz-question-category">Perbandingan Pecahan</span>
+                            <span class="quiz-points">10 poin</span>
+                        </div>
+                        <h3>Tanda perbandingan yang tepat untuk 5/8 ... 2/3 adalah ...</h3>
+                        <div class="quiz-options-grid">
+                            <button type="button" class="quiz-option" data-option="A">A. &lt;</button>
+                            <button type="button" class="quiz-option" data-option="B">B. &gt;</button>
+                            <button type="button" class="quiz-option" data-option="C">C. =</button>
+                            <button type="button" class="quiz-option" data-option="D">D. Tidak dapat dibandingkan</button>
+                        </div>
+                        <div class="quiz-feedback" aria-live="polite" hidden></div>
+                        <div class="quiz-question-actions">
+                            <button type="button" class="btn btn-primary quiz-check-btn" disabled>Periksa Jawaban</button>
+                            <button type="button" class="quiz-hint-btn" data-hint="Gunakan perkalian silang: kalikan 5 dengan 3, lalu 2 dengan 8. Bandingkan hasilnya.">Lihat Petunjuk</button>
+                            <button type="button" class="quiz-next-btn" hidden>Soal Berikutnya →</button>
+                        </div>
+                    </article>
+
+                    <article class="quiz-question-card" data-question="6" data-correct="C" hidden>
+                        <div class="quiz-question-meta">
+                            <span class="quiz-question-number">SOAL 06</span>
+                            <span class="quiz-question-category">Penjumlahan Pecahan</span>
+                            <span class="quiz-points">10 poin</span>
+                        </div>
+                        <h3>Hasil dari 1/4 + 2/4 adalah ...</h3>
+                        <div class="quiz-options-grid">
+                            <button type="button" class="quiz-option" data-option="A">A. 1/4</button>
+                            <button type="button" class="quiz-option" data-option="B">B. 2/4</button>
+                            <button type="button" class="quiz-option" data-option="C">C. 3/4</button>
+                            <button type="button" class="quiz-option" data-option="D">D. 3/8</button>
+                        </div>
+                        <div class="quiz-feedback" aria-live="polite" hidden></div>
+                        <div class="quiz-question-actions">
+                            <button type="button" class="btn btn-primary quiz-check-btn" disabled>Periksa Jawaban</button>
+                            <button type="button" class="quiz-hint-btn" data-hint="Karena penyebutnya sama, jumlahkan pembilangnya dan pertahankan penyebutnya.">Lihat Petunjuk</button>
+                            <button type="button" class="quiz-next-btn" hidden>Soal Berikutnya →</button>
+                        </div>
+                    </article>
+
+                    <article class="quiz-question-card" data-question="7" data-correct="A" hidden>
+                        <div class="quiz-question-meta">
+                            <span class="quiz-question-number">SOAL 07</span>
+                            <span class="quiz-question-category">Pengurangan Pecahan</span>
+                            <span class="quiz-points">10 poin</span>
+                        </div>
+                        <h3>Hasil dari 5/6 − 1/3 adalah ...</h3>
+                        <div class="quiz-options-grid">
+                            <button type="button" class="quiz-option" data-option="A">A. 1/2</button>
+                            <button type="button" class="quiz-option" data-option="B">B. 2/3</button>
+                            <button type="button" class="quiz-option" data-option="C">C. 4/3</button>
+                            <button type="button" class="quiz-option" data-option="D">D. 1/3</button>
+                        </div>
+                        <div class="quiz-feedback" aria-live="polite" hidden></div>
+                        <div class="quiz-question-actions">
+                            <button type="button" class="btn btn-primary quiz-check-btn" disabled>Periksa Jawaban</button>
+                            <button type="button" class="quiz-hint-btn" data-hint="Samakan penyebut terlebih dahulu. Ubah 1/3 menjadi pecahan berpenyebut 6.">Lihat Petunjuk</button>
+                            <button type="button" class="quiz-next-btn" hidden>Soal Berikutnya →</button>
+                        </div>
+                    </article>
+
+                    <article class="quiz-question-card" data-question="8" data-correct="B" hidden>
+                        <div class="quiz-question-meta">
+                            <span class="quiz-question-number">SOAL 08</span>
+                            <span class="quiz-question-category">Perkalian Pecahan</span>
+                            <span class="quiz-points">10 poin</span>
+                        </div>
+                        <h3>Hasil dari 2/3 × 3/5 adalah ...</h3>
+                        <div class="quiz-options-grid">
+                            <button type="button" class="quiz-option" data-option="A">A. 5/8</button>
+                            <button type="button" class="quiz-option" data-option="B">B. 2/5</button>
+                            <button type="button" class="quiz-option" data-option="C">C. 6/8</button>
+                            <button type="button" class="quiz-option" data-option="D">D. 5/6</button>
+                        </div>
+                        <div class="quiz-feedback" aria-live="polite" hidden></div>
+                        <div class="quiz-question-actions">
+                            <button type="button" class="btn btn-primary quiz-check-btn" disabled>Periksa Jawaban</button>
+                            <button type="button" class="quiz-hint-btn" data-hint="Kalikan pembilang dengan pembilang dan penyebut dengan penyebut. Sederhanakan hasilnya jika memungkinkan.">Lihat Petunjuk</button>
+                            <button type="button" class="quiz-next-btn" hidden>Soal Berikutnya →</button>
+                        </div>
+                    </article>
+
+                    <article class="quiz-question-card" data-question="9" data-correct="C" hidden>
+                        <div class="quiz-question-meta">
+                            <span class="quiz-question-number">SOAL 09</span>
+                            <span class="quiz-question-category">Pembagian Pecahan</span>
+                            <span class="quiz-points">10 poin</span>
+                        </div>
+                        <h3>Hasil dari 3/4 ÷ 1/2 adalah ...</h3>
+                        <div class="quiz-options-grid">
+                            <button type="button" class="quiz-option" data-option="A">A. 3/8</button>
+                            <button type="button" class="quiz-option" data-option="B">B. 1/2</button>
+                            <button type="button" class="quiz-option" data-option="C">C. 3/2</button>
+                            <button type="button" class="quiz-option" data-option="D">D. 2/3</button>
+                        </div>
+                        <div class="quiz-feedback" aria-live="polite" hidden></div>
+                        <div class="quiz-question-actions">
+                            <button type="button" class="btn btn-primary quiz-check-btn" disabled>Periksa Jawaban</button>
+                            <button type="button" class="quiz-hint-btn" data-hint="Ubah pembagian menjadi perkalian dengan membalik pecahan pembagi.">Lihat Petunjuk</button>
+                            <button type="button" class="quiz-next-btn" hidden>Soal Berikutnya →</button>
+                        </div>
+                    </article>
+
+                    <article class="quiz-question-card" data-question="10" data-correct="A" hidden>
+                        <div class="quiz-question-meta">
+                            <span class="quiz-question-number">SOAL 10</span>
+                            <span class="quiz-question-category">Penerapan Pecahan</span>
+                            <span class="quiz-points">10 poin</span>
+                        </div>
+                        <h3>Ibu memiliki 2 liter susu. Untuk membuat satu adonan kue, diperlukan 3/4 liter susu. Berapa liter susu yang tersisa?</h3>
+                        <div class="quiz-options-grid">
+                            <button type="button" class="quiz-option" data-option="A">A. 1 1/4 liter</button>
+                            <button type="button" class="quiz-option" data-option="B">B. 1 1/2 liter</button>
+                            <button type="button" class="quiz-option" data-option="C">C. 3/4 liter</button>
+                            <button type="button" class="quiz-option" data-option="D">D. 2 3/4 liter</button>
+                        </div>
+                        <div class="quiz-feedback" aria-live="polite" hidden></div>
+                        <div class="quiz-question-actions">
+                            <button type="button" class="btn btn-primary quiz-check-btn" disabled>Periksa Jawaban</button>
+                            <button type="button" class="quiz-hint-btn" data-hint="Susu yang tersisa diperoleh dengan mengurangkan jumlah susu awal dengan jumlah susu yang digunakan.">Lihat Petunjuk</button>
+                            <button type="button" class="quiz-next-btn" hidden>Lihat Hasil →</button>
+                        </div>
+                    </article>
+                </div>
+
+                <section class="quiz-result-card" id="quizFinalResult" hidden aria-live="polite">
+                    <div class="quiz-result-icon" aria-hidden="true">🏆</div>
+                    <span class="quiz-kicker">HASIL LATIHAN</span>
+                    <h3>Latihan Selesai!</h3>
+                    <p id="quizResultMessage">Terima kasih sudah menyelesaikan seluruh soal.</p>
+                    <div class="quiz-score-circle">
+                        <strong id="quizFinalScore">0</strong>
+                        <span>/ 100</span>
+                    </div>
+                    <div class="quiz-result-stats">
+                        <div><strong id="quizCorrectCount">0</strong><span>Jawaban benar</span></div>
+                        <div><strong id="quizIncorrectCount">0</strong><span>Jawaban salah</span></div>
+                    </div>
+                    <div class="quiz-reflection">
+                        <h4>Bagaimana perasaanmu setelah latihan?</h4>
+                        <p>Pilih refleksi yang paling sesuai dengan pengalaman belajarmu.</p>
+                        <div class="quiz-reflection-options">
+                            <label><input type="radio" name="quizReflection" value="sudah-paham"> Saya sudah memahami materi.</label>
+                            <label><input type="radio" name="quizReflection" value="cukup-paham"> Saya cukup memahami materi.</label>
+                            <label><input type="radio" name="quizReflection" value="perlu-belajar"> Saya masih perlu belajar lagi.</label>
+                        </div>
+                        <p class="quiz-reflection-feedback" id="quizReflectionFeedback" aria-live="polite"></p>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="restartQuiz">Ulangi Latihan</button>
+                </section>
+            </div>
+        </section>
+
+        <!-- REFLEKSI: RUANG REFLEKSI BELAJAR -->
+        <section id="refleksi" class="page-section material-section">
+            <div class="reflection-hub">
+                <header class="reflection-header">
+                    <span class="reflection-kicker">RUANG REFLEKSI MATH CONNECT</span>
+                    <div class="reflection-header-icon" aria-hidden="true">🌱</div>
+                    <h2>Kenali Proses Belajarmu!</h2>
+                    <p>Setiap proses belajar adalah kesempatan untuk berkembang. Yuk, evaluasi pemahaman, pengalaman, dan rencana belajarmu.</p>
+                    <div class="reflection-header-tags">
+                        <span>Evaluasi diri</span>
+                        <span>Pemahaman materi</span>
+                        <span>Target belajar</span>
+                    </div>
+                </header>
+
+                <form id="reflectionForm" class="reflection-form">
+                    <!-- 01: Hasil latihan otomatis -->
+                    <section class="reflection-step" aria-labelledby="reflectionResultTitle">
+                        <div class="reflection-step-heading">
+                            <span class="reflection-step-number">01</span>
+                            <div>
+                                <h3 id="reflectionResultTitle">Hasil Perjalanan Belajarmu</h3>
+                                <p>Lihat kembali hasil latihan yang sudah kamu kerjakan.</p>
+                            </div>
+                        </div>
+                        <div class="reflection-score-panel" id="reflectionScorePanel">
+                            <div class="reflection-score-main">
+                                <strong id="reflectionScore">-</strong>
+                                <span id="reflectionScoreCaption">Belum ada hasil latihan</span>
+                            </div>
+                            <div class="reflection-score-stats">
+                                <div><strong id="reflectionCorrect">-</strong><span>Benar</span></div>
+                                <div><strong id="reflectionIncorrect">-</strong><span>Perlu diperbaiki</span></div>
+                            </div>
+                            <p class="reflection-score-note" id="reflectionScoreNote">Selesaikan latihan 10 soal terlebih dahulu. Hasilnya akan muncul otomatis di sini.</p>
+                        </div>
+                        <fieldset class="reflection-fieldset">
+                            <legend>Bagaimana pendapatmu tentang hasil latihan tersebut?</legend>
+                            <label class="reflection-choice">
+                                <input type="radio" name="reflectionResult" value="puas" required>
+                                <span>Saya puas dengan hasil belajar saya.</span>
+                            </label>
+                            <label class="reflection-choice">
+                                <input type="radio" name="reflectionResult" value="cukup">
+                                <span>Hasil belajar saya sudah cukup baik.</span>
+                            </label>
+                            <label class="reflection-choice">
+                                <input type="radio" name="reflectionResult" value="belum">
+                                <span>Saya belum puas dan ingin memperbaikinya.</span>
+                            </label>
+                        </fieldset>
+                    </section>
+
+                    <!-- 02: Pemahaman setiap materi -->
+                    <section class="reflection-step" aria-labelledby="reflectionUnderstandingTitle">
+                        <div class="reflection-step-heading">
+                            <span class="reflection-step-number lavender">02</span>
+                            <div>
+                                <h3 id="reflectionUnderstandingTitle">Kenali Pemahamanmu</h3>
+                                <p>Pilih tingkat pemahaman yang paling sesuai untuk setiap materi.</p>
+                            </div>
+                        </div>
+                        <div class="reflection-topic-list">
+                            <fieldset class="reflection-topic">
+                                <legend>1. Bilangan dan konsep pecahan</legend>
+                                <div class="reflection-rating">
+                                    <label><input type="radio" name="understanding1" value="paham" required><span>Sudah paham</span></label>
+                                    <label><input type="radio" name="understanding1" value="cukup"><span>Cukup paham</span></label>
+                                    <label><input type="radio" name="understanding1" value="belum"><span>Belum paham</span></label>
+                                </div>
+                            </fieldset>
+                            <fieldset class="reflection-topic">
+                                <legend>2. Jenis-jenis pecahan</legend>
+                                <div class="reflection-rating">
+                                    <label><input type="radio" name="understanding2" value="paham" required><span>Sudah paham</span></label>
+                                    <label><input type="radio" name="understanding2" value="cukup"><span>Cukup paham</span></label>
+                                    <label><input type="radio" name="understanding2" value="belum"><span>Belum paham</span></label>
+                                </div>
+                            </fieldset>
+                            <fieldset class="reflection-topic">
+                                <legend>3. Mengubah pecahan, desimal, dan persen</legend>
+                                <div class="reflection-rating">
+                                    <label><input type="radio" name="understanding3" value="paham" required><span>Sudah paham</span></label>
+                                    <label><input type="radio" name="understanding3" value="cukup"><span>Cukup paham</span></label>
+                                    <label><input type="radio" name="understanding3" value="belum"><span>Belum paham</span></label>
+                                </div>
+                            </fieldset>
+                            <fieldset class="reflection-topic">
+                                <legend>4. Perbandingan pecahan</legend>
+                                <div class="reflection-rating">
+                                    <label><input type="radio" name="understanding4" value="paham" required><span>Sudah paham</span></label>
+                                    <label><input type="radio" name="understanding4" value="cukup"><span>Cukup paham</span></label>
+                                    <label><input type="radio" name="understanding4" value="belum"><span>Belum paham</span></label>
+                                </div>
+                            </fieldset>
+                            <fieldset class="reflection-topic">
+                                <legend>5. Penjumlahan dan pengurangan pecahan</legend>
+                                <div class="reflection-rating">
+                                    <label><input type="radio" name="understanding5" value="paham" required><span>Sudah paham</span></label>
+                                    <label><input type="radio" name="understanding5" value="cukup"><span>Cukup paham</span></label>
+                                    <label><input type="radio" name="understanding5" value="belum"><span>Belum paham</span></label>
+                                </div>
+                            </fieldset>
+                            <fieldset class="reflection-topic">
+                                <legend>6. Perkalian dan pembagian pecahan</legend>
+                                <div class="reflection-rating">
+                                    <label><input type="radio" name="understanding6" value="paham" required><span>Sudah paham</span></label>
+                                    <label><input type="radio" name="understanding6" value="cukup"><span>Cukup paham</span></label>
+                                    <label><input type="radio" name="understanding6" value="belum"><span>Belum paham</span></label>
+                                </div>
+                            </fieldset>
+                            <fieldset class="reflection-topic">
+                                <legend>7. Penerapan pecahan dalam kehidupan sehari-hari</legend>
+                                <div class="reflection-rating">
+                                    <label><input type="radio" name="understanding7" value="paham" required><span>Sudah paham</span></label>
+                                    <label><input type="radio" name="understanding7" value="cukup"><span>Cukup paham</span></label>
+                                    <label><input type="radio" name="understanding7" value="belum"><span>Belum paham</span></label>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </section>
+
+                    <!-- 03: Kesulitan dan strategi -->
+                    <section class="reflection-step" aria-labelledby="reflectionProcessTitle">
+                        <div class="reflection-step-heading">
+                            <span class="reflection-step-number amber">03</span>
+                            <div>
+                                <h3 id="reflectionProcessTitle">Evaluasi Proses Belajarmu</h3>
+                                <p>Kenali tantangan yang kamu hadapi dan cara yang kamu gunakan untuk mengatasinya.</p>
+                            </div>
+                        </div>
+                        <fieldset class="reflection-fieldset">
+                            <legend>Materi atau kegiatan apa yang terasa sulit? (Boleh memilih lebih dari satu.)</legend>
+                            <div class="reflection-check-grid">
+                                <label><input type="checkbox" name="reflectionDifficulty" value="Memahami konsep pecahan"><span>Memahami konsep pecahan</span></label>
+                                <label><input type="checkbox" name="reflectionDifficulty" value="Membedakan jenis pecahan"><span>Membedakan jenis pecahan</span></label>
+                                <label><input type="checkbox" name="reflectionDifficulty" value="Mengubah pecahan ke desimal dan persen"><span>Mengubah pecahan ke desimal dan persen</span></label>
+                                <label><input type="checkbox" name="reflectionDifficulty" value="Menyamakan penyebut"><span>Menyamakan penyebut</span></label>
+                                <label><input type="checkbox" name="reflectionDifficulty" value="Melakukan operasi hitung pecahan"><span>Melakukan operasi hitung pecahan</span></label>
+                                <label><input type="checkbox" name="reflectionDifficulty" value="Menyelesaikan soal cerita"><span>Menyelesaikan soal cerita</span></label>
+                                <label><input type="checkbox" name="reflectionDifficulty" value="Tidak mengalami kesulitan berarti"><span>Saya tidak mengalami kesulitan berarti</span></label>
+                            </div>
+                        </fieldset>
+                        <fieldset class="reflection-fieldset">
+                            <legend>Strategi apa yang kamu gunakan saat mengalami kesulitan?</legend>
+                            <div class="reflection-choice-list">
+                                <label class="reflection-choice"><input type="radio" name="reflectionStrategy" value="Membaca kembali materi" required><span>Membaca kembali materi.</span></label>
+                                <label class="reflection-choice"><input type="radio" name="reflectionStrategy" value="Mencoba mengerjakan soal kembali"><span>Mencoba mengerjakan soal kembali.</span></label>
+                                <label class="reflection-choice"><input type="radio" name="reflectionStrategy" value="Menggunakan simulasi atau ilustrasi"><span>Menggunakan simulasi atau ilustrasi.</span></label>
+                                <label class="reflection-choice"><input type="radio" name="reflectionStrategy" value="Mencari cara penyelesaian sendiri"><span>Mencari cara penyelesaian sendiri.</span></label>
+                                <label class="reflection-choice"><input type="radio" name="reflectionStrategy" value="Meminta bantuan guru atau teman"><span>Meminta bantuan guru atau teman.</span></label>
+                            </div>
+                        </fieldset>
+                        <label class="reflection-text-label" for="reflectionProcessNote">Ceritakan kesulitan yang paling kamu ingat (opsional).</label>
+                        <textarea id="reflectionProcessNote" name="reflectionProcessNote" rows="3" placeholder="Contoh: Saya masih bingung ketika harus menyamakan penyebut ..."></textarea>
+                    </section>
+
+                    <!-- 04: Target berikutnya -->
+                    <section class="reflection-step" aria-labelledby="reflectionPlanTitle">
+                        <div class="reflection-step-heading">
+                            <span class="reflection-step-number green">04</span>
+                            <div>
+                                <h3 id="reflectionPlanTitle">Rencanakan Langkah Berikutnya</h3>
+                                <p>Tentukan satu hal yang ingin kamu perbaiki setelah melakukan refleksi.</p>
+                            </div>
+                        </div>
+                        <label class="reflection-text-label" for="reflectionTarget">Materi yang ingin kamu pelajari kembali</label>
+                        <select id="reflectionTarget" name="reflectionTarget" required>
+                            <option value="">Pilih materi</option>
+                            <option>Bilangan dan konsep pecahan</option>
+                            <option>Jenis-jenis pecahan</option>
+                            <option>Mengubah pecahan, desimal, dan persen</option>
+                            <option>Perbandingan pecahan</option>
+                            <option>Penjumlahan dan pengurangan pecahan</option>
+                            <option>Perkalian dan pembagian pecahan</option>
+                            <option>Penerapan pecahan dalam kehidupan sehari-hari</option>
+                            <option>Tidak ada, saya ingin mempelajari materi berikutnya</option>
+                        </select>
+                        <label class="reflection-text-label" for="reflectionPlan">Apa rencana yang akan kamu lakukan?</label>
+                        <textarea id="reflectionPlan" name="reflectionPlan" rows="4" required placeholder="Contoh: Saya akan membaca kembali materi, memperhatikan contoh penyelesaian, lalu mencoba mengerjakan soal latihan lagi."></textarea>
+                        <div class="reflection-save-area">
+                            <button class="btn btn-primary" type="submit" id="saveReflectionBtn">Simpan Refleksi Saya</button>
+                            <p id="reflectionFeedback" class="reflection-save-feedback" aria-live="polite"></p>
+                        </div>
+                    </section>
+                </form>
+
+                <section class="reflection-summary" id="reflectionSummary" hidden aria-live="polite">
+                    <div class="reflection-summary-icon" aria-hidden="true">🌟</div>
+                    <h3>Refleksimu Berhasil Disimpan!</h3>
+                    <p id="reflectionSummaryText">Terima kasih sudah mengevaluasi proses belajarmu.</p>
+                    <div class="reflection-summary-details" id="reflectionSummaryDetails"></div>
+                    <button type="button" class="btn btn-secondary" id="editReflectionBtn">Ubah Refleksi</button>
+                </section>
+            </div>
+        </section>
+
+        <!-- TENTANG -->
+        <section id="tentang" class="page-section about-page-section">
+            <div class="section-header">
+                <span class="section-label">TENTANG</span>
+                <h2>Mengenal Math Connect</h2>
+                <p>Ruang belajar untuk memahami matematika dengan lebih terarah dan bermakna.</p>
+            </div>
+
+            <div class="about-intro-card">
+                <div class="about-brand-mark" aria-hidden="true">
+                    <span class="about-brand-book">▰</span>
+                    <span class="about-brand-spark">✦</span>
+                </div>
+                <div class="about-intro-copy">
+                    <span class="about-eyebrow">MATH CONNECT</span>
+                    <h3>Belajar, Memahami, dan Menghubungkan Konsep</h3>
+                    <p>Math Connect merupakan media pembelajaran matematika yang membantu siswa memahami konsep secara bertahap melalui materi, peta konsep, penerapan dalam kehidupan sehari-hari, latihan interaktif, dan refleksi belajar.</p>
+                </div>
+            </div>
+
+            <div class="about-values-grid">
+                <article class="about-value-card about-value-blue">
+                    <span class="about-value-icon" aria-hidden="true">◈</span>
+                    <h3>Memahami</h3>
+                    <p>Membangun pemahaman konsep matematika secara bertahap.</p>
+                </article>
+                <article class="about-value-card about-value-purple">
+                    <span class="about-value-icon" aria-hidden="true">✧</span>
+                    <h3>Menghubungkan</h3>
+                    <p>Melihat hubungan antara satu konsep dengan konsep lainnya.</p>
+                </article>
+                <article class="about-value-card about-value-green">
+                    <span class="about-value-icon" aria-hidden="true">↗</span>
+                    <h3>Menerapkan</h3>
+                    <p>Menggunakan pengetahuan matematika dalam situasi sehari-hari.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+            <div class="site-footer-main">
+                <div class="footer-brand-column">
+                    <a class="footer-brand" href="#beranda" aria-label="Kembali ke Beranda Math Connect">
+                        <span class="footer-brand-icon" aria-hidden="true">▰</span>
+                        <span>
+                            <strong>MATH CONNECT</strong>
+                            <small>CONNECTING CONCEPTS, BUILDING UNDERSTANDING</small>
+                        </span>
+                    </a>
+                    <p>Media pembelajaran matematika interaktif untuk membantu siswa memahami, menghubungkan, dan menerapkan konsep matematika.</p>
+                </div>
+
+                <div class="footer-links-column">
+                    <h3>Jelajahi</h3>
+                    <a href="#beranda">Beranda</a>
+                    <a href="#konsep">Peta Konsep</a>
+                    <a href="#bilangan">Materi</a>
+                    <a href="#penerapan">Penerapan</a>
+                    <a href="#latihan">Latihan Interaktif</a>
+                    <a href="#refleksi">Refleksi</a>
+                </div>
+
+                <div class="footer-goals-column">
+                    <h3>Tujuan Pembelajaran</h3>
+                    <p><span>✓</span> Memahami konsep matematika.</p>
+                    <p><span>✓</span> Menghubungkan antarkonsep.</p>
+                    <p><span>✓</span> Menerapkan matematika dalam kehidupan.</p>
+                    <p><span>✓</span> Mengembangkan kemandirian belajar.</p>
+                </div>
+            </div>
+
+            <div class="footer-quote">
+                <span aria-hidden="true">✦</span>
+                <p>Matematika bukan hanya tentang menemukan jawaban, tetapi juga memahami bagaimana setiap konsep saling berhubungan.</p>
+            </div>
+
+            <div class="site-footer-bottom">
+                <span>© 2026 Math Connect. Seluruh hak cipta dilindungi.</span>
+                <span>Belajar • Memahami • Menghubungkan • Berkembang</span>
+            </div>
+        </footer>
+
+    </main>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
