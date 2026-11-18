@@ -6,7 +6,14 @@
     <meta name="theme-color" content="#f5f8ff">
     <meta name="description" content="Math Connect - Platform belajar matematika yang terstruktur, interaktif, dan menyenangkan.">
     <title>Math Connect - Belajar Matematika</title>
-    <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/beranda.css">
+    <link rel="stylesheet" href="css/peta-konsep.css">
+    <link rel="stylesheet" href="css/materi.css">
+    <link rel="stylesheet" href="css/materi-bilangan.css">
+    <link rel="stylesheet" href="css/latihan.css">
+    <link rel="stylesheet" href="css/refleksi.css">
+    <link rel="stylesheet" href="css/page-view.css">
 </head>
 
 <body>
@@ -422,51 +429,258 @@
         </section>
 
         <!-- MATERI 01: BILANGAN -->
-        <section id="bilangan" class="page-section material-section">
-            <div class="section-header">
-                <span class="section-label">MATERI 01</span>
-                <h2>Bilangan</h2>
-                <p>Bilangan menyatakan jumlah, ukuran, urutan, dan nilai.</p>
+        <section id="bilangan" class="page-section material-section number-material-section">
+    <header class="number-hero-banner" aria-labelledby="numberHeroTitle">
+        <div class="number-hero-copy">
+            <span class="number-hero-kicker"><span class="number-hero-kicker-dot"></span> MATERI 01 <span aria-hidden="true">•</span> KONSEP DASAR</span>
+            <h2 id="numberHeroTitle">Bilangan</h2>
+            <p>Memahami bilangan berarti belajar membaca jumlah, membandingkan nilai, dan mengenali pola yang kita temui dalam kehidupan sehari-hari.</p>
+            <div class="number-hero-tags" aria-label="Fokus pembelajaran">
+                <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H20v17H7.5A2.5 2.5 0 0 0 5 21.5zM5 4.5v17M9 6h7M9 10h7"/></svg>Konsep dasar</span>
+                <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18.5 9 13l3 2.5L20 6M15 6h5v5"/></svg>Visual interaktif</span>
+                <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 18h8M9 21h6M7 14.5a7 7 0 1 1 10 0c-1.2 1-1.5 1.8-1.5 3h-7c0-1.2-.3-2-1.5-3Z"/></svg>Contoh nyata</span>
             </div>
+        </div>
+        <div class="number-hero-art" aria-hidden="true">
+            <span class="number-hero-orbit number-hero-orbit-one"></span>
+            <span class="number-hero-orbit number-hero-orbit-two"></span>
+            <div class="number-hero-number-card">
+                <span class="number-hero-main-numbers">1 2 3</span>
+                <span class="number-hero-card-line"></span>
+                <span class="number-hero-card-symbols">＋　−　×　÷</span>
+            </div>
+            <span class="number-hero-float number-hero-float-negative">−5</span>
+            <span class="number-hero-float number-hero-float-fraction">¾</span>
+            <span class="number-hero-float number-hero-float-decimal">0,5</span>
+            <span class="number-hero-spark number-hero-spark-one">✦</span>
+            <span class="number-hero-spark number-hero-spark-two">＋</span>
+        </div>
+    </header>
 
-            <div class="material-grid">
-                <article class="content-card">
-                    <span class="card-icon">123</span>
-                    <h3>Apa itu Bilangan?</h3>
-                    <p>Bilangan adalah konsep matematika untuk menyatakan jumlah atau nilai suatu objek.</p>
-                </article>
+    <nav class="number-contents" aria-label="Daftar isi materi bilangan">
+        <a href="#bilangan-pengertian">01 Pengertian</a>
+        <a href="#bilangan-jenis">02 Jenis Bilangan</a>
+        <a href="#bilangan-himpunan">03 Hubungan Himpunan</a>
+        <a href="#bilangan-garis">04 Garis Bilangan</a>
+        <a href="#bilangan-penerapan">05 Penerapan</a>
+        <a href="#bilangan-latihan">06 Latihan Interaktif</a>
+    </nav>
 
-                <article class="content-card">
-                    <span class="card-icon">∞</span>
-                    <h3>Jenis Bilangan</h3>
-                    <ul>
-                        <li>Bilangan cacah</li>
-                        <li>Bilangan bulat</li>
-                        <li>Bilangan rasional</li>
-                        <li>Bilangan irasional</li>
-                        <li>Bilangan real</li>
-                    </ul>
-                </article>
+    <!-- 1. PENGERTIAN BILANGAN -->
+    <section class="number-topic" id="bilangan-pengertian" aria-labelledby="bilanganPengertianTitle">
+        <div class="number-topic-heading">
+            <span class="number-topic-index">01</span>
+            <div>
+                <span class="number-eyebrow">MENGENAL KONSEP</span>
+                <h3 id="bilanganPengertianTitle">Pengertian Bilangan</h3>
+            </div>
+        </div>
+        <div class="number-intro-card">
+            <div class="number-big-symbol" aria-hidden="true">123</div>
+            <div>
+                <p><strong>Bilangan</strong> adalah konsep matematika yang digunakan untuk menyatakan jumlah, ukuran, urutan, atau nilai suatu objek.</p>
+                <p>Bilangan membantu kita menghitung banyak benda, membandingkan jumlah, mengukur sesuatu, dan menyatakan posisi.</p>
+            </div>
+        </div>
+        <div class="number-example-grid">
+            <article class="number-example-card"><span class="number-example-icon">🍎</span><strong>Menyatakan jumlah</strong><p>3 buah apel menunjukkan banyaknya apel.</p></article>
+            <article class="number-example-card"><span class="number-example-icon">🌡️</span><strong>Menyatakan suhu</strong><p>−2°C menunjukkan suhu dua derajat di bawah nol.</p></article>
+            <article class="number-example-card"><span class="number-example-icon">📏</span><strong>Menyatakan ukuran</strong><p>1,5 meter menyatakan panjang suatu benda.</p></article>
+        </div>
+    </section>
 
-                <article class="content-card">
-                    <span class="card-icon">✎</span>
-                    <h3>Contoh Bilangan</h3>
-                    <div class="example-list">
-                        <span>3</span><span>−5</span><span><span class="operation-fraction" role="math" aria-label="1 per 2"><span class="numerator">1</span><span class="fraction-bar" aria-hidden="true"></span><span class="denominator">2</span></span></span>
-                        <span>0,75</span><span>25%</span>
+    <!-- 2. JENIS-JENIS BILANGAN -->
+    <section class="number-topic" id="bilangan-jenis" aria-labelledby="bilanganJenisTitle">
+        <div class="number-topic-heading">
+            <span class="number-topic-index">02</span>
+            <div>
+                <span class="number-eyebrow">KLASIFIKASI</span>
+                <h3 id="bilanganJenisTitle">Jenis-Jenis Bilangan</h3>
+                <p>Bilangan dapat dikelompokkan berdasarkan karakteristik dan bentuknya.</p>
+            </div>
+        </div>
+        <div class="number-types-grid">
+            <article class="number-type-card type-natural"><span class="number-type-symbol">ℕ</span><h4>Bilangan Asli</h4><p>Bilangan yang digunakan untuk membilang, dimulai dari 1.</p><span class="number-type-example">1, 2, 3, 4, 5, …</span></article>
+            <article class="number-type-card type-whole"><span class="number-type-symbol">0</span><h4>Bilangan Cacah</h4><p>Bilangan asli yang dilengkapi dengan bilangan nol.</p><span class="number-type-example">0, 1, 2, 3, 4, …</span></article>
+            <article class="number-type-card type-integer"><span class="number-type-symbol">ℤ</span><h4>Bilangan Bulat</h4><p>Bilangan negatif, nol, dan bilangan positif tanpa bagian pecahan.</p><span class="number-type-example">…, −3, −2, −1, 0, 1, 2, 3, …</span></article>
+            <article class="number-type-card type-rational"><span class="number-type-symbol">ℚ</span><h4>Bilangan Rasional</h4><p>Bilangan yang dapat dinyatakan sebagai a/b, dengan a dan b bilangan bulat serta b ≠ 0.</p><span class="number-type-example">1/2, −3, 0,75, 2, …</span></article>
+            <article class="number-type-card type-irrational"><span class="number-type-symbol">√2</span><h4>Bilangan Irasional</h4><p>Bilangan yang tidak dapat dinyatakan sebagai perbandingan dua bilangan bulat.</p><span class="number-type-example">√2, π, √3, …</span></article>
+            <article class="number-type-card type-real"><span class="number-type-symbol">ℝ</span><h4>Bilangan Real</h4><p>Gabungan dari bilangan rasional dan bilangan irasional.</p><span class="number-type-example">Semua titik pada garis bilangan</span></article>
+        </div>
+    </section>
+
+    <!-- 3. HUBUNGAN HIMPUNAN BILANGAN -->
+    <section class="number-topic" id="bilangan-himpunan" aria-labelledby="bilanganHimpunanTitle">
+        <div class="number-topic-heading">
+            <span class="number-topic-index">03</span>
+            <div>
+                <span class="number-eyebrow">HUBUNGAN ANTARKONSEP</span>
+                <h3 id="bilanganHimpunanTitle">Hubungan Himpunan Bilangan</h3>
+                <p>Setiap kelompok bilangan memiliki ciri dan anggota yang berbeda. Perhatikan diagram dan keterangan berikut untuk mengetahui dari mana setiap kelompok bilangan dimulai.</p>
+            </div>
+        </div>
+
+        <div class="number-set-layout">
+            <div class="number-set-diagram" role="img" aria-label="Diagram himpunan bilangan: bilangan asli berada di dalam bilangan cacah, bilangan cacah di dalam bilangan bulat, bilangan bulat di dalam bilangan rasional, serta bilangan irasional terpisah dari rasional. Keduanya berada di dalam bilangan real.">
+                <div class="set-real">
+                    <strong>Bilangan Real (ℝ)</strong>
+                    <div class="set-real-inner">
+                        <div class="set-rational">
+                            <strong>Bilangan Rasional (ℚ)</strong>
+                            <div class="set-integer">
+                                <strong>Bilangan Bulat (ℤ)</strong>
+                                <div class="set-whole">
+                                    <strong>Bilangan Cacah (W)</strong>
+                                    <div class="set-natural"><strong>Bilangan Asli (ℕ)</strong><span>1, 2, 3, 4, …</span></div>
+                                    <span class="set-zero-note">Bilangan cacah dimulai dari 0</span>
+                                </div>
+                            </div>
+                            <span class="set-rational-examples">…, −½, −0,5, 0, ¼, ½, 1, …</span>
+                        </div>
+                        <div class="set-irrational"><strong>Bilangan Irasional</strong><span>√2, √3, π, …</span></div>
                     </div>
-                </article>
+                    <span class="set-real-caption">Gabungan bilangan rasional dan irasional</span>
+                </div>
             </div>
-            <a href="#pecahan" class="btn btn-primary">Lanjut ke Pecahan →</a>
-        </section>
+
+            <div class="number-set-guide" aria-label="Keterangan setiap himpunan bilangan">
+                <div class="number-set-guide-heading"><span aria-hidden="true">ⓘ</span><h4>Keterangan Himpunan Bilangan</h4></div>
+                <button class="number-set-guide-item" type="button" data-set="natural" aria-pressed="false">
+                    <span class="number-set-symbol natural-symbol">ℕ</span>
+                    <span class="number-set-definition"><strong>Bilangan Asli</strong><small>Bilangan yang digunakan untuk membilang atau menghitung banyak benda.</small></span>
+                    <span class="number-set-start"><strong>Mulai dari: 1</strong><small>Contoh: 1, 2, 3, 4, …</small></span>
+                </button>
+                <button class="number-set-guide-item" type="button" data-set="whole" aria-pressed="false">
+                    <span class="number-set-symbol whole-symbol">W</span>
+                    <span class="number-set-definition"><strong>Bilangan Cacah</strong><small>Bilangan bulat yang tidak negatif, termasuk nol.</small></span>
+                    <span class="number-set-start"><strong>Mulai dari: 0</strong><small>Contoh: 0, 1, 2, 3, 4, …</small></span>
+                </button>
+                <button class="number-set-guide-item" type="button" data-set="integer" aria-pressed="false">
+                    <span class="number-set-symbol integer-symbol">ℤ</span>
+                    <span class="number-set-definition"><strong>Bilangan Bulat</strong><small>Bilangan tanpa bagian pecahan; terdiri atas negatif, nol, dan positif.</small></span>
+                    <span class="number-set-start"><strong>Memuat negatif hingga positif</strong><small>Contoh: …, −3, −2, −1, 0, 1, 2, …</small></span>
+                </button>
+                <button class="number-set-guide-item" type="button" data-set="rational" aria-pressed="false">
+                    <span class="number-set-symbol rational-symbol">ℚ</span>
+                    <span class="number-set-definition"><strong>Bilangan Rasional</strong><small>Dapat ditulis sebagai pecahan a/b, dengan a dan b bilangan bulat serta b ≠ 0.</small></span>
+                    <span class="number-set-start"><strong>Tidak memiliki angka awal</strong><small>Contoh: −1, 0, 0,5, ⅔, ¾, …</small></span>
+                </button>
+                <button class="number-set-guide-item" type="button" data-set="irrational" aria-pressed="false">
+                    <span class="number-set-symbol irrational-symbol">I</span>
+                    <span class="number-set-definition"><strong>Bilangan Irasional</strong><small>Tidak dapat ditulis sebagai pecahan dua bilangan bulat. Desimalnya tidak berakhir dan tidak berulang.</small></span>
+                    <span class="number-set-start"><strong>Tidak memiliki angka awal</strong><small>Contoh: √2, √3, π, …</small></span>
+                </button>
+                <button class="number-set-guide-item" type="button" data-set="real" aria-pressed="false">
+                    <span class="number-set-symbol real-symbol">ℝ</span>
+                    <span class="number-set-definition"><strong>Bilangan Real</strong><small>Gabungan semua bilangan rasional dan bilangan irasional.</small></span>
+                    <span class="number-set-start"><strong>Mencakup semua titik pada garis bilangan</strong><small>Contoh: −3, 0, ½, √2, π, …</small></span>
+                </button>
+                <p class="number-set-interaction-hint">Pilih salah satu keterangan untuk menyorot kelompoknya pada diagram.</p>
+            </div>
+        </div>
+        <p class="number-set-note"><strong>Kesimpulan:</strong> ℕ ⊂ W ⊂ ℤ ⊂ ℚ ⊂ ℝ. Bilangan irasional juga termasuk ℝ, tetapi bukan bagian dari ℚ.</p>
+    </section>
+
+    <!-- 4. GARIS BILANGAN INTERAKTIF -->
+    <section class="number-topic" id="bilangan-garis" aria-labelledby="bilanganGarisTitle">
+        <div class="number-topic-heading">
+            <span class="number-topic-index">04</span>
+            <div>
+                <span class="number-eyebrow">EKSPLORASI INTERAKTIF</span>
+                <h3 id="bilanganGarisTitle">Garis Bilangan</h3>
+                <p>Geser penunjuk untuk melihat posisi bilangan negatif, nol, dan positif.</p>
+            </div>
+        </div>
+        <div class="number-line-card">
+            <div class="number-line-value-wrap"><span>Bilangan yang dipilih</span><strong id="numberLineValue" aria-live="polite">0</strong></div>
+            <div class="number-line-track-wrap">
+                <div class="number-line-track" id="numberLineTrack">
+                    <div class="number-line-axis"></div>
+                    <div class="number-line-ticks" aria-hidden="true">
+                        <span data-value="-5">−5</span><span data-value="-4">−4</span><span data-value="-3">−3</span><span data-value="-2">−2</span><span data-value="-1">−1</span><span data-value="0">0</span><span data-value="1">1</span><span data-value="2">2</span><span data-value="3">3</span><span data-value="4">4</span><span data-value="5">5</span>
+                    </div>
+                    <span class="number-line-marker" id="numberLineMarker" aria-hidden="true"></span>
+                </div>
+            </div>
+            <label class="number-line-label" for="numberLineSlider">Geser untuk memilih bilangan (−5 sampai 5)</label>
+            <input id="numberLineSlider" type="range" min="-5" max="5" step="1" value="0">
+            <p class="number-line-feedback" id="numberLineFeedback" aria-live="polite">Bilangan 0 berada di titik asal.</p>
+            <div class="number-line-legend"><span><i class="legend-dot negative"></i>Negatif</span><span><i class="legend-dot zero"></i>Nol</span><span><i class="legend-dot positive"></i>Positif</span></div>
+        </div>
+    </section>
+
+    <!-- 5. PENERAPAN DALAM KEHIDUPAN -->
+    <section class="number-topic" id="bilangan-penerapan" aria-labelledby="bilanganPenerapanTitle">
+        <div class="number-topic-heading">
+            <span class="number-topic-index">05</span>
+            <div>
+                <span class="number-eyebrow">MATEMATIKA DI SEKITAR KITA</span>
+                <h3 id="bilanganPenerapanTitle">Penerapan Bilangan dalam Kehidupan Sehari-hari</h3>
+                <p>Bilangan digunakan dalam berbagai aktivitas dan situasi nyata.</p>
+            </div>
+        </div>
+        <div class="number-application-grid">
+            <article class="number-application-card"><span>🛒</span><div><h4>Berbelanja</h4><p>Harga Rp15.000 dan uang Rp20.000 digunakan untuk menghitung kembalian Rp5.000.</p></div></article>
+            <article class="number-application-card"><span>🌡️</span><div><h4>Suhu</h4><p>Suhu −3°C menunjukkan kondisi tiga derajat di bawah 0°C.</p></div></article>
+            <article class="number-application-card"><span>⏱️</span><div><h4>Waktu</h4><p>Bilangan digunakan untuk menyatakan pukul, durasi, dan urutan kegiatan.</p></div></article>
+            <article class="number-application-card"><span>📐</span><div><h4>Pengukuran</h4><p>Bilangan desimal seperti 1,5 meter digunakan untuk menyatakan panjang.</p></div></article>
+        </div>
+    </section>
+
+    <!-- 6. LATIHAN INTERAKTIF -->
+    <section class="number-topic" id="bilangan-latihan" aria-labelledby="bilanganLatihanTitle">
+        <div class="number-topic-heading">
+            <span class="number-topic-index">06</span>
+            <div>
+                <span class="number-eyebrow">UJI PEMAHAMAN</span>
+                <h3 id="bilanganLatihanTitle">Latihan Interaktif</h3>
+                <p>Jawab empat pertanyaan berikut dan baca pembahasannya setelah memilih jawaban.</p>
+            </div>
+        </div>
+        <div class="number-quiz-card" id="numberCheckQuiz">
+            <div class="number-quiz-top">
+                <span id="numberQuizProgress">Soal 1 dari 4</span>
+                <strong id="numberQuizScore">Skor: 0</strong>
+            </div>
+            <div class="number-quiz-progress"><span id="numberQuizProgressBar"></span></div>
+            <h4 id="numberQuizQuestion">Memuat pertanyaan...</h4>
+            <div class="number-quiz-options" id="numberQuizOptions"></div>
+            <p class="number-quiz-feedback" id="numberQuizFeedback" aria-live="polite">Pilih satu jawaban yang menurutmu benar.</p>
+            <button type="button" class="btn btn-primary number-quiz-next" id="numberQuizNext" disabled>Soal berikutnya →</button>
+            <p class="number-quiz-result" id="numberQuizResult" hidden></p>
+            <button type="button" class="btn btn-secondary number-quiz-restart" id="numberQuizRestart" hidden>Ulangi latihan</button>
+        </div>
+    </section>
+</section>
 
         <!-- MATERI 02: PECAHAN -->
         <section id="pecahan" class="page-section material-section">
-            <div class="section-header">
-                <span class="section-label">MATERI 02</span>
-                <h2>Pecahan</h2>
-                <p>Mengenal konsep pecahan, bagian-bagiannya, dan jenis-jenis pecahan.</p>
-            </div>
+            <!-- Banner pembuka Materi 02: Pecahan -->
+            <header class="fraction-hero-banner" aria-labelledby="fractionHeroTitle">
+                <div class="fraction-hero-copy">
+                    <span class="fraction-hero-kicker"><span class="fraction-hero-kicker-dot"></span> MATERI 02</span>
+                    <h2 id="fractionHeroTitle">Pecahan</h2>
+                    <p>Mengenal konsep pecahan, bagian-bagiannya, dan berbagai jenis pecahan melalui representasi visual yang interaktif.</p>
+                    <div class="fraction-hero-tags" aria-label="Fokus pembelajaran">
+                        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H20v17H7.5A2.5 2.5 0 0 0 5 21.5zM5 4.5v17M9 6h7M9 10h7"/></svg>Mini Materi</span>
+                        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9h-9zM14 3.2V10h6.8A9 9 0 0 0 14 3.2Z"/></svg>Representasi Visual</span>
+                    </div>
+                </div>
+                <div class="fraction-hero-art" aria-hidden="true">
+                    <span class="fraction-hero-orbit fraction-hero-orbit-one"></span>
+                    <span class="fraction-hero-orbit fraction-hero-orbit-two"></span>
+                    <div class="fraction-hero-illustration-card">
+                        <div class="fraction-hero-big-fraction"><span>3</span><i></i><span>4</span></div>
+                        <div class="fraction-hero-card-caption">Bagian dari keseluruhan</div>
+                        <div class="fraction-hero-pie" role="presentation"><span></span></div>
+                    </div>
+                    <span class="fraction-hero-float fraction-hero-float-threequarter">¾</span>
+                    <span class="fraction-hero-float fraction-hero-float-half">½</span>
+                    <span class="fraction-hero-float fraction-hero-float-quarter">¼</span>
+                    <span class="fraction-hero-spark fraction-hero-spark-one">✦</span>
+                    <span class="fraction-hero-spark fraction-hero-spark-two">＋</span>
+                </div>
+            </header>
 
             <div class="fraction-learning">
                 <div class="fraction-scene-nav">
@@ -627,10 +841,35 @@
 
         <!-- MATERI 03: PECAHAN, DESIMAL, PERSEN -->
         <section id="desimal" class="page-section material-section">
-            <div class="section-header">
-                <span class="section-label">MATERI 03</span>
-                <h2>Pecahan, Desimal, dan Persen</h2>
-                <p>Ketiganya merupakan bentuk berbeda untuk menyatakan nilai yang sama.</p>
+            <div class="conversion-hero-banner" aria-label="Banner Materi 03: Pecahan, Desimal, dan Persen">
+                <div class="conversion-hero-copy">
+                    <span class="conversion-hero-kicker"><span class="conversion-hero-kicker-dot"></span>MATERI 03</span>
+                    <h2>Pecahan, Desimal, dan Persen</h2>
+                    <p>Ketiganya merupakan bentuk berbeda untuk menyatakan nilai yang sama. Yuk, pelajari hubungan dan cara mengubahnya dengan mudah!</p>
+                    <div class="conversion-hero-tags">
+                        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21zM4 5.5v13A2.5 2.5 0 0 1 6.5 16H20M8 7h8M8 10h6"/></svg>Konsep Utama</span>
+                        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h13l-3-3M20 17H7l3 3M17 7l3 3-3 3M7 17l-3-3 3-3"/></svg>Konversi Interaktif</span>
+                    </div>
+                </div>
+                <div class="conversion-hero-art" aria-hidden="true">
+                    <span class="conversion-hero-orbit conversion-hero-orbit-one"></span>
+                    <span class="conversion-hero-orbit conversion-hero-orbit-two"></span>
+                    <div class="conversion-hero-main-card">
+                        <div class="conversion-hero-equivalence">
+                            <span class="conversion-hero-fraction"><b>3</b><i></i><b>4</b></span>
+                            <span class="conversion-hero-equals">=</span>
+                            <span class="conversion-hero-decimal">0,75</span>
+                        </div>
+                        <div class="conversion-hero-progress"><span></span></div>
+                        <span class="conversion-hero-percent">75%</span>
+                    </div>
+                    <span class="conversion-hero-float conversion-hero-float-fraction">¾</span>
+                    <span class="conversion-hero-float conversion-hero-float-half">½</span>
+                    <span class="conversion-hero-float conversion-hero-float-quarter">¼</span>
+                    <span class="conversion-hero-pie"></span>
+                    <span class="conversion-hero-spark conversion-hero-spark-one">✦</span>
+                    <span class="conversion-hero-spark conversion-hero-spark-two">＋</span>
+                </div>
             </div>
 
             <div class="material-grid">
@@ -719,10 +958,27 @@
 
         <!-- MATERI 04: PERBANDINGAN -->
         <section id="perbandingan-pecahan" class="page-section material-section">
-            <div class="section-header">
-                <span class="section-label">MATERI 04</span>
-                <h2>Perbandingan Pecahan</h2>
-                <p>Menentukan hubungan nilai dua pecahan: lebih besar (&gt;), lebih kecil (&lt;), atau sama dengan (=).</p>
+            <div class="comparison-hero" aria-label="Banner Materi 04 Perbandingan Pecahan">
+                <div class="comparison-hero-copy">
+                    <span class="comparison-hero-label">MATERI 04</span>
+                    <h2>Perbandingan Pecahan</h2>
+                    <p>Yuk, bandingkan dua pecahan dan temukan hubungan nilainya: lebih besar, lebih kecil, atau sama dengan.</p>
+                </div>
+                <div class="comparison-hero-art" aria-hidden="true">
+                    <div class="comparison-hero-orbit comparison-hero-orbit-one"></div>
+                    <div class="comparison-hero-orbit comparison-hero-orbit-two"></div>
+                    <div class="comparison-hero-fraction comparison-hero-fraction-left">
+                        <span>1</span><i></i><span>2</span>
+                    </div>
+                    <div class="comparison-hero-symbol">&gt;</div>
+                    <div class="comparison-hero-fraction comparison-hero-fraction-right">
+                        <span>2</span><i></i><span>3</span>
+                    </div>
+                    <span class="comparison-hero-mini comparison-hero-mini-top">&lt;</span>
+                    <span class="comparison-hero-mini comparison-hero-mini-bottom">=</span>
+                    <span class="comparison-hero-dot comparison-hero-dot-one"></span>
+                    <span class="comparison-hero-dot comparison-hero-dot-two"></span>
+                </div>
             </div>
 
             <div class="comparison-container">
@@ -807,18 +1063,42 @@
 
         <!-- MATERI 05: OPERASI PECAHAN -->
         <section id="operasi-pecahan" class="page-section material-section">
-            <div class="section-header">
-                <span class="section-label">MATERI 05</span>
-                <h2>Operasi Pecahan</h2>
-                <p>Pelajari penjumlahan, pengurangan, perkalian, dan pembagian pecahan.</p>
+            <div class="operation-hero">
+                <div class="operation-hero-copy">
+                    <span class="operation-hero-label">MATERI 05</span>
+                    <h2>Operasi Pecahan</h2>
+                    <p>Pelajari cara menjumlahkan, mengurangkan, mengalikan, dan membagi pecahan melalui langkah-langkah sederhana.</p>
+                    <span class="operation-hero-underline" aria-hidden="true"></span>
+                </div>
+                <div class="operation-hero-art" aria-label="Ilustrasi pecahan tiga per empat dan satu per dua dengan simbol operasi matematika">
+                    <span class="operation-hero-spark operation-spark-one" aria-hidden="true">✦</span>
+                    <span class="operation-hero-spark operation-spark-two" aria-hidden="true">✦</span>
+                    <div class="operation-hero-orbit operation-orbit-one" aria-hidden="true"></div>
+                    <div class="operation-hero-orbit operation-orbit-two" aria-hidden="true"></div>
+                    <div class="operation-hero-books" aria-hidden="true"><i></i><i></i><i></i></div>
+                    <div class="operation-fraction-card fraction-card-one"><strong>3</strong><i></i><strong>4</strong></div>
+                    <div class="operation-fraction-card fraction-card-two"><strong>1</strong><i></i><strong>2</strong></div>
+                    <span class="operation-float-symbol symbol-plus" aria-hidden="true">+</span>
+                    <span class="operation-float-symbol symbol-minus" aria-hidden="true">−</span>
+                    <span class="operation-float-symbol symbol-times" aria-hidden="true">×</span>
+                    <span class="operation-float-symbol symbol-divide" aria-hidden="true">÷</span>
+                </div>
             </div>
 
             <div class="operation-container">
-                <div class="operation-tabs">
-                    <button class="operation-tab active" data-operation="addition">Penjumlahan</button>
-                    <button class="operation-tab" data-operation="subtraction">Pengurangan</button>
-                    <button class="operation-tab" data-operation="multiplication">Perkalian</button>
-                    <button class="operation-tab" data-operation="division">Pembagian</button>
+                <div class="operation-tabs" role="tablist" aria-label="Pilih jenis operasi pecahan">
+                    <button type="button" class="operation-tab active" data-operation="addition" role="tab" aria-selected="true" aria-controls="addition">
+                        <span class="operation-tab-icon" aria-hidden="true">+</span><span>Penjumlahan</span><span class="operation-tab-swish" aria-hidden="true"></span>
+                    </button>
+                    <button type="button" class="operation-tab" data-operation="subtraction" role="tab" aria-selected="false" aria-controls="subtraction">
+                        <span class="operation-tab-icon" aria-hidden="true">−</span><span>Pengurangan</span><span class="operation-tab-swish" aria-hidden="true"></span>
+                    </button>
+                    <button type="button" class="operation-tab" data-operation="multiplication" role="tab" aria-selected="false" aria-controls="multiplication">
+                        <span class="operation-tab-icon" aria-hidden="true">×</span><span>Perkalian</span><span class="operation-tab-swish" aria-hidden="true"></span>
+                    </button>
+                    <button type="button" class="operation-tab" data-operation="division" role="tab" aria-selected="false" aria-controls="division">
+                        <span class="operation-tab-icon" aria-hidden="true">÷</span><span>Pembagian</span><span class="operation-tab-swish" aria-hidden="true"></span>
+                    </button>
                 </div>
 
                 <!-- PENJUMLAHAN -->
@@ -1055,10 +1335,27 @@
 
         <!-- MATERI 06: PENERAPAN MATEMATIKA INTERAKTIF -->
         <section id="penerapan" class="page-section material-section application-section">
-            <div class="section-header">
-                <span class="section-label">EKSPLORASI</span>
-                <h2>Matematika di Sekitar Kita</h2>
-                <p>Temukan bagaimana konsep pecahan, desimal, dan persen digunakan dalam berbagai aktivitas sehari-hari. Amati, eksplorasi, dan selesaikan tantangannya!</p>
+            <!-- BANNER MATERI 06: PENERAPAN -->
+            <div class="application-hero" aria-labelledby="applicationHeroTitle">
+                <div class="application-hero-copy">
+                    <span class="application-hero-label">MATERI 06</span>
+                    <h2 id="applicationHeroTitle">Penerapan</h2>
+                    <p>Jelajahi penggunaan pecahan saat berbagi makanan, persen ketika berbelanja, dan desimal dalam kegiatan mengukur.</p>
+                    <span class="application-hero-underline" aria-hidden="true"></span>
+                </div>
+                <div class="application-hero-art" aria-label="Ilustrasi pizza, pecahan, kalkulator, koin, dan diskon" role="img">
+                    <span class="application-art-orbit application-art-orbit-one"></span>
+                    <span class="application-art-orbit application-art-orbit-two"></span>
+                    <div class="application-art-pizza">🍕<small>3/4</small></div>
+                    <div class="application-art-calculator">
+                        <div class="calculator-screen">0,75</div>
+                        <div class="calculator-keys"><i>+</i><i>−</i><i>×</i><i>÷</i></div>
+                    </div>
+                    <div class="application-art-discount">75<small>% OFF</small></div>
+                    <div class="application-art-coins"><i>Rp</i><i>Rp</i><i>Rp</i></div>
+                    <span class="application-art-spark application-art-spark-one">✦</span>
+                    <span class="application-art-spark application-art-spark-two">✧</span>
+                </div>
             </div>
 
             <!-- SIMULASI 01: MAKANAN / PECAHAN -->
@@ -1827,6 +2124,17 @@
 </div>
 
 <script src="js/app.js"></script>
-<script src="js/script.js"></script>
+<script src="js/peta-konsep.js"></script>
+<script src="js/materi-bilangan.js"></script>
+<script src="js/materi-pecahan.js"></script>
+<script src="js/materi-konversi.js"></script>
+<script src="js/materi-perbandingan.js"></script>
+<script src="js/materi-operasi.js"></script>
+<script src="js/materi-penerapan.js"></script>
+<script src="js/latihan.js"></script>
+<script src="js/refleksi.js"></script>
+<script src="js/profil.js"></script>
+<script src="js/notifikasi.js"></script>
+    <script src="js/page-view.js"></script>
 </body>
 </html>

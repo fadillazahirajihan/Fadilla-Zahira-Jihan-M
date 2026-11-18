@@ -1,0 +1,14 @@
+/*
+ * MATH CONNECT — TAMPILAN SATU BAGIAN PER MENU
+ * Hanya mengatur visibilitas, tidak mengubah desain komponen.
+ */
+.main-content > .page-section,
+.main-content > .quick-access-section,
+.main-content > .home-materials-section {
+    display: none;
+}
+
+/* Footer adalah elemen bersama dan tetap terlihat di semua menu. */
+.main-content > .site-footer {
+    display: block;
+}
