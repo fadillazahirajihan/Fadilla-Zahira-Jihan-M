@@ -1,6 +1,6 @@
 /* =========================================================
    MATH CONNECT — PETA KONSEP
-   Backdrop pastel dekoratif tanpa ketergantungan gambar luar.
+   Menggunakan gambar assets/image/bg-peta-konsep.png sebagai backdrop.
    Simpan sebagai: css/peta-konsep.css
    ========================================================= */
 
@@ -59,47 +59,22 @@
     padding: clamp(38px, 5vw, 62px) clamp(18px, 3vw, 42px);
     border: 1px solid var(--map-border);
     border-radius: 32px;
-    background:
-        radial-gradient(circle at 12% 14%, rgba(119, 177, 255, .18) 0 2px, transparent 3px),
-        radial-gradient(circle at 88% 78%, rgba(172, 145, 255, .18) 0 2px, transparent 3px),
-        radial-gradient(ellipse at 0% 0%, rgba(222, 239, 255, .92), transparent 43%),
-        radial-gradient(ellipse at 100% 100%, rgba(237, 229, 255, .88), transparent 45%),
-        linear-gradient(135deg, #ffffff 0%, #f7faff 48%, #fbf9ff 100%);
-    background-size: 28px 28px, 32px 32px, auto, auto, auto;
+    background-color: #f8fbff;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, .08), rgba(255, 255, 255, .08)),
+        url("../assets/image/bg-peta-konsep.png");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
     box-shadow:
         0 22px 55px rgba(58, 103, 170, .10),
         inset 0 1px 0 rgba(255,255,255,.95);
 }
 
-/* Pola titik dan bidang dekoratif di belakang peta */
-.concept-map::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    opacity: .72;
-    background:
-        radial-gradient(circle, rgba(104, 157, 239, .22) 1.2px, transparent 1.6px) 24px 22px / 25px 25px,
-        radial-gradient(ellipse at 50% -18%, rgba(255,255,255,.95), transparent 52%);
-    mask-image: linear-gradient(180deg, #000 0%, rgba(0,0,0,.55) 35%, transparent 100%);
-}
-
-/* Aksen lengkung di sudut kanan bawah */
+/* Tidak ada pola tambahan: gambar backdrop tampil sebagai latar utama. */
+.concept-map::before,
 .concept-map::after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    width: min(58vw, 560px);
-    height: min(22vw, 210px);
-    right: -90px;
-    bottom: -145px;
-    border: 1px solid rgba(150, 168, 255, .20);
-    border-radius: 50%;
-    box-shadow:
-        0 -18px 0 -17px rgba(150, 168, 255, .22),
-        0 -38px 0 -37px rgba(150, 168, 255, .16);
-    pointer-events: none;
+    content: none;
 }
 
 .concept-tree,
@@ -281,4 +256,96 @@
 @media (prefers-reduced-motion: reduce) {
     .concept-node { transition: none; }
     .concept-info { animation: none; }
+}
+
+
+/* =========================================================
+   STRUKTUR BARU PETA KONSEP — 5 SUBBAGIAN BILANGAN + 4 PECAHAN
+   ========================================================= */
+.concept-map {
+    min-height: 0;
+    padding-bottom: clamp(42px, 5vw, 62px);
+}
+
+.concept-tree { gap: 0; }
+
+/* Lima topik bilangan dibuat seimbang dan tetap responsif. */
+.concept-level.number-level {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 12px;
+}
+
+.concept-level.number-level .concept-node {
+    width: 100%;
+    min-width: 0;
+    min-height: 66px;
+    padding: 12px 10px;
+    line-height: 1.35;
+    text-align: center;
+    white-space: normal;
+}
+
+/* Empat topik pecahan disejajarkan dalam satu baris di layar lebar. */
+.concept-level.fraction-topic-level {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 14px;
+}
+
+.concept-level.fraction-topic-level .concept-node {
+    width: 100%;
+    min-width: 0;
+    min-height: 58px;
+    padding: 12px 10px;
+    line-height: 1.35;
+    text-align: center;
+    white-space: normal;
+}
+
+.operation-node {
+    color: #a65c36;
+    background: rgba(255, 241, 231, .97);
+    border-color: #f7dfcf;
+}
+
+.concept-info-category {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 0 10px;
+    padding: 6px 11px;
+    border-radius: 999px;
+    color: #3976d7;
+    background: #edf4ff;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: .12em;
+}
+
+.concept-info h3 { padding-right: 28px; }
+.concept-info p { white-space: pre-line; }
+
+@media (max-width: 1050px) {
+    .concept-level.number-level {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .concept-level.fraction-topic-level {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .concept-level.number-level,
+    .concept-level.fraction-topic-level {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+    }
+    .concept-level.number-level .concept-node,
+    .concept-level.fraction-topic-level .concept-node {
+        min-height: 50px;
+        padding: 10px 8px;
+        font-size: 12px;
+    }
 }

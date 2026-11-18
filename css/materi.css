@@ -2881,176 +2881,594 @@
 
 
 /* =========================================================
-   MATERI 05 — HERO BANNER & TAB OPERASI DEKORATIF
-   Semua selector dibatasi pada #operasi-pecahan agar
-   tampilan materi lain tidak ikut berubah.
+   MATH CONNECT — BANNER PNG MATERI 01: BILANGAN
+   Banner menggunakan aset penuh dari assets/image.
+   Isi dan struktur bagian materi setelah banner tidak diubah.
 ========================================================= */
-#operasi-pecahan .operation-hero {
-    position: relative; isolation: isolate; overflow: hidden;
-    width: min(1100px, calc(100% - 48px)); min-height: 300px;
-    margin: 28px auto 30px; padding: 42px 52px; box-sizing: border-box;
-    display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(300px, .88fr);
-    align-items: center; gap: 22px; border: 1px solid #dce8ff; border-radius: 34px;
-    background: linear-gradient(112deg, #e8f4ff 0%, #f5f7ff 48%, #eeeaff 100%);
-    box-shadow: 0 16px 38px rgba(73, 112, 177, .08);
+#bilangan .number-hero-banner-image {
+    display: block;
+    position: relative;
+    width: 100%;
+    min-height: 0;
+    margin: 0 0 30px;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #d9e7ff;
+    border-radius: 30px;
+    background: #edf4ff;
+    box-shadow: 0 14px 35px rgba(45, 91, 155, .055);
+    isolation: isolate;
 }
-#operasi-pecahan .operation-hero::before,
-#operasi-pecahan .operation-hero::after {
-    content: ""; position: absolute; z-index: -1; border-radius: 50%; pointer-events: none;
+#bilangan .number-hero-banner-image::before,
+#bilangan .number-hero-banner-image::after {
+    content: none;
+    display: none;
 }
-#operasi-pecahan .operation-hero::before { width: 340px; height: 210px; right: 2%; top: -125px; background: rgba(255,255,255,.42); transform: rotate(-18deg); }
-#operasi-pecahan .operation-hero::after { width: 390px; height: 170px; left: 34%; bottom: -132px; background: rgba(193,216,255,.25); transform: rotate(-8deg); }
-#operasi-pecahan .operation-hero-copy { position: relative; z-index: 2; max-width: 610px; }
-#operasi-pecahan .operation-hero-label { display: inline-block; margin-bottom: 17px; color: #3478e8; font-size: 14px; font-weight: 900; letter-spacing: 3px; }
-#operasi-pecahan .operation-hero-copy h2 { margin: 0 0 14px; color: #173e7d; font-size: clamp(36px, 4.4vw, 57px); line-height: 1.08; font-weight: 900; letter-spacing: -1.8px; }
-#operasi-pecahan .operation-hero-copy p { max-width: 590px; margin: 0; color: #5d7699; font-size: clamp(15px, 1.45vw, 19px); line-height: 1.7; }
-#operasi-pecahan .operation-hero-underline { display: block; width: 74px; height: 5px; margin-top: 23px; border-radius: 8px; background: linear-gradient(90deg,#3985f5,#9c8bf0); transform: rotate(-3deg); }
-#operasi-pecahan .operation-hero-art { position: relative; min-height: 225px; display: flex; align-items: center; justify-content: center; gap: 15px; }
-#operasi-pecahan .operation-hero-orbit { position: absolute; border: 1px solid rgba(92,145,220,.2); border-radius: 50%; transform: rotate(-13deg); }
-#operasi-pecahan .operation-orbit-one { width: 330px; height: 180px; }
-#operasi-pecahan .operation-orbit-two { width: 275px; height: 145px; transform: rotate(17deg); border-color: rgba(157,137,229,.22); }
-#operasi-pecahan .operation-fraction-card { position: relative; z-index: 2; width: 105px; height: 135px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid rgba(222,232,255,.95); border-radius: 25px; background: rgba(255,255,255,.96); color: #194781; font-size: 37px; font-weight: 900; line-height: 1.04; box-shadow: 0 15px 30px rgba(45,82,145,.14); transform: rotate(-7deg); }
-#operasi-pecahan .fraction-card-two { color: #6653b8; background: rgba(248,245,255,.97); transform: rotate(7deg) translateY(17px); }
-#operasi-pecahan .operation-fraction-card i { display: block; width: 48%; height: 4px; margin: 7px 0; border-radius: 4px; background: currentColor; }
-#operasi-pecahan .operation-float-symbol { position: absolute; z-index: 3; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 17px; font-size: 31px; font-weight: 900; background: #fff; box-shadow: 0 9px 22px rgba(54,92,155,.13); transform: rotate(8deg); }
-#operasi-pecahan .symbol-plus { top: 0; right: 15%; color: #2583ed; background: #dff2ff; }
-#operasi-pecahan .symbol-minus { top: 12px; right: -1%; color: #8755d7; background: #f0e7ff; transform: rotate(-8deg); }
-#operasi-pecahan .symbol-times { bottom: 4px; right: 4%; color: #d99a12; background: #fff2c9; transform: rotate(10deg); }
-#operasi-pecahan .symbol-divide { bottom: -5px; left: 8%; color: #159b7c; background: #dff8ef; transform: rotate(-8deg); }
-#operasi-pecahan .operation-hero-spark { position: absolute; color: #ffbd42; font-size: 27px; }
-#operasi-pecahan .operation-spark-one { top: 15px; left: 12%; }
-#operasi-pecahan .operation-spark-two { bottom: 10px; right: 20%; color: #a895ef; font-size: 19px; }
-#operasi-pecahan .operation-hero-books { position: absolute; z-index: 1; bottom: 0; left: 50%; width: 170px; height: 37px; transform: translateX(-50%); }
-#operasi-pecahan .operation-hero-books i { position: absolute; left: 0; width: 100%; height: 12px; border: 1px solid rgba(71,130,220,.2); border-radius: 5px; background: linear-gradient(90deg,#5db8ff,#2588e8); box-shadow: 0 4px 8px rgba(48,107,188,.12); }
-#operasi-pecahan .operation-hero-books i:nth-child(1) { bottom: 0; background: linear-gradient(90deg,#ffd36b,#ffb52e); }
-#operasi-pecahan .operation-hero-books i:nth-child(2) { bottom: 11px; left: 7px; width: calc(100% - 14px); background: linear-gradient(90deg,#70c9ff,#3997ed); }
-#operasi-pecahan .operation-hero-books i:nth-child(3) { bottom: 22px; left: 14px; width: calc(100% - 28px); background: linear-gradient(90deg,#fff,#e8efff); }
-
-#operasi-pecahan .operation-container { max-width: 1100px; padding-top: 0; }
-#operasi-pecahan .operation-tabs { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; margin: 0 0 30px; align-items: stretch; }
-#operasi-pecahan .operation-tab { position: relative; overflow: hidden; min-height: 88px; display: flex; align-items: center; justify-content: flex-start; gap: 13px; padding: 15px 19px; border: 2px solid rgba(255,255,255,.9); border-radius: 25px; color: #23436f; font-size: 15px; font-weight: 850; background: linear-gradient(135deg,#fff 0%,#f2f7ff 100%); box-shadow: 0 8px 20px rgba(59,93,151,.08); transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease; }
-#operasi-pecahan .operation-tab::before { content: ""; position: absolute; width: 95px; height: 95px; right: -35px; top: -48px; border-radius: 50%; background: rgba(255,255,255,.55); }
-#operasi-pecahan .operation-tab:hover { transform: translateY(-4px); box-shadow: 0 13px 24px rgba(59,93,151,.13); }
-#operasi-pecahan .operation-tab-icon { position: relative; z-index: 1; flex: 0 0 48px; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 15px; background: #e4efff; color: #2875e8; font-size: 30px; line-height: 1; font-weight: 800; box-shadow: inset 0 1px 0 rgba(255,255,255,.8); }
-#operasi-pecahan .operation-tab > span:nth-child(2) { position: relative; z-index: 1; white-space: nowrap; }
-#operasi-pecahan .operation-tab-swish { position: absolute; right: 20px; bottom: 13px; width: 55px; height: 7px; border-bottom: 3px solid currentColor; border-radius: 50%; opacity: .35; transform: rotate(-5deg); }
-#operasi-pecahan .operation-tab[data-operation="addition"] { background: linear-gradient(135deg,#f4f9ff,#e5efff); color: #1e5fbd; }
-#operasi-pecahan .operation-tab[data-operation="addition"] .operation-tab-icon { background: #fff; color: #2878ed; }
-#operasi-pecahan .operation-tab[data-operation="subtraction"] { background: linear-gradient(135deg,#fbf8ff,#eee7ff); color: #6551b2; }
-#operasi-pecahan .operation-tab[data-operation="subtraction"] .operation-tab-icon { background: #fff; color: #8668dd; }
-#operasi-pecahan .operation-tab[data-operation="multiplication"] { background: linear-gradient(135deg,#fffdf4,#fff2cc); color: #956b0d; }
-#operasi-pecahan .operation-tab[data-operation="multiplication"] .operation-tab-icon { background: #fff; color: #e4a900; }
-#operasi-pecahan .operation-tab[data-operation="division"] { background: linear-gradient(135deg,#f3fff9,#ddf7eb); color: #197b66; }
-#operasi-pecahan .operation-tab[data-operation="division"] .operation-tab-icon { background: #fff; color: #20a17f; }
-#operasi-pecahan .operation-tab.active { border-color: rgba(255,255,255,.95); color: #fff; box-shadow: 0 11px 23px rgba(46,103,193,.23); transform: translateY(-3px); }
-#operasi-pecahan .operation-tab.active .operation-tab-icon { color: #2878ed; background: #fff; }
-#operasi-pecahan .operation-tab[data-operation="addition"].active { background: linear-gradient(120deg,#287cf2,#4774e9); }
-#operasi-pecahan .operation-tab[data-operation="subtraction"].active { background: linear-gradient(120deg,#8067dc,#a08ae9); }
-#operasi-pecahan .operation-tab[data-operation="multiplication"].active { background: linear-gradient(120deg,#efb92f,#f5ce58); color: #654707; }
-#operasi-pecahan .operation-tab[data-operation="division"].active { background: linear-gradient(120deg,#36b995,#63d4ac); color: #075b49; }
-#operasi-pecahan .operation-tab:focus-visible { outline: 3px solid #1d6fe8; outline-offset: 3px; }
-@media (max-width: 900px) {
-    #operasi-pecahan .operation-hero { padding: 35px 34px; grid-template-columns: 1fr .85fr; }
-    #operasi-pecahan .operation-tabs { grid-template-columns: repeat(2,minmax(0,1fr)); }
+#bilangan .number-hero-banner-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
 }
-@media (max-width: 650px) {
-    #operasi-pecahan .operation-hero { width: calc(100% - 30px); min-height: 0; margin: 18px auto 24px; padding: 29px 24px 20px; grid-template-columns: 1fr; gap: 4px; border-radius: 26px; }
-    #operasi-pecahan .operation-hero-copy h2 { font-size: clamp(34px,8vw,44px); letter-spacing: -1px; }
-    #operasi-pecahan .operation-hero-copy p { font-size: 15px; }
-    #operasi-pecahan .operation-hero-art { min-height: 190px; }
-    #operasi-pecahan .operation-container { padding-right: 15px; padding-left: 15px; }
-    #operasi-pecahan .operation-tabs { gap: 10px; margin-bottom: 22px; }
-    #operasi-pecahan .operation-tab { min-height: 76px; padding: 11px 12px; gap: 9px; border-radius: 19px; font-size: 13px; }
-    #operasi-pecahan .operation-tab-icon { flex-basis: 39px; width: 39px; height: 39px; border-radius: 12px; font-size: 25px; }
-    #operasi-pecahan .operation-tab-swish { right: 12px; bottom: 8px; width: 38px; }
+@media (max-width: 768px) {
+    #bilangan .number-hero-banner-image {
+        border-radius: 23px;
+        margin-bottom: 24px;
+    }
 }
-@media (max-width: 390px) {
-    #operasi-pecahan .operation-tabs { grid-template-columns: 1fr 1fr; gap: 8px; }
-    #operasi-pecahan .operation-tab { min-height: 68px; padding: 9px; gap: 7px; font-size: 12px; }
-    #operasi-pecahan .operation-tab-icon { flex-basis: 34px; width: 34px; height: 34px; font-size: 22px; }
-    #operasi-pecahan .operation-fraction-card { width: 88px; height: 116px; font-size: 32px; }
-    #operasi-pecahan .operation-float-symbol { width: 42px; height: 42px; border-radius: 14px; font-size: 25px; }
-}
-
-
-/* =========================================================
-   MATERI 06 — BANNER PENERAPAN
-   Scoped ke #penerapan agar tidak mengubah materi lain.
-========================================================= */
-#penerapan .application-hero {
-    position: relative; isolation: isolate; overflow: hidden;
-    width: min(1100px, calc(100% - 48px)); min-height: 300px;
-    margin: 0 auto 30px; padding: 40px 48px; box-sizing: border-box;
-    display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(250px, .8fr);
-    align-items: center; gap: 22px; border: 1px solid #dce8ff; border-radius: 30px;
-    background: linear-gradient(112deg, #e7f2ff 0%, #f7f8ff 52%, #eeeaff 100%);
-    box-shadow: 0 14px 32px rgba(73,112,177,.07);
-}
-#penerapan .application-hero::before,
-#penerapan .application-hero::after {
-    content: ""; position: absolute; z-index: -1; border-radius: 50%; pointer-events: none;
-}
-#penerapan .application-hero::before { width: 360px; height: 220px; right: -55px; top: -135px; background: rgba(255,255,255,.48); transform: rotate(-18deg); }
-#penerapan .application-hero::after { width: 420px; height: 190px; left: 32%; bottom: -150px; background: rgba(191,215,255,.25); transform: rotate(-8deg); }
-#penerapan .application-hero-copy { position: relative; z-index: 2; max-width: 620px; }
-#penerapan .application-hero-label { display: inline-block; margin-bottom: 12px; color: #3478e8; font-size: 14px; font-weight: 900; letter-spacing: 3px; }
-#penerapan .application-hero-copy h2 { margin: 0 0 10px; color: #173e7d; font-size: clamp(38px,4.5vw,58px); line-height: 1.08; font-weight: 900; letter-spacing: -1.8px; }
-#penerapan .application-hero-copy p { max-width: 560px; margin: 0; color: #5d7699; font-size: clamp(15px,1.45vw,19px); line-height: 1.7; }
-#penerapan .application-hero-underline { display: block; width: 64px; height: 5px; margin-top: 17px; border-radius: 8px; background: linear-gradient(90deg,#3985f5,#9c8bf0); transform: rotate(-3deg); }
-#penerapan .application-hero-art { position: relative; min-height: 220px; min-width: 0; display: flex; align-items: center; justify-content: center; }
-#penerapan .application-art-orbit { position: absolute; border: 1px solid rgba(92,145,220,.2); border-radius: 50%; transform: rotate(-13deg); }
-#penerapan .application-art-orbit-one { width: 300px; height: 165px; }
-#penerapan .application-art-orbit-two { width: 250px; height: 130px; transform: rotate(17deg); border-color: rgba(157,137,229,.22); }
-#penerapan .application-art-pizza { position: absolute; z-index: 2; left: 12%; top: 20px; width: 104px; height: 104px; display: grid; place-items: center; border: 7px solid rgba(255,255,255,.92); border-radius: 30px; background: linear-gradient(145deg,#fff7df,#ffe8b5); font-size: 64px; transform: rotate(-10deg); box-shadow: 0 14px 28px rgba(65,100,157,.13); }
-#penerapan .application-art-pizza small { position: absolute; right: -14px; bottom: -12px; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 16px; background: #e9e2ff; color: #7257c9; font-size: 16px; font-weight: 900; transform: rotate(10deg); }
-#penerapan .application-art-calculator { position: absolute; z-index: 3; right: 13%; top: 25px; width: 98px; padding: 12px; border: 1px solid #e0eaff; border-radius: 22px; background: rgba(255,255,255,.96); box-shadow: 0 14px 28px rgba(65,100,157,.13); transform: rotate(8deg); }
-#penerapan .calculator-screen { padding: 9px 7px; margin-bottom: 9px; border-radius: 9px; background: #e8f5ff; color: #2372ca; text-align: right; font-size: 20px; font-weight: 900; }
-#penerapan .calculator-keys { display: grid; grid-template-columns: repeat(2,1fr); gap: 6px; }
-#penerapan .calculator-keys i { display: grid; place-items: center; height: 24px; border-radius: 7px; background: #f0edff; color: #795fca; font-size: 15px; font-style: normal; font-weight: 900; }
-#penerapan .application-art-discount { position: absolute; z-index: 4; right: 4%; bottom: 8px; width: 80px; height: 80px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 5px solid rgba(255,255,255,.9); border-radius: 27px; background: linear-gradient(145deg,#dcf8ed,#bceedd); color: #16866b; font-size: 29px; font-weight: 950; line-height: 1; transform: rotate(8deg); box-shadow: 0 12px 25px rgba(50,145,119,.13); }
-#penerapan .application-art-discount small { margin-top: 4px; font-size: 10px; letter-spacing: 1px; }
-#penerapan .application-art-coins { position: absolute; z-index: 2; left: 22%; bottom: 0px; display: flex; align-items: end; }
-#penerapan .application-art-coins i { display: grid; place-items: center; width: 39px; height: 39px; margin-left: -7px; border: 3px solid #fff5d9; border-radius: 50%; background: linear-gradient(145deg,#ffdb7b,#f4b83e); color: #9b6a0b; font-size: 10px; font-style: normal; font-weight: 900; box-shadow: 0 5px 12px rgba(181,132,34,.16); }
-#penerapan .application-art-spark { position: absolute; color: #ffbd42; font-size: 27px; }
-#penerapan .application-art-spark-one { top: 15px; left: 8%; }
-#penerapan .application-art-spark-two { right: 8%; bottom: 23px; color: #a895ef; font-size: 22px; }
-@media (max-width: 760px) {
-    #penerapan .application-hero { width: calc(100% - 30px); min-height: 0; margin: 18px auto 24px; padding: 30px 30px 18px; grid-template-columns: 1fr; gap: 8px; border-radius: 27px; }
-    #penerapan .application-hero-copy h2 { font-size: clamp(35px,8vw,46px); letter-spacing: -1px; }
-    #penerapan .application-hero-copy p { font-size: 15px; }
-    #penerapan .application-hero-art { min-height: 190px; }
-}
-@media (max-width: 420px) {
-    #penerapan .application-hero { padding: 26px 22px 14px; }
-    #penerapan .application-hero-label { font-size: 12px; letter-spacing: 2.5px; }
-    #penerapan .application-hero-art { min-height: 165px; transform: scale(.9); transform-origin: center top; margin-bottom: -8px; }
-    #penerapan .application-art-pizza { width: 96px; height: 96px; font-size: 53px; }
-    #penerapan .application-art-calculator { right: 10%; width: 91px; }
-    #penerapan .application-art-discount { width: 76px; height: 76px; font-size: 25px; }
-}
-
-
-/* =========================================================
-   PERBAIKAN FINAL PROPORSI BANNER MATERI 06
-   Lebar banner mengikuti lebar konten materi 01–05.
-   Tidak mengubah ukuran kartu simulasi di bawahnya.
-========================================================= */
-@media (min-width: 761px) {
-    #penerapan .application-hero {
-        width: min(1100px, 100%);
-        max-width: 1100px;
-        min-height: 300px;
-        margin: 0 auto 30px;
-        box-sizing: border-box;
+@media (max-width: 480px) {
+    #bilangan .number-hero-banner-image {
+        border-radius: 18px;
     }
 }
 
-@media (max-width: 760px) {
-    #penerapan .application-hero {
-        width: 100%;
-        max-width: none;
-        margin-left: auto;
-        margin-right: auto;
-        box-sizing: border-box;
+
+/* =========================================================
+   MATH CONNECT — BANNER PNG MATERI 02: PECAHAN
+   Menggunakan aset assets/image/bg-materi-pecahan.png.
+   Hanya mengatur area banner Pecahan; isi materi dan halaman
+   lainnya tidak diubah.
+========================================================= */
+#pecahan .fraction-hero-banner-image {
+    display: block;
+    position: relative;
+    width: 100%;
+    min-height: 0;
+    margin: 0 0 30px;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #dce7fb;
+    border-radius: 30px;
+    background: #edf4ff;
+    box-shadow: 0 14px 35px rgba(45, 91, 155, .055);
+    isolation: isolate;
+}
+
+#pecahan .fraction-hero-banner-image::before,
+#pecahan .fraction-hero-banner-image::after {
+    content: none;
+    display: none;
+}
+
+#pecahan .fraction-hero-banner-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+@media (max-width: 768px) {
+    #pecahan .fraction-hero-banner-image {
+        border-radius: 23px;
+        margin-bottom: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    #pecahan .fraction-hero-banner-image {
+        border-radius: 18px;
+    }
+}
+
+
+/* =========================================================
+   MATH CONNECT — BANNER PNG MATERI 03: KONVERSI
+   Menggunakan assets/image/bg-materi-konversi.png.
+   Konten pembelajaran setelah banner tetap dipertahankan.
+========================================================= */
+#desimal .conversion-hero-banner-image {
+    display: block;
+    position: relative;
+    width: 100%;
+    min-height: 0;
+    margin: 0 0 30px;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #dce7fb;
+    border-radius: 30px;
+    background: #edf4ff;
+    box-shadow: 0 14px 35px rgba(45, 91, 155, .055);
+    isolation: isolate;
+}
+#desimal .conversion-hero-banner-image::before,
+#desimal .conversion-hero-banner-image::after {
+    content: none;
+    display: none;
+}
+#desimal .conversion-hero-banner-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+@media (max-width: 768px) {
+    #desimal .conversion-hero-banner-image {
+        border-radius: 23px;
+        margin-bottom: 24px;
+    }
+}
+@media (max-width: 480px) {
+    #desimal .conversion-hero-banner-image {
+        border-radius: 18px;
+    }
+}
+
+
+/* =========================================================
+   MATH CONNECT — BANNER PNG MATERI 04: PERBANDINGAN PECAHAN
+   Menggunakan aset assets/image/bg-materi-perbandingan.png.
+   Hanya mengganti banner pembuka; isi dan interaksi materi
+   Perbandingan Pecahan tetap dipertahankan.
+========================================================= */
+#perbandingan-pecahan .comparison-hero-banner-image {
+    display: block;
+    position: relative;
+    width: 100%;
+    min-height: 0;
+    margin: 0 0 30px;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #dce7fb;
+    border-radius: 30px;
+    background: #edf4ff;
+    box-shadow: 0 14px 35px rgba(45, 91, 155, .055);
+    isolation: isolate;
+}
+
+#perbandingan-pecahan .comparison-hero-banner-image::before,
+#perbandingan-pecahan .comparison-hero-banner-image::after {
+    content: none;
+    display: none;
+}
+
+#perbandingan-pecahan .comparison-hero-banner-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+@media (max-width: 768px) {
+    #perbandingan-pecahan .comparison-hero-banner-image {
+        border-radius: 23px;
+        margin-bottom: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    #perbandingan-pecahan .comparison-hero-banner-image {
+        border-radius: 18px;
+    }
+}
+
+
+/* =========================================================
+   MATH CONNECT — BANNER GAMBAR MATERI 05: OPERASI PECAHAN
+   Hanya memengaruhi banner pada #operasi-pecahan.
+   ========================================================= */
+#operasi-pecahan .operation-hero-image {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0 0 28px;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #dce8ff;
+    border-radius: 30px;
+    background: #edf4ff;
+    box-shadow: 0 18px 45px rgba(35, 83, 151, 0.08);
+    line-height: 0;
+}
+#operasi-pecahan .operation-hero-banner-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 560px;
+    object-fit: cover;
+    object-position: center;
+}
+@media (max-width: 768px) {
+    #operasi-pecahan .operation-hero-image {
+        margin-bottom: 20px;
+        border-radius: 22px;
+    }
+    #operasi-pecahan .operation-hero-banner-img {
+        max-height: none;
+        object-fit: contain;
+    }
+}
+@media (max-width: 480px) {
+    #operasi-pecahan .operation-hero-image {
+        border-radius: 16px;
+    }
+}
+
+
+/* =========================================================
+   MATH CONNECT — BANNER PNG MATERI 06: PENERAPAN
+   Menggunakan assets/image/bg-materi-penerapan.png.
+   Hanya mengganti banner pembuka; seluruh simulasi dan isi
+   pembelajaran di bawahnya tetap dipertahankan.
+========================================================= */
+#penerapan .application-hero-banner-image {
+    display: block;
+    position: relative;
+    width: 100%;
+    min-height: 0;
+    margin: 0 0 30px;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #dce7fb;
+    border-radius: 30px;
+    background: #edf4ff;
+    box-shadow: 0 14px 35px rgba(45, 91, 155, .055);
+    isolation: isolate;
+}
+
+#penerapan .application-hero-banner-image::before,
+#penerapan .application-hero-banner-image::after {
+    content: none;
+    display: none;
+}
+
+#penerapan .application-hero-banner-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+@media (max-width: 768px) {
+    #penerapan .application-hero-banner-image {
+        border-radius: 23px;
+        margin-bottom: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    #penerapan .application-hero-banner-image {
+        border-radius: 18px;
+    }
+}
+
+
+/* =========================================================
+   BILANGAN - NAVIGASI 6 BAGIAN (REVISI VISUAL)
+   Hanya mengubah tampilan tombol daftar isi di #bilangan.
+   Urutan, tujuan tautan, dan struktur materi tetap dipertahankan.
+========================================================= */
+#bilangan .number-contents {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 11px;
+    margin: 0 0 34px;
+    padding: 13px;
+    border: 1px solid #e2eafb;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #f8fbff 0%, #eef4ff 100%);
+    box-shadow: 0 8px 24px rgba(45, 91, 153, .055);
+}
+#bilangan .number-contents a {
+    position: relative;
+    display: flex;
+    min-width: 0;
+    min-height: 78px;
+    align-items: center;
+    gap: 9px;
+    padding: 12px 10px;
+    overflow: hidden;
+    border: 1px solid var(--nav-border, #dce8f8);
+    border-radius: 16px;
+    background: var(--nav-bg, #fff);
+    color: #24466f;
+    text-decoration: none;
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+#bilangan .number-contents a:nth-child(1) { --nav-bg:#fff8e9; --nav-border:#f2dfb5; --nav-accent:#c68b2f; --nav-badge:#ffedc8; }
+#bilangan .number-contents a:nth-child(2) { --nav-bg:#eef8f1; --nav-border:#d2eadb; --nav-accent:#37845b; --nav-badge:#d9f1e1; }
+#bilangan .number-contents a:nth-child(3) { --nav-bg:#eff5ff; --nav-border:#d5e3fb; --nav-accent:#3974c5; --nav-badge:#dceaff; }
+#bilangan .number-contents a:nth-child(4) { --nav-bg:#f4f0ff; --nav-border:#e2d8fb; --nav-accent:#7959b9; --nav-badge:#e8defd; }
+#bilangan .number-contents a:nth-child(5) { --nav-bg:#fff1ec; --nav-border:#f4dcd1; --nav-accent:#c66f4c; --nav-badge:#ffe1d5; }
+#bilangan .number-contents a:nth-child(6) { --nav-bg:#edf8fa; --nav-border:#d3ebed; --nav-accent:#34858c; --nav-badge:#d9f0f1; }
+#bilangan .number-contents-index {
+    display: grid;
+    flex: 0 0 35px;
+    width: 35px;
+    height: 35px;
+    place-items: center;
+    border-radius: 11px;
+    background: var(--nav-badge);
+    color: var(--nav-accent);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: .2px;
+}
+#bilangan .number-contents-label {
+    min-width: 0;
+    color: #29496f;
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+#bilangan .number-contents-arrow {
+    position: absolute;
+    top: 7px;
+    right: 9px;
+    color: var(--nav-accent);
+    font-size: 12px;
+    opacity: .65;
+    transition: transform .2s ease, opacity .2s ease;
+}
+#bilangan .number-contents a:hover,
+#bilangan .number-contents a:focus-visible {
+    z-index: 1;
+    border-color: var(--nav-accent);
+    box-shadow: 0 9px 20px rgba(42, 83, 137, .12);
+    transform: translateY(-3px);
+    outline: none;
+}
+#bilangan .number-contents a:hover .number-contents-arrow,
+#bilangan .number-contents a:focus-visible .number-contents-arrow {
+    opacity: 1;
+    transform: translate(2px, -2px);
+}
+#bilangan .number-contents a.is-current {
+    border-color: var(--nav-accent);
+    box-shadow: inset 0 0 0 1px var(--nav-accent), 0 7px 18px rgba(42, 83, 137, .10);
+}
+#bilangan .number-contents a.is-current .number-contents-index {
+    background: var(--nav-accent);
+    color: #fff;
+}
+#bilangan .number-contents a:focus-visible { outline: 3px solid rgba(54, 117, 207, .25); outline-offset: 3px; }
+@media (max-width: 1100px) {
+    #bilangan .number-contents { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    #bilangan .number-contents a { min-height: 68px; }
+}
+@media (max-width: 620px) {
+    #bilangan .number-contents { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding: 10px; border-radius: 17px; }
+    #bilangan .number-contents a { min-height: 62px; gap: 8px; padding: 9px 8px; border-radius: 13px; }
+    #bilangan .number-contents-index { flex-basis: 31px; width: 31px; height: 31px; border-radius: 9px; font-size: 11px; }
+    #bilangan .number-contents-label { font-size: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    #bilangan .number-contents a,
+    #bilangan .number-contents-arrow { transition: none; }
+}
+
+
+/* =========================================================
+   REVISI TAMPILAN TOMBOL OPERASI PECAHAN
+   Hanya mengubah tampilan empat tab operasi.
+   Struktur HTML dan perilaku JavaScript tetap dipertahankan.
+========================================================= */
+
+#operasi-pecahan .operation-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 18px;
+    margin: 22px auto 30px;
+    max-width: 1000px;
+}
+
+#operasi-pecahan .operation-tab {
+    --op-color: #3478e8;
+    --op-soft: #eaf3ff;
+    --op-border: #cfe2ff;
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    min-width: 0;
+    min-height: 142px;
+    padding: 20px 18px 24px;
+    overflow: hidden;
+    border: 1px solid var(--op-border);
+    border-radius: 22px;
+    background: linear-gradient(145deg, #ffffff 0%, var(--op-soft) 100%);
+    color: #183d70;
+    font-size: 15px;
+    font-weight: 750;
+    line-height: 1.35;
+    box-shadow: 0 7px 18px rgba(46, 91, 151, 0.055);
+    cursor: pointer;
+    transition: transform .22s ease, box-shadow .22s ease,
+                border-color .22s ease, background .22s ease;
+}
+
+#operasi-pecahan .operation-tab:nth-child(1) {
+    --op-color: #347fe8;
+    --op-soft: #eaf4ff;
+    --op-border: #cfe4ff;
+}
+#operasi-pecahan .operation-tab:nth-child(2) {
+    --op-color: #24a66b;
+    --op-soft: #eaf8f0;
+    --op-border: #cceedd;
+}
+#operasi-pecahan .operation-tab:nth-child(3) {
+    --op-color: #8660d8;
+    --op-soft: #f2edff;
+    --op-border: #e0d5ff;
+}
+#operasi-pecahan .operation-tab:nth-child(4) {
+    --op-color: #e99a20;
+    --op-soft: #fff5e4;
+    --op-border: #f6e1b9;
+}
+
+/* Lingkaran ikon sederhana dengan simbol operasi */
+#operasi-pecahan .operation-tab-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    flex: 0 0 54px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--op-color) 13%, white);
+    color: var(--op-color);
+    font-size: 34px;
+    font-weight: 650;
+    line-height: 1;
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--op-color) 10%, transparent);
+}
+
+/* Aksen lingkaran kecil seperti ilustrasi pecahan pada desain contoh */
+#operasi-pecahan .operation-tab-icon::after {
+    content: "";
+    position: absolute;
+    top: 34px;
+    left: 42px;
+    width: 19px;
+    height: 19px;
+    border: 2px solid var(--op-color);
+    border-radius: 50%;
+    background:
+        linear-gradient(90deg, transparent 47%, var(--op-color) 48% 52%, transparent 53%),
+        linear-gradient(0deg, transparent 47%, var(--op-color) 48% 52%, transparent 53%),
+        color-mix(in srgb, var(--op-color) 8%, white);
+    opacity: .8;
+}
+
+#operasi-pecahan .operation-tab > span:nth-child(2) {
+    display: block;
+    padding: 0 8px;
+    text-align: center;
+}
+
+/* Panah kecil di sudut kanan bawah */
+#operasi-pecahan .operation-tab-swish {
+    position: absolute;
+    right: 13px;
+    bottom: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--op-color);
+    color: #ffffff;
+    opacity: .88;
+    transition: transform .22s ease, opacity .22s ease;
+}
+#operasi-pecahan .operation-tab-swish::before {
+    content: "→";
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+#operasi-pecahan .operation-tab:hover,
+#operasi-pecahan .operation-tab:focus-visible {
+    z-index: 1;
+    transform: translateY(-4px);
+    border-color: var(--op-color);
+    box-shadow: 0 12px 24px color-mix(in srgb, var(--op-color) 16%, transparent);
+    outline: none;
+}
+#operasi-pecahan .operation-tab:hover .operation-tab-swish,
+#operasi-pecahan .operation-tab:focus-visible .operation-tab-swish {
+    transform: translateX(3px);
+    opacity: 1;
+}
+#operasi-pecahan .operation-tab.active {
+    border-color: var(--op-color);
+    background: linear-gradient(145deg, #ffffff 0%, var(--op-soft) 100%);
+    color: var(--op-color);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--op-color) 25%, transparent),
+                0 9px 22px color-mix(in srgb, var(--op-color) 13%, transparent);
+}
+#operasi-pecahan .operation-tab.active .operation-tab-icon {
+    background: var(--op-color);
+    color: #ffffff;
+}
+#operasi-pecahan .operation-tab:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--op-color) 30%, transparent);
+    outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+    #operasi-pecahan .operation-tabs {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+    }
+    #operasi-pecahan .operation-tab {
+        min-height: 130px;
+        padding: 17px 10px 23px;
+        font-size: 13px;
+    }
+}
+@media (max-width: 620px) {
+    #operasi-pecahan .operation-tabs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 11px;
+        margin-top: 16px;
+    }
+    #operasi-pecahan .operation-tab {
+        min-height: 122px;
+        border-radius: 18px;
+        gap: 10px;
+        font-size: 13px;
+    }
+    #operasi-pecahan .operation-tab-icon {
+        width: 48px;
+        height: 48px;
+        flex-basis: 48px;
+        font-size: 30px;
+    }
+    #operasi-pecahan .operation-tab-icon::after {
+        top: 30px;
+        left: 37px;
+        width: 16px;
+        height: 16px;
+    }
+    #operasi-pecahan .operation-tab-swish {
+        width: 25px;
+        height: 25px;
+        right: 10px;
+        bottom: 9px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    #operasi-pecahan .operation-tab,
+    #operasi-pecahan .operation-tab-swish {
+        transition: none;
     }
 }

@@ -8,7 +8,7 @@
     <title>Math Connect - Belajar Matematika</title>
         <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/beranda.css">
-    <link rel="stylesheet" href="css/peta-konsep.css">
+    <link rel="stylesheet" href="css/peta-konsep.css?v=struktur-peta-2">
     <link rel="stylesheet" href="css/materi.css">
     <link rel="stylesheet" href="css/materi-bilangan.css">
     <link rel="stylesheet" href="css/latihan.css">
@@ -379,91 +379,76 @@
 
             <div class="concept-map">
                 <div class="concept-tree">
+                    <!-- BAGIAN UTAMA: BILANGAN -->
                     <div class="concept-level">
-                        <button class="concept-node main-node" data-concept="Bilangan">
-                            <span>▦</span> Bilangan
+                        <button type="button" class="concept-node main-node" data-concept="Bilangan" data-kind="goal">
+                            <span aria-hidden="true">▦</span> Bilangan
                         </button>
                     </div>
+                    <div class="connector" aria-hidden="true"></div>
 
-                    <div class="connector"></div>
-
+                    <!-- LIMA SUBMATERI BILANGAN -->
                     <div class="concept-level number-level">
-                        <button class="concept-node sub-node" data-concept="Bilangan Cacah">Bilangan Cacah</button>
-                        <button class="concept-node sub-node" data-concept="Bilangan Bulat">Bilangan Bulat</button>
-                        <button class="concept-node sub-node" data-concept="Bilangan Rasional">Bilangan Rasional</button>
+                        <button type="button" class="concept-node sub-node" data-concept="Bilangan Asli" data-kind="summary">Bilangan Asli</button>
+                        <button type="button" class="concept-node sub-node" data-concept="Bilangan Cacah" data-kind="summary">Bilangan Cacah</button>
+                        <button type="button" class="concept-node sub-node" data-concept="Bilangan Bulat" data-kind="summary">Bilangan Bulat</button>
+                        <button type="button" class="concept-node sub-node" data-concept="Bilangan Rasional dan Irasional" data-kind="summary">Bilangan Rasional dan Irasional</button>
+                        <button type="button" class="concept-node sub-node" data-concept="Bilangan Real" data-kind="summary">Bilangan Real</button>
                     </div>
 
-                    <div class="connector"></div>
+                    <div class="connector" aria-hidden="true"></div>
 
+                    <!-- BAGIAN UTAMA: PECAHAN -->
                     <div class="concept-level">
-                        <button class="concept-node fraction-node" data-concept="Pecahan">Pecahan</button>
+                        <button type="button" class="concept-node fraction-node" data-concept="Pecahan" data-kind="goal">Pecahan</button>
+                    </div>
+                    <div class="connector" aria-hidden="true"></div>
+
+                    <!-- EMPAT SUBMATERI PECAHAN -->
+                    <div class="concept-level derived-level fraction-topic-level">
+                        <button type="button" class="concept-node decimal-node" data-concept="Desimal" data-kind="summary">Desimal</button>
+                        <button type="button" class="concept-node percent-node" data-concept="Persen" data-kind="summary">Persen</button>
+                        <button type="button" class="concept-node ratio-node" data-concept="Perbandingan" data-kind="summary">Perbandingan</button>
+                        <button type="button" class="concept-node operation-node" data-concept="Operasi Pecahan" data-kind="summary">Operasi Pecahan</button>
                     </div>
 
-                    <div class="connector"></div>
+                    <div class="connector" aria-hidden="true"></div>
 
-                    <div class="concept-level derived-level">
-                        <button class="concept-node decimal-node" data-concept="Desimal">Desimal</button>
-                        <button class="concept-node percent-node" data-concept="Persen">Persen</button>
-                        <button class="concept-node ratio-node" data-concept="Rasio">Rasio</button>
-                    </div>
-
-                    <div class="connector"></div>
-
+                    <!-- BAGIAN UTAMA: PENERAPAN -->
                     <div class="concept-level">
-                        <button class="concept-node application-node" data-concept="Penerapan">
-                            <span>▤</span> Penerapan
+                        <button type="button" class="concept-node application-node" data-concept="Penerapan" data-kind="goal">
+                            <span aria-hidden="true">▤</span> Penerapan
                         </button>
                     </div>
                 </div>
 
-                <div class="concept-info" id="conceptInfo" hidden>
-                    <button id="closeConceptInfo" class="close-info"
-                            type="button" aria-label="Tutup">×</button>
+                <!-- PANEL INFORMASI DINAMIS -->
+                <div class="concept-info" id="conceptInfo" hidden aria-live="polite">
+                    <button id="closeConceptInfo" class="close-info" type="button" aria-label="Tutup">×</button>
+                    <span class="concept-info-category" id="conceptCategory">TUJUAN PEMBELAJARAN</span>
                     <h3 id="conceptTitle"></h3>
                     <p id="conceptDescription"></p>
-                    <a href="#bilangan" class="btn btn-primary" id="conceptLink">
-                        Pelajari Konsep
-                    </a>
+                    <a href="#bilangan" class="btn btn-primary" id="conceptLink">Pelajari Konsep</a>
                 </div>
             </div>
         </section>
 
         <!-- MATERI 01: BILANGAN -->
         <section id="bilangan" class="page-section material-section number-material-section">
-    <header class="number-hero-banner" aria-labelledby="numberHeroTitle">
-        <div class="number-hero-copy">
-            <span class="number-hero-kicker"><span class="number-hero-kicker-dot"></span> MATERI 01 <span aria-hidden="true">•</span> KONSEP DASAR</span>
-            <h2 id="numberHeroTitle">Bilangan</h2>
-            <p>Memahami bilangan berarti belajar membaca jumlah, membandingkan nilai, dan mengenali pola yang kita temui dalam kehidupan sehari-hari.</p>
-            <div class="number-hero-tags" aria-label="Fokus pembelajaran">
-                <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H20v17H7.5A2.5 2.5 0 0 0 5 21.5zM5 4.5v17M9 6h7M9 10h7"/></svg>Konsep dasar</span>
-                <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18.5 9 13l3 2.5L20 6M15 6h5v5"/></svg>Visual interaktif</span>
-                <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 18h8M9 21h6M7 14.5a7 7 0 1 1 10 0c-1.2 1-1.5 1.8-1.5 3h-7c0-1.2-.3-2-1.5-3Z"/></svg>Contoh nyata</span>
-            </div>
-        </div>
-        <div class="number-hero-art" aria-hidden="true">
-            <span class="number-hero-orbit number-hero-orbit-one"></span>
-            <span class="number-hero-orbit number-hero-orbit-two"></span>
-            <div class="number-hero-number-card">
-                <span class="number-hero-main-numbers">1 2 3</span>
-                <span class="number-hero-card-line"></span>
-                <span class="number-hero-card-symbols">＋　−　×　÷</span>
-            </div>
-            <span class="number-hero-float number-hero-float-negative">−5</span>
-            <span class="number-hero-float number-hero-float-fraction">¾</span>
-            <span class="number-hero-float number-hero-float-decimal">0,5</span>
-            <span class="number-hero-spark number-hero-spark-one">✦</span>
-            <span class="number-hero-spark number-hero-spark-two">＋</span>
-        </div>
+    <header class="number-hero-banner number-hero-banner-image" aria-label="Banner Materi 01: Bilangan">
+        <img
+            src="assets/image/bg-materi-bilangan.png?v=1"
+            class="number-hero-banner-img"
+            alt="Materi 01 Bilangan — memahami jumlah, jenis bilangan, dan penggunaannya dalam kehidupan sehari-hari">
     </header>
 
     <nav class="number-contents" aria-label="Daftar isi materi bilangan">
-        <a href="#bilangan-pengertian">01 Pengertian</a>
-        <a href="#bilangan-jenis">02 Jenis Bilangan</a>
-        <a href="#bilangan-himpunan">03 Hubungan Himpunan</a>
-        <a href="#bilangan-garis">04 Garis Bilangan</a>
-        <a href="#bilangan-penerapan">05 Penerapan</a>
-        <a href="#bilangan-latihan">06 Latihan Interaktif</a>
+        <a href="#bilangan-pengertian" aria-label="Bagian 1: Pengertian Bilangan"><span class="number-contents-index">01</span><span class="number-contents-label">Pengertian</span><span class="number-contents-arrow" aria-hidden="true">↗</span></a>
+        <a href="#bilangan-jenis" aria-label="Bagian 2: Jenis-Jenis Bilangan"><span class="number-contents-index">02</span><span class="number-contents-label">Jenis Bilangan</span><span class="number-contents-arrow" aria-hidden="true">↗</span></a>
+        <a href="#bilangan-himpunan" aria-label="Bagian 3: Hubungan Himpunan Bilangan"><span class="number-contents-index">03</span><span class="number-contents-label">Hubungan Himpunan</span><span class="number-contents-arrow" aria-hidden="true">↗</span></a>
+        <a href="#bilangan-garis" aria-label="Bagian 4: Garis Bilangan"><span class="number-contents-index">04</span><span class="number-contents-label">Garis Bilangan</span><span class="number-contents-arrow" aria-hidden="true">↗</span></a>
+        <a href="#bilangan-penerapan" aria-label="Bagian 5: Penerapan Bilangan"><span class="number-contents-index">05</span><span class="number-contents-label">Penerapan</span><span class="number-contents-arrow" aria-hidden="true">↗</span></a>
+        <a href="#bilangan-latihan" aria-label="Bagian 6: Latihan Interaktif"><span class="number-contents-index">06</span><span class="number-contents-label">Latihan Interaktif</span><span class="number-contents-arrow" aria-hidden="true">↗</span></a>
     </nav>
 
     <!-- 1. PENGERTIAN BILANGAN -->
@@ -655,31 +640,15 @@
 
         <!-- MATERI 02: PECAHAN -->
         <section id="pecahan" class="page-section material-section">
-            <!-- Banner pembuka Materi 02: Pecahan -->
-            <header class="fraction-hero-banner" aria-labelledby="fractionHeroTitle">
-                <div class="fraction-hero-copy">
-                    <span class="fraction-hero-kicker"><span class="fraction-hero-kicker-dot"></span> MATERI 02</span>
-                    <h2 id="fractionHeroTitle">Pecahan</h2>
-                    <p>Mengenal konsep pecahan, bagian-bagiannya, dan berbagai jenis pecahan melalui representasi visual yang interaktif.</p>
-                    <div class="fraction-hero-tags" aria-label="Fokus pembelajaran">
-                        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H20v17H7.5A2.5 2.5 0 0 0 5 21.5zM5 4.5v17M9 6h7M9 10h7"/></svg>Mini Materi</span>
-                        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9h-9zM14 3.2V10h6.8A9 9 0 0 0 14 3.2Z"/></svg>Representasi Visual</span>
-                    </div>
-                </div>
-                <div class="fraction-hero-art" aria-hidden="true">
-                    <span class="fraction-hero-orbit fraction-hero-orbit-one"></span>
-                    <span class="fraction-hero-orbit fraction-hero-orbit-two"></span>
-                    <div class="fraction-hero-illustration-card">
-                        <div class="fraction-hero-big-fraction"><span>3</span><i></i><span>4</span></div>
-                        <div class="fraction-hero-card-caption">Bagian dari keseluruhan</div>
-                        <div class="fraction-hero-pie" role="presentation"><span></span></div>
-                    </div>
-                    <span class="fraction-hero-float fraction-hero-float-threequarter">¾</span>
-                    <span class="fraction-hero-float fraction-hero-float-half">½</span>
-                    <span class="fraction-hero-float fraction-hero-float-quarter">¼</span>
-                    <span class="fraction-hero-spark fraction-hero-spark-one">✦</span>
-                    <span class="fraction-hero-spark fraction-hero-spark-two">＋</span>
-                </div>
+            <!-- Banner PNG pembuka Materi 02: Pecahan -->
+            <header class="fraction-hero-banner fraction-hero-banner-image"
+                    aria-label="Banner Materi 02: Pecahan">
+                <img
+                    src="assets/image/bg-materi-pecahan.png"
+                    class="fraction-hero-banner-img"
+                    alt="Materi 02 Pecahan — mengenal konsep pecahan, bagian-bagian, dan jenis pecahan"
+                    loading="eager"
+                    fetchpriority="high">
             </header>
 
             <div class="fraction-learning">
@@ -841,35 +810,12 @@
 
         <!-- MATERI 03: PECAHAN, DESIMAL, PERSEN -->
         <section id="desimal" class="page-section material-section">
-            <div class="conversion-hero-banner" aria-label="Banner Materi 03: Pecahan, Desimal, dan Persen">
-                <div class="conversion-hero-copy">
-                    <span class="conversion-hero-kicker"><span class="conversion-hero-kicker-dot"></span>MATERI 03</span>
-                    <h2>Pecahan, Desimal, dan Persen</h2>
-                    <p>Ketiganya merupakan bentuk berbeda untuk menyatakan nilai yang sama. Yuk, pelajari hubungan dan cara mengubahnya dengan mudah!</p>
-                    <div class="conversion-hero-tags">
-                        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21zM4 5.5v13A2.5 2.5 0 0 1 6.5 16H20M8 7h8M8 10h6"/></svg>Konsep Utama</span>
-                        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h13l-3-3M20 17H7l3 3M17 7l3 3-3 3M7 17l-3-3 3-3"/></svg>Konversi Interaktif</span>
-                    </div>
-                </div>
-                <div class="conversion-hero-art" aria-hidden="true">
-                    <span class="conversion-hero-orbit conversion-hero-orbit-one"></span>
-                    <span class="conversion-hero-orbit conversion-hero-orbit-two"></span>
-                    <div class="conversion-hero-main-card">
-                        <div class="conversion-hero-equivalence">
-                            <span class="conversion-hero-fraction"><b>3</b><i></i><b>4</b></span>
-                            <span class="conversion-hero-equals">=</span>
-                            <span class="conversion-hero-decimal">0,75</span>
-                        </div>
-                        <div class="conversion-hero-progress"><span></span></div>
-                        <span class="conversion-hero-percent">75%</span>
-                    </div>
-                    <span class="conversion-hero-float conversion-hero-float-fraction">¾</span>
-                    <span class="conversion-hero-float conversion-hero-float-half">½</span>
-                    <span class="conversion-hero-float conversion-hero-float-quarter">¼</span>
-                    <span class="conversion-hero-pie"></span>
-                    <span class="conversion-hero-spark conversion-hero-spark-one">✦</span>
-                    <span class="conversion-hero-spark conversion-hero-spark-two">＋</span>
-                </div>
+            <!-- Banner PNG Materi 03: Konversi Pecahan, Desimal, dan Persen -->
+            <div class="conversion-hero-banner-image" aria-label="Materi 03: Pecahan, Desimal, dan Persen">
+                <img
+                    src="assets/image/bg-materi-konversi.png"
+                    class="conversion-hero-banner-img"
+                    alt="Banner Materi 03 tentang hubungan pecahan, desimal, dan persen">
             </div>
 
             <div class="material-grid">
@@ -958,28 +904,15 @@
 
         <!-- MATERI 04: PERBANDINGAN -->
         <section id="perbandingan-pecahan" class="page-section material-section">
-            <div class="comparison-hero" aria-label="Banner Materi 04 Perbandingan Pecahan">
-                <div class="comparison-hero-copy">
-                    <span class="comparison-hero-label">MATERI 04</span>
-                    <h2>Perbandingan Pecahan</h2>
-                    <p>Yuk, bandingkan dua pecahan dan temukan hubungan nilainya: lebih besar, lebih kecil, atau sama dengan.</p>
-                </div>
-                <div class="comparison-hero-art" aria-hidden="true">
-                    <div class="comparison-hero-orbit comparison-hero-orbit-one"></div>
-                    <div class="comparison-hero-orbit comparison-hero-orbit-two"></div>
-                    <div class="comparison-hero-fraction comparison-hero-fraction-left">
-                        <span>1</span><i></i><span>2</span>
-                    </div>
-                    <div class="comparison-hero-symbol">&gt;</div>
-                    <div class="comparison-hero-fraction comparison-hero-fraction-right">
-                        <span>2</span><i></i><span>3</span>
-                    </div>
-                    <span class="comparison-hero-mini comparison-hero-mini-top">&lt;</span>
-                    <span class="comparison-hero-mini comparison-hero-mini-bottom">=</span>
-                    <span class="comparison-hero-dot comparison-hero-dot-one"></span>
-                    <span class="comparison-hero-dot comparison-hero-dot-two"></span>
-                </div>
-            </div>
+            <!-- Banner PNG pembuka Materi 04: Perbandingan Pecahan -->
+            <header class="comparison-hero-banner comparison-hero-banner-image"
+                    aria-label="Banner Materi 04: Perbandingan Pecahan">
+                <img
+                    src="assets/image/bg-materi-perbandingan.png"
+                    class="comparison-hero-banner-img"
+                    alt="Materi 04 Perbandingan Pecahan — membandingkan dua pecahan dan menentukan lebih besar, lebih kecil, atau sama dengan"
+                    loading="eager">
+            </header>
 
             <div class="comparison-container">
                 <div class="comparison-topbar">
@@ -1063,27 +996,15 @@
 
         <!-- MATERI 05: OPERASI PECAHAN -->
         <section id="operasi-pecahan" class="page-section material-section">
-            <div class="operation-hero">
-                <div class="operation-hero-copy">
-                    <span class="operation-hero-label">MATERI 05</span>
-                    <h2>Operasi Pecahan</h2>
-                    <p>Pelajari cara menjumlahkan, mengurangkan, mengalikan, dan membagi pecahan melalui langkah-langkah sederhana.</p>
-                    <span class="operation-hero-underline" aria-hidden="true"></span>
-                </div>
-                <div class="operation-hero-art" aria-label="Ilustrasi pecahan tiga per empat dan satu per dua dengan simbol operasi matematika">
-                    <span class="operation-hero-spark operation-spark-one" aria-hidden="true">✦</span>
-                    <span class="operation-hero-spark operation-spark-two" aria-hidden="true">✦</span>
-                    <div class="operation-hero-orbit operation-orbit-one" aria-hidden="true"></div>
-                    <div class="operation-hero-orbit operation-orbit-two" aria-hidden="true"></div>
-                    <div class="operation-hero-books" aria-hidden="true"><i></i><i></i><i></i></div>
-                    <div class="operation-fraction-card fraction-card-one"><strong>3</strong><i></i><strong>4</strong></div>
-                    <div class="operation-fraction-card fraction-card-two"><strong>1</strong><i></i><strong>2</strong></div>
-                    <span class="operation-float-symbol symbol-plus" aria-hidden="true">+</span>
-                    <span class="operation-float-symbol symbol-minus" aria-hidden="true">−</span>
-                    <span class="operation-float-symbol symbol-times" aria-hidden="true">×</span>
-                    <span class="operation-float-symbol symbol-divide" aria-hidden="true">÷</span>
-                </div>
-            </div>
+            <!-- Banner gambar Materi 05: Operasi Pecahan -->
+            <header class="operation-hero operation-hero-image"
+                    aria-label="Banner Materi 05: Operasi Pecahan">
+                <img
+                    src="assets/image/bg-materi-operasi.png"
+                    class="operation-hero-banner-img"
+                    alt="Materi 05 Operasi Pecahan: penjumlahan, pengurangan, perkalian, dan pembagian pecahan"
+                    loading="eager">
+            </header>
 
             <div class="operation-container">
                 <div class="operation-tabs" role="tablist" aria-label="Pilih jenis operasi pecahan">
@@ -1335,27 +1256,12 @@
 
         <!-- MATERI 06: PENERAPAN MATEMATIKA INTERAKTIF -->
         <section id="penerapan" class="page-section material-section application-section">
-            <!-- BANNER MATERI 06: PENERAPAN -->
-            <div class="application-hero" aria-labelledby="applicationHeroTitle">
-                <div class="application-hero-copy">
-                    <span class="application-hero-label">MATERI 06</span>
-                    <h2 id="applicationHeroTitle">Penerapan</h2>
-                    <p>Jelajahi penggunaan pecahan saat berbagi makanan, persen ketika berbelanja, dan desimal dalam kegiatan mengukur.</p>
-                    <span class="application-hero-underline" aria-hidden="true"></span>
-                </div>
-                <div class="application-hero-art" aria-label="Ilustrasi pizza, pecahan, kalkulator, koin, dan diskon" role="img">
-                    <span class="application-art-orbit application-art-orbit-one"></span>
-                    <span class="application-art-orbit application-art-orbit-two"></span>
-                    <div class="application-art-pizza">🍕<small>3/4</small></div>
-                    <div class="application-art-calculator">
-                        <div class="calculator-screen">0,75</div>
-                        <div class="calculator-keys"><i>+</i><i>−</i><i>×</i><i>÷</i></div>
-                    </div>
-                    <div class="application-art-discount">75<small>% OFF</small></div>
-                    <div class="application-art-coins"><i>Rp</i><i>Rp</i><i>Rp</i></div>
-                    <span class="application-art-spark application-art-spark-one">✦</span>
-                    <span class="application-art-spark application-art-spark-two">✧</span>
-                </div>
+            <!-- BANNER MATERI 06: PENERAPAN (PNG) -->
+            <div class="application-hero-banner-image">
+                <img
+                    src="assets/image/bg-materi-penerapan.png"
+                    class="application-hero-banner-img"
+                    alt="Banner Materi 06: Penerapan matematika dalam kehidupan sehari-hari">
             </div>
 
             <!-- SIMULASI 01: MAKANAN / PECAHAN -->
@@ -2124,7 +2030,7 @@
 </div>
 
 <script src="js/app.js"></script>
-<script src="js/peta-konsep.js"></script>
+<script src="js/peta-konsep.js?v=struktur-peta-2"></script>
 <script src="js/materi-bilangan.js"></script>
 <script src="js/materi-pecahan.js"></script>
 <script src="js/materi-konversi.js"></script>
